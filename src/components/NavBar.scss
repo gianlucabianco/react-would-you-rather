@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    margin: auto;
+    max-width: 1000px;
+    height: 60px;
+
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        width: 100%;
+        margin: auto;
+        list-style: none;
+
+        li {
+            width: 25%;
+            height: 60px;
+            line-height: 60px;
+            transition: 0.3s;
+            
+            &:hover {
+                background-color: #e5ffbb;
+            }
+        }
+    }
+}
