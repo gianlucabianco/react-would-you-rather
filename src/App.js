@@ -25,12 +25,12 @@ class App extends Component {
 
     return number % 2 === 0
       ? [
-        `${number}%`,
-        `${delta}%`,
+        number,
+        delta,
       ]
       :[
-        `${delta}%`,
-        `${number}%`,
+        delta,
+        number,
       ];
 
   }
@@ -50,14 +50,6 @@ class App extends Component {
           isRevealed={false}
           percentages={this.getPercentages()}
           options={questions[75]}
-        />
-        <PollCard
-          color={'gold'}
-          url={users[1].avatarUrl}
-          name={users[1].name}
-          isRevealed={true}
-          percentages={this.getPercentages()}
-          options={questions[42]}
         />
       </div>
     );
