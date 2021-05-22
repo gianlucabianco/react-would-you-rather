@@ -35,6 +35,16 @@ class App extends Component {
 
   }
 
+  randomizeReveal = () => {
+
+    return Math.floor(
+      (
+        Math.random() * 2
+      ) + 1
+    ) % 2 === 0;
+
+  }
+
   render() {
 
     const {
@@ -47,7 +57,7 @@ class App extends Component {
           color={'gold'}
           url={users[0].avatarUrl}
           name={users[0].name}
-          isRevealed={false}
+          isRevealed={this.randomizeReveal()}
           percentages={this.getPercentages()}
           options={questions[75]}
         />
