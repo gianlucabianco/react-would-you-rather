@@ -85,7 +85,7 @@ PollCard.propTypes = {
     url: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     isRevealed: PropTypes.bool.isRequired,
-    percentages: PropTypes.arrayOf( PropTypes.string ),
+    percentages: PropTypes.arrayOf( PropTypes.number ),
     options: PropTypes.arrayOf( PropTypes.string ),
 };
 
