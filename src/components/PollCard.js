@@ -54,13 +54,13 @@ class PollCard extends React.Component {
                     >
                         <Option
                             content={ firstOption }
-                            color={ '#6FDCBF' }
+                            color={ '#5ab2d2' }
                             key={firstOption}
                         />
                         <p>OR</p>
                         <Option
                             content={ secondOption }
-                            color={ '#AE8FDB' }
+                            color={ '#ff9a9e' }
                             key={secondOption}
                         />
                     </div>
