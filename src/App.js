@@ -5,6 +5,7 @@ import questions from './questions.js';
 import users from './users.js';
 
 import { PollCard } from './components/PollCard.js';
+import { NavBar } from './components/NavBar.js';
 
 class App extends Component {
 
@@ -79,7 +80,19 @@ class App extends Component {
 
     return (
       <div className="App">
-        {
+        <NavBar />
+        <div
+          style={
+            {
+              backgroundColor: 'red',
+              width: '100%',
+              height: 'calc(100vh - 60px)'
+            }
+          }
+        >
+          here should be content
+        </div>
+        {/*
           cardsData.map(
             (card, index) => <PollCard
               color={card.color}
@@ -91,7 +104,7 @@ class App extends Component {
               key={card.name + index}
             />
             )
-        }
+         */}
       </div>
     );
   }
