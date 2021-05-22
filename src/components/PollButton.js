@@ -24,7 +24,7 @@ class PollButton extends Component {
                     style={
                         {
                             width: `${ leftPerc }%`,
-                            backgroundColor: isRevealed ? '#1982c4' : '',
+                            backgroundColor: isRevealed ? '#adcdd8' : '',
                         }
                     }
                 >
@@ -37,7 +37,7 @@ class PollButton extends Component {
                     style={
                         {
                             width: `${ rightPerc }%`,
-                            backgroundColor: isRevealed ? '#ff595e' : '',
+                            backgroundColor: isRevealed ? '#ffcfd1' : '',
                         }
                     }
                 >
