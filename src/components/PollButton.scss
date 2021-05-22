@@ -1,0 +1,41 @@
+.poll-button {
+    height: 60px;
+    width: 480px;
+
+    display: flex;
+    position: relative;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+
+    &__left,
+    &__right {
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #8ac926;
+    }
+
+    &__cta {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        .cta-overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            opacity: 0;
+            transition: ease-in-out 0.3s;
+    
+            &:hover {
+                opacity: 0.1;
+            }
+        }
+    }
+}

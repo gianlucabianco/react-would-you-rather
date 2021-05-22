@@ -1,0 +1,25 @@
+.option {
+    height: 200px;
+    width: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+
+    position: relative;
+
+    &-overlay {
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        background-color: white;
+        opacity: 0;
+        transition: ease-in-out 0.3s;
+
+        &:hover {
+            opacity: 0.2;
+        }
+    }
+
+}

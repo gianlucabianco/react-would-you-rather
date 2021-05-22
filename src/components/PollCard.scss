@@ -1,0 +1,50 @@
+.poll-card {
+    width: 782px;
+    display: flex;
+    margin: 32px;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0 40px 40px;
+
+        span {
+            display: block;
+        }
+
+        p {
+            margin: 24px 0;
+        }
+    }
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: auto;
+
+        span {
+            padding: 20px 0;
+            font-size: 28px;
+        }
+    }
+
+    .options {
+        display: flex;
+        align-items: center;
+
+        p {
+            padding: 28px;
+        }
+    }
+
+    .poll-button-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 32px 0;
+    }
+}
