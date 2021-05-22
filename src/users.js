@@ -16,10 +16,6 @@ const users = [
         name: 'Noam Chomsky'
     },
     {
-        avatarUrl: 'https://picsum.photos/id/1005/200/300',
-        name: 'Anaximander of Miletus'
-    },
-    {
         avatarUrl: 'https://picsum.photos/id/1006/200/300',
         name: 'Allama Iqbal'
     },
