@@ -45,6 +45,18 @@ class App extends Component {
 
   }
 
+  getRandomUser = users => {
+
+    return users[
+      Math.floor(
+        (
+          Math.random() * users.length
+        )
+      )
+    ];
+
+  }
+
   render() {
 
     const {
@@ -53,14 +65,18 @@ class App extends Component {
 
     return (
       <div className="App">
-        <PollCard
-          color={'gold'}
-          url={users[0].avatarUrl}
-          name={users[0].name}
-          isRevealed={this.randomizeReveal()}
-          percentages={this.getPercentages()}
-          options={questions[75]}
-        />
+        {
+          questions.map(
+            question => <PollCard
+              color={'gold'}
+              url={this.getRandomUser( users ).avatarUrl}
+              name={this.getRandomUser( users ).name}
+              isRevealed={this.randomizeReveal()}
+              percentages={this.getPercentages()}
+              options={question}
+            />
+          )
+        }
       </div>
     );
   }
