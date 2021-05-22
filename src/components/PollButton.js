@@ -14,7 +14,7 @@ class PollButton extends Component {
 
         const [
             leftPerc,
-            rightPerch,
+            rightPerc,
         ] = percentages;
 
         return (
@@ -23,26 +23,26 @@ class PollButton extends Component {
                     className="poll-button__left"
                     style={
                         {
-                            width: `${ leftPerc }`,
+                            width: `${ leftPerc }%`,
                             backgroundColor: isRevealed ? '#1982c4' : '',
                         }
                     }
                 >
                     {
-                        isRevealed ? leftPerc : ''
+                        isRevealed ? `${leftPerc}%` : ''
                     }
                 </div>
                 <div
                     className="poll-button__right"
                     style={
                         {
-                            width: `${ rightPerch }`,
+                            width: `${ rightPerc }%`,
                             backgroundColor: isRevealed ? '#ff595e' : '',
                         }
                     }
                 >
                     {
-                        isRevealed ? rightPerch : ''
+                        isRevealed ? `${rightPerc}%` : ''
                     }
                 </div>
                 {
@@ -77,7 +77,7 @@ class PollButton extends Component {
 
 PollButton.propTypes = {
     isRevealed: PropTypes.bool.isRequired,
-    percentages: PropTypes.arrayOf( PropTypes.string ),
+    percentages: PropTypes.arrayOf( PropTypes.number ),
 };
 
 export { PollButton };
