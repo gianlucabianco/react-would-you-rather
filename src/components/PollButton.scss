@@ -9,6 +9,8 @@
     &__left,
     &__right {
         height: 100%;
+        min-width: 10%;
+        max-width: 90%;
 
         display: flex;
         justify-content: center;
