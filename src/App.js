@@ -63,19 +63,34 @@ class App extends Component {
       questions
     } = this.state;
 
+    const cardsData = questions.map(
+      question => {
+
+        return {
+          ...this.getRandomUser( users ),
+          color: 'white',
+          isRevealed: this.randomizeReveal(),
+          percentages: this.getPercentages(),
+          options: question,
+        }
+
+      }
+    );
+
     return (
       <div className="App">
         {
-          questions.map(
-            question => <PollCard
-              color={'gold'}
-              url={this.getRandomUser( users ).avatarUrl}
-              name={this.getRandomUser( users ).name}
-              isRevealed={this.randomizeReveal()}
-              percentages={this.getPercentages()}
-              options={question}
+          cardsData.map(
+            (card, index) => <PollCard
+              color={card.color}
+              url={card.avatarUrl}
+              name={card.name}
+              isRevealed={card.isRevealed}
+              percentages={card.percentages}
+              options={card.options}
+              key={card.name + index}
             />
-          )
+            )
         }
       </div>
     );
