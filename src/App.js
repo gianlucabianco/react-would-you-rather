@@ -81,7 +81,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <div
+        {/* <div
           style={
             {
               backgroundColor: 'red',
@@ -91,20 +91,24 @@ class App extends Component {
           }
         >
           here should be content
+        </div> */}
+        <div
+          className="poll-card-container"
+        >
+          {
+            cardsData.map(
+              (card, index) => <PollCard
+                color={card.color}
+                url={card.avatarUrl}
+                name={card.name}
+                isRevealed={card.isRevealed}
+                percentages={card.percentages}
+                options={card.options}
+                key={card.name + index}
+              />
+              )
+          }
         </div>
-        {/*
-          cardsData.map(
-            (card, index) => <PollCard
-              color={card.color}
-              url={card.avatarUrl}
-              name={card.name}
-              isRevealed={card.isRevealed}
-              percentages={card.percentages}
-              options={card.options}
-              key={card.name + index}
-            />
-            )
-         */}
       </div>
     );
   }
