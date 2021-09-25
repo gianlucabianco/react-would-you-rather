@@ -6,12 +6,21 @@ import users from './users.js';
 
 import { PollCard } from './components/PollCard.js';
 import { NavBar } from './components/NavBar.js';
+import { Login } from './components/Login';
+
+// FIXME: this is a mockup
+const user = {
+  name: 'John Doe',
+  avatar: 'https://picsum.photos/id/103/200/300',
+  isLoggedIn: false,
+}
 
 class App extends Component {
 
   state = {
     questions,
     users,
+    user,
   };
 
   getPercentages = () => {
@@ -61,7 +70,8 @@ class App extends Component {
   render() {
 
     const {
-      questions
+      questions,
+      user,
     } = this.state;
 
     const cardsData = questions.map(
@@ -81,32 +91,23 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        {/* <div
-          style={
-            {
-              backgroundColor: 'red',
-              width: '100%',
-              height: 'calc(100vh - 60px)'
-            }
-          }
-        >
-          here should be content
-        </div> */}
         <div
           className="poll-card-container"
         >
           {
-            cardsData.map(
-              (card, index) => <PollCard
-                color={card.color}
-                url={card.avatarUrl}
-                name={card.name}
-                isRevealed={card.isRevealed}
-                percentages={card.percentages}
-                options={card.options}
-                key={card.name + index}
-              />
+            user.isLoggedIn
+              ? cardsData.map(
+                (card, index) => <PollCard
+                  color={card.color}
+                  url={card.avatarUrl}
+                  name={card.name}
+                  isRevealed={card.isRevealed}
+                  percentages={card.percentages}
+                  options={card.options}
+                  key={card.name + index}
+                />
               )
+              : <Login />
           }
         </div>
       </div>
