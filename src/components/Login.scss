@@ -1,4 +1,33 @@
 .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 22px;
     font-weight: bold;
+
+    &__button {
+        width: 400px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: #00bcd4;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: ease-in-out 0.3s;
+        border: 1px solid #00bcd4;
+
+        &:hover {
+            background-color: #00acc1;
+        }
+        
+    }
+
+    & .disabled {
+        background-color: #bdbdbd;
+        color: #fff;
+        border: 1px solid #bdbdbd;
+        cursor: not-allowed;
+    }
 }
