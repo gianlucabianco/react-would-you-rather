@@ -9,10 +9,21 @@ class Avatar extends React.Component {
 
         const {
             url,
+            size,
+            spacing,
         } = this.props;
 
         return (
-            <div className="avatar">
+            <div
+                className="avatar"
+                style={
+                    {
+                        width: size || '150px',
+                        height: size || '150px',
+                        ... spacing,
+                    }
+                }
+            >
                 <figure
                     className="profile-img"
                     style={
