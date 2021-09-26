@@ -7,7 +7,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    // justify-content: space-between;
     width: 400px;
     height: 100px;
     margin: 0;
@@ -34,6 +33,7 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
     transition: ease-in-out 0.4s;
+    background-color: #fafafa;
             
     &:hover {
         cursor: pointer;
