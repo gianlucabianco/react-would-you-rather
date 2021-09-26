@@ -20,7 +20,7 @@ class Avatar extends React.Component {
                     {
                         width: size || '150px',
                         height: size || '150px',
-                        ... spacing,
+                        ...spacing,
                     }
                 }
             >
