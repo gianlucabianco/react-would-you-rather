@@ -8,6 +8,7 @@ import { PollCard } from './components/PollCard.js';
 import { NavBar } from './components/NavBar.js';
 import { Login } from './components/Login';
 
+// TODO: add proptypes to all components
 // FIXME: this is a mockup
 const user = {
   name: 'John Doe',
