@@ -39,6 +39,10 @@ class UserSelect extends React.Component {
 
     render() {
 
+        const avatarSpacing = {
+            margin: '8px 24px 8px 12px',
+        };
+
         const {
             users,
             userId,
@@ -61,7 +65,11 @@ class UserSelect extends React.Component {
                         (! isSelectOpen && ! userId) || isSelectOpen
                             ? <span>Please select a User</span>
                             : <>
-                                <Avatar url={userUrl} />
+                                <Avatar
+                                    url={userUrl}
+                                    size={'80px'}
+                                    spacing={ { ...avatarSpacing } }
+                                />
                                 <span>{userName}</span>
                             </>
                     }
@@ -97,7 +105,11 @@ class UserSelect extends React.Component {
                                         }
                                     }
                                 >
-                                    <Avatar url={user.avatarUrl} />
+                                    <Avatar
+                                        url={user.avatarUrl}
+                                        size={'80px'}
+                                        spacing={ { ...avatarSpacing } }
+                                    />
                                     <span>{user.name}</span>
                                 </div>
                             )
