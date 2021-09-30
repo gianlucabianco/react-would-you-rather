@@ -17,10 +17,37 @@
             height: 60px;
             line-height: 60px;
             transition: 0.3s;
+            cursor: pointer;
             
             &:hover {
                 background-color: #e5ffbb;
             }
+
+            &:last-child {
+                width: 300px;
+            }
         }
     }
+
+    .login-button {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        padding: 0 16px;;
+
+        .avatar-wrapper {
+            display: flex;
+            align-items: center;
+
+            .user-name {
+                margin-left: 16px;
+            }
+        }
+        
+        .logout-button {
+            color: #999;
+        }
+
+    }
+
 }
