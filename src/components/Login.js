@@ -6,7 +6,7 @@ import './Login.scss';
 class Login extends React.Component {
 
     state = {
-        userId: '',
+        userId: 'test-id',
     };
 
     render() {
@@ -18,8 +18,10 @@ class Login extends React.Component {
 
         return (
             <div className="login">
-                <h1>Welcome to the Would you rather login page</h1>
-                <p>Please sign in to continue</p>
+                <div className="login__header">
+                    <h1>Welcome to the Would you rather login page</h1>
+                    <p>Please sign in to continue</p>
+                </div>
                 <UserSelect />
                 <button className={ btnClasses }>Login</button>
             </div>
