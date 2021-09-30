@@ -1,9 +1,16 @@
 .login {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    max-width: 600px;
+    min-height: 600px;
+    padding: 64px;
     font-size: 22px;
     font-weight: bold;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    box-shadow: 0 0 10px lightgray;
 
     &__button {
         width: 400px;
@@ -29,5 +36,13 @@
         color: #fff;
         border: 1px solid #bdbdbd;
         cursor: not-allowed;
+    }
+
+    h1 {
+        margin-bottom: 16px;
+    }
+
+    p {
+        margin-bottom: 16px;
     }
 }
