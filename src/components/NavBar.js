@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from './Avatar';
+import { LoginButton } from './LoginButton';
 
 import './NavBar.scss';
 
@@ -24,46 +24,32 @@ class NavBar extends React.Component {
 
     render() {
 
+        const {
+            isLoggedIn,
+            userName,
+            userUrl,
+        } = this.state;
+
         return (
             <div
                 className="navbar"
             >
                 <ul>
-                    <li
-                        onClick={ () => this.mockMethod( 'Home' ) }
-                    >
+                    <li onClick={ () => this.mockMethod( 'Home' ) }>
                         Home
                     </li>
-                    <li
-                        onClick={ () => this.mockMethod( 'New question' ) }
-                    >
+                    <li onClick={ () => this.mockMethod( 'New question' ) }>
                         New question
                     </li>
-                    <li
-                        onClick={ () => this.mockMethod( 'Ranking' ) }
-                    >
+                    <li onClick={ () => this.mockMethod( 'Ranking' ) }>
                         Ranking
                     </li>
                     <li onClick={ () => this.mockMethod( 'login' ) } >
-                        {/* TODO: this should be a component */}
-                        {
-                            ! this.state.isLoggedIn
-                                ? 'Login'
-                                : <div className="login-button">
-                                    <div className="avatar-wrapper" >
-                                        <Avatar
-                                            url={ this.state.userUrl }
-                                            size={'40px'}
-                                        />
-                                        <span className="user-name">
-                                            { this.state.userName }
-                                        </span>
-                                    </div>
-                                    <span className="logout-button">
-                                        Logout
-                                    </span>
-                                </div>
-                        }
+                        <LoginButton
+                            isLoggedIn={ isLoggedIn }
+                            userName={ userName }
+                            userUrl={ userUrl }
+                        />
                     </li>
                 </ul>
             </div>
