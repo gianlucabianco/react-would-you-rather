@@ -12,7 +12,7 @@ class CardLabel extends React.Component {
 
         return (
             <div
-                className="card-label"
+                className={`card-label ${isAnswered ? 'answered' : 'not-answered'}`}
             >
                 {
                     isAnswered ?
