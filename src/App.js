@@ -97,7 +97,7 @@ class App extends Component {
           className="poll-card-container"
         >
           {/* TODO: handle isAnswered prop */}
-          <CardLabel isAnswered={true} />
+          <CardLabel isAnswered={false} />
           {
             user.isLoggedIn
               ? cardsData.map(
