@@ -7,14 +7,13 @@ import users from './users.js';
 import { PollCard } from './components/PollCard.js';
 import { NavBar } from './components/NavBar.js';
 import { Login } from './components/Login';
-import { CardLabel } from './components/CardLabel';
 
 // TODO: add proptypes to all components
 // FIXME: this is a mockup
 const user = {
   name: 'John Doe',
   avatar: 'https://picsum.photos/id/103/200/300',
-  isLoggedIn: false,
+  isLoggedIn: true,
 }
 
 class App extends Component {
@@ -96,8 +95,6 @@ class App extends Component {
         <div
           className="poll-card-container"
         >
-          {/* TODO: handle isAnswered prop */}
-          <CardLabel isAnswered={false} />
           {
             user.isLoggedIn
               ? cardsData.map(
