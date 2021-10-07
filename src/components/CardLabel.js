@@ -15,6 +15,7 @@ class CardLabel extends React.Component {
                 className={`card-label ${isAnswered ? 'answered' : 'not-answered'}`}
             >
                 {
+                    // TODO: strings should be icons?
                     isAnswered ?
                     'answered'
                     : 'not answered'
