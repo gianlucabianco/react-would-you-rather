@@ -7,6 +7,7 @@ import users from './users.js';
 import { PollCard } from './components/PollCard.js';
 import { NavBar } from './components/NavBar.js';
 import { Login } from './components/Login';
+import { CheckIcon } from './components/CheckIcon';
 
 // TODO: add proptypes to all components
 // FIXME: this is a mockup
@@ -95,20 +96,27 @@ class App extends Component {
         <div
           className="poll-card-container"
         >
+          {/* TODO: TEST */}
+          <CheckIcon
+            size={'24'}
+            color={'red'}
+            stroke={'black'}
+          />
           {
-            user.isLoggedIn
-              ? cardsData.map(
-                (card, index) => <PollCard
-                  color={card.color}
-                  url={card.avatarUrl}
-                  name={card.name}
-                  isRevealed={card.isRevealed}
-                  percentages={card.percentages}
-                  options={card.options}
-                  key={card.name + index}
-                />
-              )
-              : <Login />
+            // TODO: re enable this
+            // user.isLoggedIn
+            //   ? cardsData.map(
+            //     (card, index) => <PollCard
+            //       color={card.color}
+            //       url={card.avatarUrl}
+            //       name={card.name}
+            //       isRevealed={card.isRevealed}
+            //       percentages={card.percentages}
+            //       options={card.options}
+            //       key={card.name + index}
+            //     />
+            //   )
+            //   : <Login />
           }
         </div>
       </div>
