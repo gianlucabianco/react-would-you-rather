@@ -4,11 +4,24 @@ import './CardLabel.scss';
 
 class CardLabel extends React.Component {
 
+    randomizeIsAnswered = () => {
+
+        return Math.floor(
+          (
+            Math.random() * 2
+          ) + 1
+        ) % 2 === 0;
+    
+      }
+
     render() {
 
-        const {
-            isAnswered,
-        } = this.props;
+        // TODO: re-enable this
+        // const {
+        //     isAnswered,
+        // } = this.props;
+
+        const isAnswered = this.randomizeIsAnswered();
 
         return (
             <div
