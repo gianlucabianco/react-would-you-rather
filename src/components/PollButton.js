@@ -4,6 +4,15 @@ import PropTypes from 'prop-types';
 import './PollButton.scss';
 
 class PollButton extends Component {
+    
+
+    mockMethod = args => {
+        console.log(
+            {
+                ...args,
+            }
+        )
+    }
 
     render() {
 
@@ -47,24 +56,21 @@ class PollButton extends Component {
                 </div>
                 {
                     ! isRevealed && (
-                        <div className="poll-button__cta">
-                            <span
-                                onClick={
-                                    () => {
-                                        console.log(
-                                            {
-                                                isRevealed,
-                                                percentages,
-                                            }
-                                        )
-                                    }
+                        <div
+                            className="poll-button__cta"
+                            onClick={
+                                () => {
+                                    this.mockMethod(
+                                        {
+                                            msg: 'ciao',
+                                            isRevealed,
+                                            percentages,
+                                        }
+                                    )
                                 }
-                            >
-                                View poll
-                            </span>
-                            <div
-                                className="cta-overlay"
-                            />
+                            }
+                        >
+                            <span>View poll</span>
                         </div>
                     )
                 }
