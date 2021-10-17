@@ -74,8 +74,15 @@ class PollCard extends React.Component {
                         />
                     </div>
                 </div>
-                {/* TODO: handle isAnswered prop */}
-                <CardLabel isAnswered={false} />
+                {
+                /*
+                    TODO:
+                    - re-enable this && handle isAnswered prop
+                    - remove the CardLabel component withouth isAnswered prop
+                */
+                }
+                {/* <CardLabel isAnswered={ false } /> */}
+                <CardLabel />
             </div>
         );
 
