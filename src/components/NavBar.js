@@ -13,7 +13,6 @@ class NavBar extends React.Component {
         userUrl: 'https://picsum.photos/id/104/200/300',
     }
 
-
     mockMethod = item => {
         console.log(
             {
