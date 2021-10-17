@@ -26,18 +26,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    
-        .cta-overlay {
-            position: absolute;
-            height: 100%;
-            width: 100%;
+        transition: ease-in-out 0.3s;
+
+        &:hover {
             background-color: #fcb64d;
-            opacity: 0;
-            transition: ease-in-out 0.3s;
-    
-            &:hover {
-                opacity: 0.4;
-            }
         }
+
     }
 }
