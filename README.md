@@ -73,4 +73,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: from yarn to npm
     TODO: from scss to css
     TODO: add pagination to answers main page
+    TODO: remove todo's
 -->
