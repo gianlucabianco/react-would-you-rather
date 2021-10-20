@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Avatar.scss';
+import './Avatar.css';
 
 class Avatar extends React.Component {
 
