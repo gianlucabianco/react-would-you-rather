@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './CardLabel.scss';
+import './CardLabel.css';
 
 class CardLabel extends React.Component {
 
