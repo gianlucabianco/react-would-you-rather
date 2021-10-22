@@ -2,7 +2,7 @@ import React from 'react';
 import users from '../users';
 import { Avatar } from './Avatar.js';
 
-import './UserSelect.scss';
+import './UserSelect.css';
 
 class UserSelect extends React.Component {
 
