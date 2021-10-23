@@ -13,7 +13,7 @@ import { Login } from './components/Login';
 const user = {
   name: 'John Doe',
   avatar: 'https://picsum.photos/id/103/200/300',
-  isLoggedIn: true,
+  isLoggedIn: false,
 }
 
 class App extends Component {
