@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // TODO: add propTypes
 // import PropTypes from 'prop-types';
 
-import './LoginButton.scss';
+import './LoginButton.css';
 import { Avatar } from './Avatar';
 
 class LoginButton extends Component {
