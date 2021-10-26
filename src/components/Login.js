@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserSelect } from './UserSelect';
 
-import './Login.scss';
+import './Login.css';
 
 class Login extends React.Component {
 
