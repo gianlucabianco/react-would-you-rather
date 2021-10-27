@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoginButton } from './LoginButton';
 
-import './NavBar.scss';
+import './NavBar.css';
 
 class NavBar extends React.Component {
 
