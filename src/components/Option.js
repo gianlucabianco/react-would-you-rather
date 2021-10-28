@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Option.scss';
+import './Option.css';
 
 class Option extends React.Component {
 
