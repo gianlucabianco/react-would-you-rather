@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './PollCard.scss';
+import './PollCard.css';
 
 import { Option } from './Option.js';
 import { Avatar } from './Avatar.js';
