@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import './PollButton.scss';
+import './PollButton.css';
 
 class PollButton extends Component {
     
