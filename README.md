@@ -75,4 +75,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: css class renaming?
     TODO: add redux 
     TODO: remove todo's
+    TODO: debounce
 -->
