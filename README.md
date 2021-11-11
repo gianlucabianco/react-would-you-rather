@@ -70,6 +70,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <!--
+    TODO: add redux
     TODO: from yarn to npm
     TODO: add pagination to answers main page
     TODO: css class renaming?
