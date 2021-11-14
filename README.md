@@ -72,7 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <!--
     TODO: fix dependencies
     TODO: add redux
-    TODO: from yarn to npm
+    TODO: update doc from yarn to npm
     TODO: add pagination to answers main page
     TODO: css class renaming?
     TODO: remove todo's
