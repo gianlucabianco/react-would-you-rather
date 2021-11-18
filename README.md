@@ -72,6 +72,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <!--
     TODO: move App.js to components/App.js
     TODO: add redux
+    TODO: reshape users.js => ( _data.js ?)
     TODO: update doc from yarn to npm
     TODO: add pagination to answers main page
     TODO: css class renaming?
