@@ -71,6 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 <!--
     TODO: move App.js to components/App.js
+    TODO: clean dev dep
     TODO: api (into a separate module)
     TODO: add redux
     TODO: reshape users.js => ( _data.js ?)
