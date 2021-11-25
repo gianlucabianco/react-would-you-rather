@@ -77,6 +77,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: user.js store
     TODO: update doc from yarn to npm
     TODO: add pagination to answers main page
+    TODO: UI fixes
     TODO: css class renaming?
     TODO: remove todo's
     TODO: debounce
