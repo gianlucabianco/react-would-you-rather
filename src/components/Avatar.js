@@ -41,6 +41,8 @@ class Avatar extends React.Component {
 
 Avatar.propTypes = {
     url: PropTypes.string.isRequired,
+    size: PropTypes.string,
+    spacing: PropTypes.object,
 };
 
 export { Avatar };
