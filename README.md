@@ -71,7 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 <!--
     TODO: api (into a separate module)
-    TODO: add redux
     TODO: reshape users.js => ( _data.js ?)
     TODO: user.js store
     TODO: update doc from yarn to npm
