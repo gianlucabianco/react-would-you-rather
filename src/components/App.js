@@ -76,9 +76,9 @@ class App extends Component {
   }
 
   render() {
-    console.log({state: this.state});
-    console.log({props: this.props, store: this.store});
 
+    const { authUser } = this.props;
+    
     const {
       questions,
       user,
@@ -105,9 +105,9 @@ class App extends Component {
           className="poll-card-container"
         >
           {
-            // TODO: re enable this
-            user.isLoggedIn
-              ? cardsData.map(
+            ! authUser
+              ? <Login />
+              : cardsData.map(
                 (card, index) => <PollCard
                   color={card.color}
                   url={card.avatarUrl}
@@ -118,7 +118,6 @@ class App extends Component {
                   key={card.name + index}
                 />
               )
-              : <Login />
           }
         </div>
       </div>
@@ -126,15 +125,18 @@ class App extends Component {
   }
 }
 
-/* TODO: */
-// const mapStateToProps = ({ user }) => {
-//   return {
-//     user
-//   };
-// }
+const mapStateToProps = (
+  {
+    authUser,
+  }
+) => {
+  return {
+    authUser,
+  };
+}
 
 export default connect(
-  null,
+  mapStateToProps,
   {
     handleInitializationData,
   },
