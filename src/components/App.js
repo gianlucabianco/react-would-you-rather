@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import { handleInitializationData } from '../actions/initialization.js';
 
+/* TODO: temporary mock data, remove after redux is fully implemented */
 import questions from '../questions.js';
 import users from '../users.js';
 
 import { PollCard } from './PollCard.js';
 import { NavBar } from './NavBar.js';
 import { Login } from './Login';
-// FIXME: temp, remove after test
-import { setAuthUser } from '../actions/user';
 
-// TODO: add proptypes to all components
-// FIXME: this is a mockup
+// TODO: this is a mockup, remove after data refactor
 const user = {
   name: 'John Doe',
   avatar: 'https://picsum.photos/id/103/200/300',
-  isLoggedIn: false, // TODO: this should be handled by the store
-  // id: '', // TODO: this should come from API
+  isLoggedIn: false,
+  // id: '',
 }
 
 class App extends Component {
+
   componentDidMount() {
-    //TODO: debug this
-    console.log('componentDidMount', setAuthUser);
-    setAuthUser('ciaoooooo') && console.log({props:this.props})
-  }
+    this.props.handleInitializationData();
+  };
 
   state = {
     questions,
@@ -128,13 +126,16 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => {
-  return {
-    user
-  };
-}
+/* TODO: */
+// const mapStateToProps = ({ user }) => {
+//   return {
+//     user
+//   };
+// }
 
 export default connect(
-  mapStateToProps,
-  { user }
+  null,
+  {
+    handleInitializationData,
+  },
 )(App);
