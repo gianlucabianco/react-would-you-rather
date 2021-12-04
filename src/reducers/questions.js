@@ -1,4 +1,4 @@
-import { GET_QUESTIONS } from '../actions/questions';
+import { GET_QUESTIONS } from '../actions/questions.js';
 
 export default function questions(
     state = {},
