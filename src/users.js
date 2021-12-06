@@ -1,3 +1,4 @@
+// TODO: this is a mock remove after test
 const users = [
     {
         avatarUrl: 'https://picsum.photos/id/1027/200/300',
