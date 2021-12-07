@@ -1,13 +1,10 @@
 import React from 'react';
-import users from '../users';
 import { Avatar } from './Avatar.js';
 
 import './UserSelect.css';
-
 class UserSelect extends React.Component {
 
     state = {
-        users,
         userId: '',
         userName: '',
         userUrl: '',
@@ -44,12 +41,13 @@ class UserSelect extends React.Component {
         };
 
         const {
-            users,
             userId,
             userName,
             userUrl,
             isSelectOpen,
         } = this.state;
+
+        const { users } = this.props
 
         return (
             <div
@@ -98,7 +96,7 @@ class UserSelect extends React.Component {
                                                 {
                                                     userId: user.id,
                                                     userName: user.name,
-                                                    userUrl: user.avatarUrl,
+                                                    userUrl: user.avatarURL,
                                                     isSelectOpen: false,
                                                 }
                                             );
@@ -106,7 +104,7 @@ class UserSelect extends React.Component {
                                     }
                                 >
                                     <Avatar
-                                        url={user.avatarUrl}
+                                        url={user.avatarURL}
                                         size={'80px'}
                                         spacing={ { ...avatarSpacing } }
                                     />
