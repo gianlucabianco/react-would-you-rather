@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { UserSelect } from './UserSelect';
+import { setAuthUser } from '../actions/authUser.js';
 
 import './Login.css';
 
@@ -22,12 +24,27 @@ class Login extends React.Component {
                     <h1>Welcome to the Would you rather login page</h1>
                     <p>Please sign in to continue</p>
                 </div>
-                <UserSelect />
+                <ConnectedUserSelect />
                 <button className={ btnClasses }>Login</button>
             </div>
         );
     }
 
+};
+
+const ConnectedUserSelect = connect(
+    mapStateToProps,
+    { setAuthUser }
+)(UserSelect);
+
+function mapStateToProps(
+    {
+        users,
+    }
+) {
+    return {
+        users: Object.values(users),
+    }
 };
 
 export { Login };
