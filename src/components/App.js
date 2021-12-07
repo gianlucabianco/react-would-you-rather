@@ -128,10 +128,12 @@ class App extends Component {
 const mapStateToProps = (
   {
     authUser,
+    users,
   }
 ) => {
   return {
     authUser,
+    users,
   };
 }
 
