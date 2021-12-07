@@ -34,6 +34,10 @@ class UserSelect extends React.Component {
         );
     };
 
+    onUserChange = newUserId => {
+        this.props.onUserChange( newUserId );
+    };
+
     render() {
 
         const avatarSpacing = {
@@ -92,6 +96,9 @@ class UserSelect extends React.Component {
                                     key={user.id}
                                     onClick={
                                         () => {
+                                            this.onUserChange(
+                                                user.id
+                                            );
                                             this.setState(
                                                 {
                                                     userId: user.id,
