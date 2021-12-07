@@ -8,7 +8,16 @@ import './Login.css';
 class Login extends React.Component {
 
     state = {
-        userId: 'test-id',
+        userId: '',
+    };
+
+    onUserChange = (userId) => {
+        this.setState({ userId });
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        setAuthUser(this.state.userId);
     };
 
     render() {
@@ -24,8 +33,13 @@ class Login extends React.Component {
                     <h1>Welcome to the Would you rather login page</h1>
                     <p>Please sign in to continue</p>
                 </div>
-                <ConnectedUserSelect />
-                <button className={ btnClasses }>Login</button>
+                <ConnectedUserSelect onUserChange={this.onUserChange}/>
+                <button
+                    className={ btnClasses }
+                    onClick={userId ? this.handleSubmit : null}
+                >
+                    Login
+                </button>
             </div>
         );
     }
