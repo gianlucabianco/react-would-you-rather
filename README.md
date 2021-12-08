@@ -70,7 +70,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <!--
-    TODO: api (into a separate module)
+    TODO: remove users.js from /src after every fake DB is complete
+    TODO: remove questions.js from /src after every fake DB is complete
     TODO: reshape users.js => ( _data.js ?)
     TODO: user.js store
     TODO: update doc from yarn to npm
