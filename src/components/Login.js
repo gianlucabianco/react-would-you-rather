@@ -17,15 +17,13 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        setAuthUser(this.state.userId);
+        this.props.setAuthUser(this.state.userId);
     };
 
     render() {
 
         const { userId } = this.state;
         const btnClasses = `login__button ${! userId ? 'disabled' : ''}`;
-
-        console.log({btnClasses, userId});
 
         return (
             <div className="login">
@@ -46,12 +44,7 @@ class Login extends React.Component {
 
 };
 
-const ConnectedUserSelect = connect(
-    mapStateToProps,
-    { setAuthUser }
-)(UserSelect);
-
-function mapStateToProps(
+function userSelectMapStateToProps(
     {
         users,
     }
@@ -61,4 +54,21 @@ function mapStateToProps(
     }
 };
 
-export { Login };
+function loginMapStateToProps(
+    {
+        authUser,
+    }
+) {
+    return {
+        authUser,
+    }
+};
+
+const ConnectedUserSelect = connect(
+    userSelectMapStateToProps,
+)(UserSelect);
+
+export default connect(
+    loginMapStateToProps,
+    { setAuthUser }
+)(Login);
