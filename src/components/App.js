@@ -9,7 +9,7 @@ import users from '../users.js';
 
 import { PollCard } from './PollCard.js';
 import { NavBar } from './NavBar.js';
-import { Login } from './Login';
+import Login from './Login';
 
 // TODO: this is a mockup, remove after data refactor
 const user = {
@@ -81,7 +81,7 @@ class App extends Component {
     
     const {
       questions,
-      user,
+      // user, // TODO: remove after data refactor
     } = this.state;
 
     const cardsData = questions.map(
