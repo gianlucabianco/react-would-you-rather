@@ -74,7 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: remove users.js from /src after every fake DB is complete
     TODO: remove questions.js from /src after every fake DB is complete
     TODO: reshape users.js => ( _data.js ?) // REMOVE THIS
-    TODO: user.js store // REMOVE THIS
     TODO: update doc from yarn to npm
     TODO: add pagination to answers main page
     TODO: UI fixes
