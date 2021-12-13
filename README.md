@@ -70,6 +70,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <!--
+    TODO: design the signup/signin flow/UI
     TODO: remove solved TODOs around the project
     TODO: remove users.js from /src after every fake DB is complete
     TODO: remove questions.js from /src after every fake DB is complete
