@@ -38,6 +38,16 @@ class UserSelect extends React.Component {
         this.props.onUserChange( newUserId );
     };
 
+    handleUserInput = e => {
+        e.preventDefault();
+        this.setState(
+            {
+                userName: e.target.value,
+                // TODO: handle userId && debounce
+            }
+        );
+    };
+
     render() {
 
         const avatarSpacing = {
@@ -65,7 +75,13 @@ class UserSelect extends React.Component {
                 >
                     {
                         (! isSelectOpen && ! userId) || isSelectOpen
-                            ? <span>Please select a User</span>
+                            ? <input
+                                type="text"
+                                placeholder='Please select a User'
+                                value={userName}
+                                onChange={e => this.handleUserInput(e)}
+                                className='user-select-input'
+                            /> 
                             : <>
                                 <Avatar
                                     url={userUrl}
