@@ -2,6 +2,16 @@
     max-width: 420px;
 }
 
+.user-select-input {
+    height: 100px;
+    width: 100%;
+    padding: 10px 22px;
+    border: none;
+    font-size: 18px;
+    resize: vertical;
+    background-color: transparent;
+}
+
 .dropdown {
     position: relative;
     display: flex;
@@ -9,7 +19,7 @@
     width: 400px;
     height: 100px;
     margin: 0;
-    padding: 8px 12px;
+    padding: 8px 0;
     border: 1px solid lightgrey;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     border-radius: 8px;
