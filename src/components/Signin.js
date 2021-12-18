@@ -53,6 +53,7 @@ class Signin extends React.Component {
                     value={userName}
                     onChange={e => this.handleUserInput(e)}
                 />
+                {/* TODO: add eye icon */}
                 <input
                     className="signin-input"
                     type="password"
