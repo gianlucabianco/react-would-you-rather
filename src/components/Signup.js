@@ -35,7 +35,7 @@ class Signup extends React.Component {
 
     onSignup = e => {
         e.preventDefault();
-        console.log({msg: 'sign in!'});
+        console.log({msg: 'sign up!'});
     };
 
     render() {
