@@ -83,4 +83,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: css class renaming?
     TODO: debounce
     TODO: routing
+    TODO: check if every component has proptypes
 -->
