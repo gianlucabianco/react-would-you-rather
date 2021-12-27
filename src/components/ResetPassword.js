@@ -10,6 +10,9 @@ class ResetPassword extends React.Component {
         confirmNewPassword: '',
         // userUrl: '',
         // isSelectOpen: false,
+        showPassword: false,
+        userNameError: true,
+        passwordError: true,
     };
 
     handleUserInput = e => {
@@ -45,6 +48,14 @@ class ResetPassword extends React.Component {
         console.log({confirmNewPassword: this.state.confirmNewPassword});
     };
 
+    togglePasswordVisibility = () => {
+        this.setState(
+            {
+                showPassword: ! this.state.showPassword,
+            }
+        );
+    };
+
     onResetPassword = e => {
         e.preventDefault();
         console.log({msg: 'reset password!'});
@@ -56,6 +67,9 @@ class ResetPassword extends React.Component {
             userName,
             newPassword,
             confirmNewPassword,
+            showPassword,
+            userNameError,
+            passwordError,
         } = this.state;
 
         return (
@@ -67,21 +81,38 @@ class ResetPassword extends React.Component {
                     value={userName}
                     onChange={e => this.handleUserInput(e)}
                 />
-                {/* TODO: add eye icon */}
+                {
+                    userNameError
+                    ? <div className="input-error">
+                        <span>Sorry, this username does not exist. Please, <a href='/signup' >Signup</a></span>
+                    </div>
+                    : <div className="input-spacing" />
+                }
                 <input
                     className="reset-password-input"
-                    type="password"
+                    style={ { marginBottom: '16px' } }
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="new password"
                     value={newPassword}
                     onChange={e => this.onNewPasswordChange(e)}
                 />
                 <input
                     className="reset-password-input"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="confirm password"
                     value={confirmNewPassword}
                     onChange={e => this.onConfirmNewPassword(e)}
                 />
+                <div className="show-password">
+                {
+                    passwordError
+                    ? <div className="input-error">
+                        <span>Password and confirm password doesn't match</span>
+                    </div>
+                    : null
+                }
+                    <button onClick={this.togglePasswordVisibility}>Show password</button>
+                </div>
                 <button
                     className="reset-password-button"
                     onClick={e => this.onResetPassword(e)}
