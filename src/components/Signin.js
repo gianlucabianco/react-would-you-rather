@@ -9,6 +9,9 @@ class Signin extends React.Component {
         password: '',
         // userUrl: '',
         // isSelectOpen: false,
+        showPassword: false,
+        userNameError: false,
+        passwordError: false,
     };
 
     handleUserInput = e => {
@@ -21,6 +24,7 @@ class Signin extends React.Component {
         );
         console.log({userName: this.state.userName});
     };
+
     onPasswordChange = e => {
         e.preventDefault();
         this.setState(
@@ -30,6 +34,14 @@ class Signin extends React.Component {
         );
 
         console.log({password: this.state.password});
+    };
+
+    togglePasswordVisibility = () => {
+        this.setState(
+            {
+                showPassword: ! this.state.showPassword,
+            }
+        );
     };
 
     onSignin = e => {
@@ -42,6 +54,9 @@ class Signin extends React.Component {
         const {
             userName,
             password,
+            showPassword,
+            userNameError,
+            passwordError,
         } = this.state;
 
         return (
@@ -53,21 +68,37 @@ class Signin extends React.Component {
                     value={userName}
                     onChange={e => this.handleUserInput(e)}
                 />
-                {/* TODO: add eye icon */}
+                {
+                    userNameError
+                    ? <div className="input-error">
+                        <span>Invalid username</span>
+                    </div>
+                    : <div className="input-spacing" />
+                }
                 <input
                     className="signin-input"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="password"
                     value={password}
                     onChange={e => this.onPasswordChange(e)}
                 />
+                <div className="show-password">
+                {
+                    passwordError
+                    ? <div className="input-error">
+                        <span>Invalid password</span>
+                    </div>
+                    : null
+                }
+                    <button onClick={this.togglePasswordVisibility}>Show password</button>
+                </div>
                 <button
                     className="signin-button"
                     onClick={e => this.onSignin(e)}
                 >
                     Sign in
                 </button>
-                {/* TODO: actions! */}
+                {/* TODO: actions! redirect the user to the action route page */}
                 <div className="signin-actions">
                     <a href="/forgot">Forgot your password?</a>
                     <a href="/signup">Sign up</a>
