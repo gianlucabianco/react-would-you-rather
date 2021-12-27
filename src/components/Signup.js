@@ -84,7 +84,7 @@ class Signup extends React.Component {
                 {
                     userNameError
                     ? <div className="input-error">
-                        <span>Invalid username</span>
+                        <span>Sorry, this username is already taken</span>
                     </div>
                     : <div className="input-spacing" />
                 }
