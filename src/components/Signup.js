@@ -10,6 +10,9 @@ class Signup extends React.Component {
         confirmPassword: '',
         // userUrl: '',
         // isSelectOpen: false,
+        showPassword: false,
+        userNameError: false,
+        passwordError: false,
     };
 
     handleUserInput = e => {
@@ -22,6 +25,7 @@ class Signup extends React.Component {
         );
         console.log({userName: this.state.userName});
     };
+
     onPasswordChange = e => {
         e.preventDefault();
         this.setState(
@@ -31,6 +35,25 @@ class Signup extends React.Component {
         );
 
         console.log({password: this.state.password});
+    };
+
+    onPasswordConfirmChange = e => {
+        e.preventDefault();
+        this.setState(
+            {
+                confirmPassword: e.target.value,
+            }
+        );
+
+        console.log({confirmPassword: this.state.confirmPassword});
+    };
+
+    togglePasswordVisibility = () => {
+        this.setState(
+            {
+                showPassword: ! this.state.showPassword,
+            }
+        );
     };
 
     onSignup = e => {
@@ -44,6 +67,9 @@ class Signup extends React.Component {
             userName,
             password,
             confirmPassword,
+            showPassword,
+            userNameError,
+            passwordError,
         } = this.state;
 
         return (
@@ -55,21 +81,38 @@ class Signup extends React.Component {
                     value={userName}
                     onChange={e => this.handleUserInput(e)}
                 />
-                {/* TODO: add eye icon */}
+                {
+                    userNameError
+                    ? <div className="input-error">
+                        <span>Invalid username</span>
+                    </div>
+                    : <div className="input-spacing" />
+                }
                 <input
                     className="signup-input"
-                    type="password"
+                    style={ { marginBottom: '16px' } }
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="password"
                     value={password}
                     onChange={e => this.onPasswordChange(e)}
                 />
                 <input
                     className="signup-input"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="confirm password"
                     value={confirmPassword}
-                    onChange={e => this.onPasswordChange(e)}
+                    onChange={e => this.onPasswordConfirmChange(e)}
                 />
+                <div className="show-password">
+                {
+                    passwordError
+                    ? <div className="input-error">
+                        <span>Password and confirm password doesn't match</span>
+                    </div>
+                    : null
+                }
+                    <button onClick={this.togglePasswordVisibility}>Show password</button>
+                </div>
                 <button
                     className="signup-button"
                     onClick={e => this.onSignup(e)}
