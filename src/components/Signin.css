@@ -45,12 +45,12 @@
     width: 100%;
     font-size: 12px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .show-password > button {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: 50%;
     margin-top: 4px;
     font-weight: bold;
