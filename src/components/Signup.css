@@ -11,7 +11,7 @@
 .signup-input {
   width: 100%;
   height: 60px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   padding: 0 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -20,6 +20,59 @@
 
 .signup-input:focus {
   outline: 2px solid #007685;
+}
+
+.input-error {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 2px;
+    margin-bottom: 16px;
+    padding: 0 4px;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: red;
+}
+
+.input-spacing {
+    width: 100%;
+    height: 8px;
+}
+
+.show-password {
+    width: 100%;
+    font-size: 12px;
+    display: flex;
+    justify-content: end;
+}
+
+.show-password > button {
+    display: flex;
+    justify-content: end;
+    width: 25%;
+    margin-top: 4px;
+    font-weight: bold;
+    color: #00bcd4;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    transition: ease-in-out 0.3s;
+}
+
+.show-password > button:hover {
+    color: #00acc1;
+    text-decoration: underline;
+}
+
+.show-password > button:focus {
+    outline: 2px solid #007685;
+}
+
+.show-password > .input-error {
+    width: 75%;
 }
 
 .signup-button {
@@ -45,24 +98,24 @@
 
 .signup-actions {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 60px;
-    margin-top: 8px;
     padding: 0 8px;
     color: #00bcd4;
 }
 
 .signup-actions a {
-    margin-left: 12px;
     font-size: 18px;
     font-weight: bold;
+    text-decoration: none;
     color: #00bcd4;
     transition: ease-in-out 0.3s;
-    text-decoration: underline;
 }
 
 .signup-actions a:hover {
+    text-decoration: underline;
     color: #007685;
 }
 
