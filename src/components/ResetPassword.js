@@ -11,8 +11,8 @@ class ResetPassword extends React.Component {
         // userUrl: '',
         // isSelectOpen: false,
         showPassword: false,
-        userNameError: true,
-        passwordError: true,
+        userNameError: false,
+        passwordError: false,
     };
 
     handleUserInput = e => {
