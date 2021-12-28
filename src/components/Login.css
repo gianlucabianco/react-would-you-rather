@@ -1,8 +1,5 @@
 .login {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    height: 720px;
     max-width: 600px;
     min-height: 600px;
     padding: 64px;
@@ -11,6 +8,10 @@
     border: 1px solid lightgray;
     border-radius: 8px;
     box-shadow: 0 0 10px lightgray;
+}
+
+.login__header {
+    margin-bottom: 64px;
 }
 
 .login__button {
