@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import { handleInitializationData } from '../actions/initialization.js';
+import { setAuthUser } from '../actions/authUser.js';
 
 import { PollCard } from './PollCard.js';
 import { NavBar } from './NavBar.js';
@@ -43,6 +44,10 @@ class App extends Component {
       ) + 1
     ) % 2 === 0;
 
+  }
+
+  handleLogout = () => {
+    this.props.setAuthUser(null);
   }
 
   render() {
@@ -95,7 +100,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <NavBar />
+        <NavBar
+          user={users[authUser]}
+          onLogout={() => this.handleLogout()}
+        />
         <div
           className="poll-card-container"
         >
@@ -139,5 +147,6 @@ export default connect(
   mapStateToProps,
   {
     handleInitializationData,
+    setAuthUser,
   },
 )(App);
