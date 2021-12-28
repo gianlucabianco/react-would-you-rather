@@ -3,21 +3,9 @@ import { connect } from 'react-redux';
 import './App.css';
 import { handleInitializationData } from '../actions/initialization.js';
 
-/* TODO: temporary mock data, remove after redux is fully implemented */
-import questions from '../questions.js';
-import users from '../users.js';
-
 import { PollCard } from './PollCard.js';
 import { NavBar } from './NavBar.js';
 import Login from './Login';
-
-// TODO: this is a mockup, remove after data refactor
-const user = {
-  name: 'John Doe',
-  avatar: 'https://picsum.photos/id/103/200/300',
-  isLoggedIn: false,
-  // id: '',
-}
 
 class App extends Component {
 
@@ -25,34 +13,28 @@ class App extends Component {
     this.props.handleInitializationData();
   };
 
-  state = {
-    questions,
-    users,
-    user,
-  };
+  getPercentages = (
+    optionOneVotes,
+    optionTwoVotes
+  ) => {
 
-  getPercentages = () => {
+    const totalVotes = optionOneVotes + optionTwoVotes;
 
-    const number = Math.floor(
-      (
-        Math.random() * 100
-      ) + 1
+    const optionOnePercentage = Math.round(
+      optionOneVotes / totalVotes * 100
     );
 
-    const delta = 100 - number;
+    const optionTwoPercentage = Math.round(
+      optionTwoVotes / totalVotes * 100
+    );
 
-    return number % 2 === 0
-      ? [
-        number,
-        delta,
-      ]
-      :[
-        delta,
-        number,
-      ];
-
+    return [
+      optionOnePercentage,
+      optionTwoPercentage,
+    ]
   }
 
+  // TODO: mock method, this should become getReveal()
   randomizeReveal = () => {
 
     return Math.floor(
@@ -63,41 +45,51 @@ class App extends Component {
 
   }
 
-  getRandomUser = users => {
-
-    return users[
-      Math.floor(
-        (
-          Math.random() * users.length
-        )
-      )
-    ];
-
-  }
-
   render() {
 
     const {
       authUser,
       users,
     } = this.props;
-    
-    const {
-      questions,
-      // user, // TODO: remove after data refactor
-    } = this.state;
 
-    const cardsData = questions.map(
+    const questions = Object.values(this.props.questions);
+
+    const cardsData = ! questions.length
+    ? []
+    : questions.map(
       question => {
 
-        return {
-          ...this.getRandomUser( users ),
-          color: 'white',
-          isRevealed: this.randomizeReveal(),
-          percentages: this.getPercentages(),
-          options: question,
+        const user = Object.values(users).find(
+          user => user.id === question.author
+        );
+
+        if(
+          !user
+        ) {
+          return {};
         }
 
+        const {
+          avatarURL,
+          name,
+          id,
+        } = user;
+
+        return {
+          avatarURL,
+          name,
+          id,
+          color: '#ffffff',
+          isRevealed: this.randomizeReveal(), // TODO: true if the user answer this poll
+          percentages: this.getPercentages(
+            question.optionOne.votes.length,
+            question.optionTwo.votes.length,
+          ),
+          options: [
+            question.optionOne.text,
+            question.optionTwo.text,
+          ],
+        }
       }
     );
 
@@ -108,12 +100,13 @@ class App extends Component {
           className="poll-card-container"
         >
           {
+            //  TODO: routing
             ! authUser
               ? <Login users={users}/>
               : cardsData.map(
                 (card, index) => <PollCard
                   color={card.color}
-                  url={card.avatarUrl}
+                  url={card.avatarURL}
                   name={card.name}
                   isRevealed={card.isRevealed}
                   percentages={card.percentages}
@@ -132,11 +125,13 @@ const mapStateToProps = (
   {
     authUser,
     users,
+    questions,
   }
 ) => {
   return {
     authUser,
     users,
+    questions,
   };
 }
 
