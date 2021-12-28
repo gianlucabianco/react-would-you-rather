@@ -4,14 +4,9 @@ import './Signin.css';
 class Signin extends React.Component {
 
     state = {
-        // userId: '',
         userName: '',
         password: '',
-        // userUrl: '',
-        // isSelectOpen: false,
         showPassword: false,
-        userNameError: false,
-        passwordError: false,
     };
 
     handleUserInput = e => {
@@ -19,10 +14,8 @@ class Signin extends React.Component {
         this.setState(
             {
                 userName: e.target.value,
-                // TODO: handle userId && debounce
             }
         );
-        console.log({userName: this.state.userName});
     };
 
     onPasswordChange = e => {
@@ -32,8 +25,6 @@ class Signin extends React.Component {
                 password: e.target.value,
             }
         );
-
-        console.log({password: this.state.password});
     };
 
     togglePasswordVisibility = () => {
@@ -44,9 +35,21 @@ class Signin extends React.Component {
         );
     };
 
-    onSignin = e => {
-        e.preventDefault();
-        console.log({msg: 'sign in!'});
+    onSignin = () => {
+        this.props.onUserChange(
+            {
+                userName: this.state.userName,
+                password: this.state.password,
+            }
+        );
+    };
+
+    handleUserNameErrorReset = () => {
+        this.props.onUserNameErrorReset();
+    };
+
+    handlePasswordErrorReset = () => {
+        this.props.onPasswordErrorReset();
     };
 
     render() {
@@ -55,18 +58,22 @@ class Signin extends React.Component {
             userName,
             password,
             showPassword,
+        } = this.state;
+
+        const {
             userNameError,
             passwordError,
-        } = this.state;
+        } = this.props;
 
         return (
             <div className="signin-form">
                 <input
+                    value={userName}
                     className="signin-input"
                     type="text"
                     placeholder="username"
-                    value={userName}
                     onChange={e => this.handleUserInput(e)}
+                    onClick={() => userNameError && this.handleUserNameErrorReset()}
                 />
                 {
                     userNameError
@@ -76,11 +83,12 @@ class Signin extends React.Component {
                     : <div className="input-spacing" />
                 }
                 <input
-                    className="signin-input"
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="password"
                     value={password}
+                    type={showPassword ? 'text' : 'password'}
+                    className="signin-input"
+                    placeholder="password"
                     onChange={e => this.onPasswordChange(e)}
+                    onClick={() => passwordError && this.handlePasswordErrorReset()}
                 />
                 <div className="show-password">
                 {
@@ -90,11 +98,33 @@ class Signin extends React.Component {
                     </div>
                     : null
                 }
-                    <button onClick={this.togglePasswordVisibility}>Show password</button>
+                    <button onClick={this.togglePasswordVisibility}>
+                        {
+                            ! showPassword
+                            ? 'Show password'
+                            : 'Hide password'
+                        }
+                    </button>
                 </div>
                 <button
                     className="signin-button"
-                    onClick={e => this.onSignin(e)}
+                    style={
+                        (!userName || !password)
+                        ? {
+                            backgroundColor: '#bdbdbd',
+                            color: '#fffm',
+                            border: '1px solid #bdbdbdm',
+                            cursor: 'not-allowedm',
+                        }
+                        : {}
+                    }
+                    onClick={
+                        () => {
+                            userName
+                            && password
+                            && this.onSignin()
+                        }
+                    }
                 >
                     Sign in
                 </button>
