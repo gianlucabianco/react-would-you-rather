@@ -77,7 +77,10 @@ class App extends Component {
 
   render() {
 
-    const { authUser } = this.props;
+    const {
+      authUser,
+      users,
+    } = this.props;
     
     const {
       questions,
@@ -106,7 +109,7 @@ class App extends Component {
         >
           {
             ! authUser
-              ? <Login />
+              ? <Login users={users}/>
               : cardsData.map(
                 (card, index) => <PollCard
                   color={card.color}
