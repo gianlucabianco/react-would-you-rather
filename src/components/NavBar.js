@@ -1,18 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { LoginButton } from './LoginButton';
 
 import './NavBar.css';
 
 class NavBar extends React.Component {
-
-    // TODO: mock method, this should become ROUTING
-    mockMethod = item => {
-        console.log(
-            {
-                TODO: item,
-            },
-        );
-    }
 
     onLogout = () => {
         this.props.onLogout();
@@ -35,15 +27,21 @@ class NavBar extends React.Component {
                 className="navbar"
             >
                 <ul>
-                    <li onClick={ () => this.mockMethod( 'Home' ) }>
-                        Home
-                    </li>
-                    <li onClick={ () => this.mockMethod( 'New question' ) }>
-                        New question
-                    </li>
-                    <li onClick={ () => this.mockMethod( 'Ranking' ) }>
-                        Ranking
-                    </li>
+                    <NavLink name="home" to="/" exact>
+                        <li>
+                            Home
+                        </li>
+                    </NavLink>
+                    <NavLink name="new-question" to="/new-question">
+                        <li>
+                            New question
+                        </li>
+                    </NavLink>
+                    <NavLink name="ranking" to="/ranking">
+                        <li>
+                            Ranking
+                        </li>
+                    </NavLink>
                     <li onClick={ () => {isLoggedIn && this.onLogout()} } >
                         <LoginButton
                             isLoggedIn={ isLoggedIn }
