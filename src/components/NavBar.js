@@ -37,9 +37,9 @@ class NavBar extends React.Component {
                             New question
                         </li>
                     </NavLink>
-                    <NavLink name="ranking" to="/ranking">
+                    <NavLink name="leaderboard" to="/leaderboard">
                         <li>
-                            Ranking
+                            Leaderboard
                         </li>
                     </NavLink>
                     <li onClick={ () => {isLoggedIn && this.onLogout()} } >
