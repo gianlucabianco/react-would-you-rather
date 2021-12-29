@@ -59,6 +59,7 @@ class Login extends React.Component {
             this.props.setAuthUser(
                 isUser.id
             );
+            this.props.history.push('/');
         }
     };
 
