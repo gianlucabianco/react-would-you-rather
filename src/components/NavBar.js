@@ -27,8 +27,8 @@ class NavBar extends React.Component {
         const isLoggedIn = !!(user
             && Object.keys(user).length);
 
-        const name = user && user.name || '';
-        const avatarURL = user && user.avatarURL || '';
+        const name = (user && user.name) || '';
+        const avatarURL = (user && user.avatarURL) || '';
 
         return (
             <div
