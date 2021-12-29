@@ -34,16 +34,32 @@ class NavBar extends React.Component {
                             Home
                         </li>
                     </NavLink>
-                    <NavLink name="new-question" to="/add-question">
-                        <li>
-                            New question
-                        </li>
-                    </NavLink>
-                    <NavLink name="leaderboard" to="/leaderboard">
-                        <li>
-                            Leaderboard
-                        </li>
-                    </NavLink>
+                    {
+                        ! isLoggedIn
+                            ? <NavLink name="signup" to="/signup">
+                                <li>
+                                    Signup
+                                </li>
+                            </NavLink>
+                            : <NavLink name="new-question" to="/add-question">
+                                <li>
+                                    New question
+                                </li>
+                            </NavLink>
+                    }
+                    {
+                        ! isLoggedIn
+                            ? <NavLink name="reset-password" to="/reset-password">
+                                <li>
+                                    Reset password
+                                </li>
+                            </NavLink>
+                            : <NavLink name="leaderboard" to="/leaderboard">
+                                <li>
+                                    Leaderboard
+                                </li>
+                            </NavLink>
+                    }
                     <a>
                         <li onClick={ () => {isLoggedIn && this.onLogout()} } >
                             <LoginButton
