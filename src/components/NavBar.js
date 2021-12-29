@@ -42,13 +42,15 @@ class NavBar extends React.Component {
                             Leaderboard
                         </li>
                     </NavLink>
-                    <li onClick={ () => {isLoggedIn && this.onLogout()} } >
-                        <LoginButton
-                            isLoggedIn={ isLoggedIn }
-                            userName={ name }
-                            userUrl={ avatarURL }
-                        />
-                    </li>
+                    <a>
+                        <li onClick={ () => {isLoggedIn && this.onLogout()} } >
+                            <LoginButton
+                                isLoggedIn={ isLoggedIn }
+                                userName={ name }
+                                userUrl={ avatarURL }
+                            />
+                        </li>
+                    </a>
                 </ul>
             </div>
         );
