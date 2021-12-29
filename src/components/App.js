@@ -10,6 +10,10 @@ import { setAuthUser } from '../actions/authUser.js';
 import PollCard from './PollCard.js';
 import NavBar from './NavBar.js';
 import Login from './Login';
+import Signup from './Signup';
+import ResetPassword from './ResetPassword';
+import Leaderboard from './Leaderboard';
+import NewQuestion from './NewQuestion';
 import ErrorPage from './ErrorPage';
 
 class App extends Component {
@@ -113,12 +117,19 @@ class App extends Component {
             className="poll-card-container"
           >
             {
-              <Switch>
+              ! authUser
+              ? <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/signup" component={Signup} />
+                <Route path="/reset-password" component={ResetPassword} />
+                <Route>
+                  <Redirect to="/login"/>
+                </Route>
+              </Switch>
+              : <Switch>
                 <Route exact path="/">
                   {
-                    ! authUser
-                    ? <Redirect to="/login"/>
-                    : cardsData.map(
+                    cardsData.map(
                       (card, index) => <PollCard
                         color={card.color}
                         url={card.avatarURL}
@@ -132,9 +143,9 @@ class App extends Component {
                   }
                 </Route>
                 <Route path="/login" component={Login} />
+                <Route path="/leaderboard" component={Leaderboard} />
+                <Route path="/add-question" component={NewQuestion} />
                 <Route component={ErrorPage} />
-                {/* TODO: add new question page */}
-                {/* TODO: add leaderboard page */}
               </Switch>
             }
           </div>
