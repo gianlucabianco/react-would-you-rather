@@ -99,4 +99,4 @@ PollCard.propTypes = {
     options: PropTypes.arrayOf( PropTypes.string ),
 };
 
-export { PollCard };
+export default PollCard;
