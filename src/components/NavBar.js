@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { LoginButton } from './LoginButton';
+
 
 import './NavBar.css';
 
@@ -8,6 +9,7 @@ class NavBar extends React.Component {
 
     onLogout = () => {
         this.props.onLogout();
+        this.props.history.push('/');
     };
 
     render() {
@@ -59,4 +61,4 @@ class NavBar extends React.Component {
 
 };
 
-export { NavBar };
+export default withRouter(NavBar)
