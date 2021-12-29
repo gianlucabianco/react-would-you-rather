@@ -18,7 +18,7 @@ class LoginButton extends Component {
             <>
                 {
                     ! isLoggedIn
-                        ? 'Login'
+                        ? 'Sign in'
                         : <div className="login-button">
                             <div className="avatar-wrapper" >
                                 <Avatar
@@ -30,7 +30,7 @@ class LoginButton extends Component {
                                 </span>
                             </div>
                             <span className="logout-button">
-                                Logout
+                                Sign out
                             </span>
                         </div>
                 }
