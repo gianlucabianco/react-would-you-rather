@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 import './App.css';
 import { handleInitializationData } from '../actions/initialization.js';
 import { setAuthUser } from '../actions/authUser.js';
 
-import { PollCard } from './PollCard.js';
-import { NavBar } from './NavBar.js';
+import PollCard from './PollCard.js';
+import NavBar from './NavBar.js';
 import Login from './Login';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import ErrorPage from './ErrorPage';
 
 class App extends Component {
 
@@ -131,6 +132,9 @@ class App extends Component {
                   }
                 </Route>
                 <Route path="/login" component={Login} />
+                <Route component={ErrorPage} />
+                {/* TODO: add new question page */}
+                {/* TODO: add leaderboard page */}
               </Switch>
             }
           </div>
