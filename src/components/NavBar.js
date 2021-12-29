@@ -34,7 +34,7 @@ class NavBar extends React.Component {
                             Home
                         </li>
                     </NavLink>
-                    <NavLink name="new-question" to="/new-question">
+                    <NavLink name="new-question" to="/add-question">
                         <li>
                             New question
                         </li>
