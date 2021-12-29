@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './App.css';
 import { handleInitializationData } from '../actions/initialization.js';
 import { setAuthUser } from '../actions/authUser.js';
@@ -7,6 +9,7 @@ import { setAuthUser } from '../actions/authUser.js';
 import { PollCard } from './PollCard.js';
 import { NavBar } from './NavBar.js';
 import Login from './Login';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class App extends Component {
 
@@ -99,32 +102,40 @@ class App extends Component {
     );
 
     return (
-      <div className="App">
-        <NavBar
-          user={users[authUser]}
-          onLogout={() => this.handleLogout()}
-        />
-        <div
-          className="poll-card-container"
-        >
-          {
-            //  TODO: routing
-            ! authUser
-              ? <Login users={users}/>
-              : cardsData.map(
-                (card, index) => <PollCard
-                  color={card.color}
-                  url={card.avatarURL}
-                  name={card.name}
-                  isRevealed={card.isRevealed}
-                  percentages={card.percentages}
-                  options={card.options}
-                  key={card.name + index}
-                />
-              )
-          }
+      <Router>
+        <div className="App">
+          <NavBar
+            user={users[authUser]}
+            onLogout={() => this.handleLogout()}
+          />
+          <div
+            className="poll-card-container"
+          >
+            {
+              <Switch>
+                <Route exact path="/">
+                  {
+                    ! authUser
+                    ? <Redirect to="/login"/>
+                    : cardsData.map(
+                      (card, index) => <PollCard
+                        color={card.color}
+                        url={card.avatarURL}
+                        name={card.name}
+                        isRevealed={card.isRevealed}
+                        percentages={card.percentages}
+                        options={card.options}
+                        key={card.name + index}
+                      />
+                    )
+                  }
+                </Route>
+                <Route path="/login" component={Login} />
+              </Switch>
+            }
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
