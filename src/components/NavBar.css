@@ -30,3 +30,7 @@
 .navbar ul a:last-child {
     width: 300px;
 }
+
+.navbar ul a:visited {
+    color: #000;
+}
