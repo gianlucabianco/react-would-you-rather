@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { UserSelect } from './UserSelect';
 import { setAuthUser } from '../actions/authUser.js';
 
 import { credentials } from '../DB/credentials';
 
 import Signin from './Signin.js';
-// import Signup from './Signup.js';
-// import ResetPassword from './ResetPassword.js';
+import Signup from './Signup.js';
+import ResetPassword from './ResetPassword.js';
 
 import './Login.css';
 // TODO: login should be auth component
@@ -91,46 +90,65 @@ class Login extends React.Component {
             userNameError,
             passwordError,
         } = this.state;
+
         const { users } = this.props;
-        const btnClasses = `login__button ${! userId ? 'disabled' : ''}`;
+        
+        const pathName = this.props.location.pathname;
 
         return (
             <div className="login">
                 <div className="login__header">
-                    <h1>Welcome to the Would you rather login page</h1>
-                    <p>Please sign in to continue</p>
+                    {
+                        pathName === '/signin'
+                        && (
+                            <>
+                                <h1>Welcome to the Would you rather signin page</h1>
+                                <p>Please sign in to continue</p>
+                            </>
+                        )
+                    }
+                    {
+                        pathName === '/signup'
+                        && (
+                            <>
+                                <h1>Welcome to the Would you rather signup page</h1>
+                                <p>Please sign up to continue</p>
+                            </>
+                        )
+                    }
+                    {
+                        pathName === '/reset-password'
+                        && (
+                            <>
+                                <h1>Welcome to the Would you rather reset password page</h1>
+                                <p>Please reset your password to continue</p>
+                            </>
+                        )
+                    }
                 </div>
-                {/* <ConnectedUserSelect onUserChange={this.onUserChange}/> */}
-                <Signin
-                    users={users}
-                    onUserChange={this.onUserChange}
-                    userNameError={userNameError}
-                    passwordError={passwordError}
-                    onUserNameErrorReset={this.onUserNameErrorReset}
-                    onPasswordErrorReset={this.onPasswordErrorReset}
-                />
-                {/* <Signup/> */}
-                {/* <ResetPassword /> */}
-                {/* <button
-                    className={ btnClasses }
-                    onClick={userId ? this.handleSubmit : null}
-                >
-                    Login
-                </button> */}
+                {
+                    pathName === '/signin'
+                    && <Signin
+                        users={users}
+                        onUserChange={this.onUserChange}
+                        userNameError={userNameError}
+                        passwordError={passwordError}
+                        onUserNameErrorReset={this.onUserNameErrorReset}
+                        onPasswordErrorReset={this.onPasswordErrorReset}
+                    />
+                }
+                {
+                    pathName === '/signup'
+                    && <Signup/>
+                }
+                {
+                    pathName === '/reset-password'
+                    && <ResetPassword/>
+                }
             </div>
         );
     }
 
-};
-
-function userSelectMapStateToProps(
-    {
-        users,
-    }
-) {
-    return {
-        users: Object.values(users),
-    }
 };
 
 function loginMapStateToProps(
@@ -143,9 +161,6 @@ function loginMapStateToProps(
     }
 };
 
-const ConnectedUserSelect = connect(
-    userSelectMapStateToProps,
-)(UserSelect);
 
 export default connect(
     loginMapStateToProps,
