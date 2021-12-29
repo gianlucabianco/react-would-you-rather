@@ -64,7 +64,6 @@ class Login extends React.Component {
     };
 
     onUserNameErrorReset = () => {
-        console.log({msg: 'reset userNameError in parent component'});
         this.setState(
             {
                 userNameError: false,
@@ -73,7 +72,6 @@ class Login extends React.Component {
     };
 
     onPasswordErrorReset = () => {
-        console.log({msg: 'reset passwordError in parent component'});
         this.setState(
             {
                 passwordError: false,
