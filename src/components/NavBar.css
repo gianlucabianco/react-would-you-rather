@@ -14,17 +14,19 @@
     list-style: none;
 }
 
-.navbar ul li {
+.navbar ul a {
+    text-decoration: none;
     width: 25%;
     height: 60px;
     line-height: 60px;
     transition: 0.3s;
     cursor: pointer;    
 }
-.navbar ul li:hover {
+
+.navbar ul a:hover {
     background-color: #e5ffbb;
 }
 
-.navbar ul li:last-child {
+.navbar ul a:last-child {
     width: 300px;
 }
