@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { LoginButton } from './LoginButton';
 
-
 import './NavBar.css';
 
+// TODO: check if the user prop could come directly from store ( accessing users[authUser])
 class NavBar extends React.Component {
 
     onLogout = () => {
