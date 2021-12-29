@@ -10,8 +10,6 @@ import { setAuthUser } from '../actions/authUser.js';
 import PollCard from './PollCard.js';
 import NavBar from './NavBar.js';
 import Login from './Login';
-import Signup from './Signup';
-import ResetPassword from './ResetPassword';
 import Leaderboard from './Leaderboard';
 import NewQuestion from './NewQuestion';
 import ErrorPage from './ErrorPage';
@@ -119,11 +117,11 @@ class App extends Component {
             {
               ! authUser
               ? <Switch>
-                <Route path="/login" component={Login} />
-                <Route path="/signup" component={Signup} />
-                <Route path="/reset-password" component={ResetPassword} />
+                <Route path="/signin" component={Login} />
+                <Route path="/signup" component={Login} />
+                <Route path="/reset-password" component={Login} />
                 <Route>
-                  <Redirect to="/login"/>
+                  <Redirect to="/signin"/>
                 </Route>
               </Switch>
               : <Switch>
@@ -142,7 +140,7 @@ class App extends Component {
                     )
                   }
                 </Route>
-                <Route path="/login" component={Login} />
+                <Route path="/signin" component={Login} />
                 <Route path="/leaderboard" component={Leaderboard} />
                 <Route path="/add-question" component={NewQuestion} />
                 <Route component={ErrorPage} />
