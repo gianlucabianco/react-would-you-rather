@@ -38,7 +38,7 @@ class Home extends React.Component {
     }
     render() {
 
-        const { users, } = this.props;
+        const { users } = this.props;
 
         const questions = Object.values(this.props.questions);
 
@@ -54,7 +54,7 @@ class Home extends React.Component {
             if(
               !user
             ) {
-              return {};
+              return undefined;
             }
     
             const {
@@ -79,6 +79,8 @@ class Home extends React.Component {
               ],
             }
           }
+        ).filter(
+            card => card
         );
 
         return (
