@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import './SignOutButton.css';
-import { Avatar } from './Avatar';
+import Avatar from './Avatar';
 
 class SignOutButton extends Component {
 
