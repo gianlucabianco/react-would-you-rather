@@ -9,7 +9,7 @@ import { setAuthUser } from '../actions/authUser.js';
 
 import PollCard from './PollCard.js';
 import NavBar from './NavBar.js';
-import Login from './Login';
+import AuthWrapper from './AuthWrapper';
 import Leaderboard from './Leaderboard';
 import NewQuestion from './NewQuestion';
 import ErrorPage from './ErrorPage';
@@ -117,9 +117,9 @@ class App extends Component {
             {
               ! authUser
               ? <Switch>
-                <Route path="/signin" component={Login} />
-                <Route path="/signup" component={Login} />
-                <Route path="/reset-password" component={Login} />
+                <Route path="/signin" component={AuthWrapper} />
+                <Route path="/signup" component={AuthWrapper} />
+                <Route path="/reset-password" component={AuthWrapper} />
                 <Route>
                   <Redirect to="/signin"/>
                 </Route>
@@ -140,7 +140,7 @@ class App extends Component {
                     )
                   }
                 </Route>
-                <Route path="/signin" component={Login} />
+                <Route path="/signin" component={AuthWrapper} />
                 <Route path="/leaderboard" component={Leaderboard} />
                 <Route path="/add-question" component={NewQuestion} />
                 <Route component={ErrorPage} />
