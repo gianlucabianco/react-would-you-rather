@@ -11,7 +11,7 @@ import NavBar from './NavBar.js';
 import Home from './Home.js';
 import AuthWrapper from './AuthWrapper';
 import Leaderboard from './Leaderboard';
-import NewQuestion from './NewQuestion';
+import AddQuestion from './AddQuestion';
 import ErrorPage from './ErrorPage';
 
 class App extends Component {
@@ -54,7 +54,7 @@ class App extends Component {
               : <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/leaderboard" component={Leaderboard} />
-                <Route path="/add-question" component={NewQuestion} /> // TODO: from '/add-question' to '/add'
+                <Route path="/add" component={AddQuestion} />
                 <Route component={ErrorPage} />
               </Switch>
             }
