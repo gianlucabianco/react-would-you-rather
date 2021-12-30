@@ -140,7 +140,6 @@ class App extends Component {
                     )
                   }
                 </Route>
-                <Route path="/signin" component={AuthWrapper} />
                 <Route path="/leaderboard" component={Leaderboard} />
                 <Route path="/add-question" component={NewQuestion} />
                 <Route component={ErrorPage} />
