@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import FilterBar from './FilterBar.js';
 import PollCard from './PollCard.js';
 
 class Home extends React.Component {
@@ -85,19 +86,20 @@ class Home extends React.Component {
 
         return (
             <div className="home">
-                {
-                    cardsData.map(
-                      (card, index) => <PollCard
-                        color={card.color}
-                        url={card.avatarURL}
-                        name={card.name}
-                        isRevealed={card.isRevealed}
-                        percentages={card.percentages}
-                        options={card.options}
-                        key={card.name + index}
-                      />
-                    )
-                }
+              <FilterBar />
+              {
+                  cardsData.map(
+                    (card, index) => <PollCard
+                      color={card.color}
+                      url={card.avatarURL}
+                      name={card.name}
+                      isRevealed={card.isRevealed}
+                      percentages={card.percentages}
+                      options={card.options}
+                      key={card.name + index}
+                    />
+                  )
+              }
             </div>
         );
     }
