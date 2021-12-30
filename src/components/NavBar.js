@@ -41,9 +41,9 @@ class NavBar extends React.Component {
                                     Signup
                                 </li>
                             </NavLink>
-                            : <NavLink name="new-question" to="/add-question">
+                            : <NavLink name="add-question" to="/add">
                                 <li>
-                                    New question
+                                    Add question
                                 </li>
                             </NavLink>
                     }
