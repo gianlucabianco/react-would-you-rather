@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Signup.css';
 
 class Signup extends React.Component {
@@ -119,9 +120,11 @@ class Signup extends React.Component {
                 >
                     Sign up
                 </button>
-                {/* TODO: actions! */}
                 <div className="signup-actions">
-                    Already have an account? <a href="/signin">Sign in</a>
+                    Already have an account?
+                    <NavLink to="/signin">
+                        Signin
+                    </NavLink>
                 </div>
             </div>
         );
