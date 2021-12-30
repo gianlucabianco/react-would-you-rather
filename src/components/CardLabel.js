@@ -40,4 +40,4 @@ class CardLabel extends React.Component {
 
 };
 // TODO: add propTypes
-export { CardLabel };
+export default CardLabel;
