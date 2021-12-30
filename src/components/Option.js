@@ -39,4 +39,4 @@ Option.propTypes = {
     color: PropTypes.string.isRequired,
 };
 
-export { Option };
+export default Option;
