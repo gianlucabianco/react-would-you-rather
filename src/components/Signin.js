@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Signin.css';
 
 class Signin extends React.Component {
@@ -128,10 +129,13 @@ class Signin extends React.Component {
                 >
                     Sign in
                 </button>
-                {/* TODO: actions! redirect the user to the action route page */}
                 <div className="signin-actions">
-                    <a href="/forgot">Forgot your password?</a>
-                    <a href="/signup">Sign up</a>
+                    <NavLink to="/reset-password">
+                        Forgot your password?
+                    </NavLink>
+                    <NavLink to="/signup">
+                        Signup
+                    </NavLink>
                 </div>
             </div>
         );
