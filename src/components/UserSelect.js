@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from './Avatar.js';
+import Avatar from './Avatar.js';
 
 import './UserSelect.css';
 class UserSelect extends React.Component {
