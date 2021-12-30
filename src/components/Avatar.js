@@ -45,4 +45,4 @@ Avatar.propTypes = {
     spacing: PropTypes.object,
 };
 
-export { Avatar };
+export default Avatar;
