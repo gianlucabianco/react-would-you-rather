@@ -6,37 +6,57 @@ import PollCard from './PollCard.js';
 
 class Home extends React.Component {
 
-    getPercentages = (
-        optionOneVotes,
-        optionTwoVotes
-    ) => {
+  state = {
+    isNotAnsweredToggled: true,
+    isAnsweredToggled: false,
+  };
 
-        const totalVotes = optionOneVotes + optionTwoVotes;
+  getPercentages = (
+      optionOneVotes,
+      optionTwoVotes
+  ) => {
 
-        const optionOnePercentage = Math.round(
-        optionOneVotes / totalVotes * 100
-        );
+    const totalVotes = optionOneVotes + optionTwoVotes;
 
-        const optionTwoPercentage = Math.round(
-        optionTwoVotes / totalVotes * 100
-        );
+    const optionOnePercentage = Math.round(
+      optionOneVotes / totalVotes * 100
+    );
 
-        return [
-        optionOnePercentage,
-        optionTwoPercentage,
-        ]
+    const optionTwoPercentage = Math.round(
+      optionTwoVotes / totalVotes * 100
+    );
+
+    return [
+      optionOnePercentage,
+      optionTwoPercentage,
+    ]
+  }
+
+  // TODO: mock method, this should become getReveal()
+  randomizeReveal = () => {
+    return Math.floor(
+      (
+        Math.random() * 2
+      ) + 1
+    ) % 2 === 0;
+  }
+
+    onToggleAnswered = () => {
+      this.setState(
+        {
+          isAnsweredToggled: ! this.state.isAnsweredToggled,
+        }
+      );
     }
 
-    // TODO: mock method, this should become getReveal()
-    randomizeReveal = () => {
-
-        return Math.floor(
-        (
-            Math.random() * 2
-        ) + 1
-        ) % 2 === 0;
-
+    onToggleNotAnswered = () => {
+      this.setState(
+        {
+          isNotAnsweredToggled: ! this.state.isNotAnsweredToggled,
+        }
+      );
     }
+
     render() {
 
         const { users } = this.props;
@@ -86,7 +106,12 @@ class Home extends React.Component {
 
         return (
             <div className="home">
-              <FilterBar />
+              <FilterBar
+                isNotAnsweredToggled={this.state.isNotAnsweredToggled}
+                isAnsweredToggled={this.state.isAnsweredToggled}
+                onToggleAnswered={this.onToggleAnswered}
+                onToggleNotAnswered={this.onToggleNotAnswered}
+              />
               {
                   cardsData.map(
                     (card, index) => <PollCard
