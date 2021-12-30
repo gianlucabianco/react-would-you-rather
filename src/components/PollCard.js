@@ -6,7 +6,7 @@ import './PollCard.css';
 import Option from './Option.js';
 import Avatar from './Avatar.js';
 import PollButton from './PollButton.js';
-import { CardLabel } from './CardLabel.js';
+import CardLabel from './CardLabel.js';
 
 class PollCard extends React.Component {
 
