@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import { LoginButton } from './LoginButton';
+import SignOutButton from './SignOutButton';
 
 import './NavBar.css';
 
@@ -60,15 +60,23 @@ class NavBar extends React.Component {
                                 </li>
                             </NavLink>
                     }
-                    <a>
-                        <li onClick={ () => {isLoggedIn && this.onLogout()} } >
-                            <LoginButton
-                                isLoggedIn={ isLoggedIn }
-                                userName={ name }
-                                userUrl={ avatarURL }
-                            />
-                        </li>
-                    </a>
+                    {
+                        ! isLoggedIn
+                            ? <NavLink name="signin" to="/signin">
+                                <li>
+                                    Sign in
+                                </li>
+                            </NavLink>
+                            : <a>
+                                <li onClick={ this.onLogout } >
+                                    <SignOutButton
+                                        isLoggedIn={ isLoggedIn }
+                                        userName={ name }
+                                        userUrl={ avatarURL }
+                                    />
+                                </li>
+                            </a>
+                    }
                 </ul>
             </div>
         );
