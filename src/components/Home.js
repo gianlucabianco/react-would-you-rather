@@ -41,21 +41,21 @@ class Home extends React.Component {
     ) % 2 === 0;
   }
 
-    onToggleAnswered = () => {
-      this.setState(
-        {
-          isAnsweredToggled: ! this.state.isAnsweredToggled,
-        }
-      );
-    }
+  onToggleAnswered = () => {
+    this.setState(
+      {
+        isAnsweredToggled: ! this.state.isAnsweredToggled,
+      }
+    );
+  }
 
-    onToggleNotAnswered = () => {
-      this.setState(
-        {
-          isNotAnsweredToggled: ! this.state.isNotAnsweredToggled,
-        }
-      );
-    }
+  onToggleNotAnswered = () => {
+    this.setState(
+      {
+        isNotAnsweredToggled: ! this.state.isNotAnsweredToggled,
+      }
+    );
+  }
 
     render() {
 
@@ -112,6 +112,7 @@ class Home extends React.Component {
                 onToggleAnswered={this.onToggleAnswered}
                 onToggleNotAnswered={this.onToggleNotAnswered}
               />
+              {/* TODO: filter cardsData based on the answered and not answered state */}
               {
                   cardsData.map(
                     (card, index) => <PollCard
