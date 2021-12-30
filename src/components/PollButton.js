@@ -86,4 +86,4 @@ PollButton.propTypes = {
     percentages: PropTypes.arrayOf( PropTypes.number ),
 };
 
-export { PollButton };
+export default PollButton;
