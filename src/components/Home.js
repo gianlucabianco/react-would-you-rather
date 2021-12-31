@@ -32,13 +32,14 @@ class Home extends React.Component {
     ]
   }
 
-  // TODO: mock method, this should become getReveal()
-  randomizeReveal = () => {
-    return Math.floor(
-      (
-        Math.random() * 2
-      ) + 1
-    ) % 2 === 0;
+  getIsAnswered = questionID => {
+
+    const userAnswers = Object.keys(
+      this.props.users[this.props.authUser].answers
+    );
+
+    return !! userAnswers.find(answer => answer === questionID);
+
   }
 
   onToggleAnswered = () => {
@@ -81,15 +82,13 @@ class Home extends React.Component {
             const {
               avatarURL,
               name,
-              id,
             } = user;
     
             return {
+              color: '#ffffff',
               avatarURL,
               name,
-              id,
-              color: '#ffffff',
-              isRevealed: this.randomizeReveal(), // TODO: true if the user answer this poll
+              isAnswered: this.getIsAnswered(question.id),
               percentages: this.getPercentages(
                 question.optionOne.votes.length,
                 question.optionTwo.votes.length,
@@ -119,7 +118,7 @@ class Home extends React.Component {
                       color={card.color}
                       url={card.avatarURL}
                       name={card.name}
-                      isRevealed={card.isRevealed}
+                      isAnswered={card.isAnswered}
                       percentages={card.percentages}
                       options={card.options}
                       key={card.name + index}
@@ -133,11 +132,13 @@ class Home extends React.Component {
 
 const mapStateToProps = (
     {
+      authUser,
       users,
       questions,
     }
   ) => {
     return {
+      authUser,
       users,
       questions,
     };
