@@ -101,77 +101,79 @@ class Home extends React.Component {
 
   }
 
-    render() {
+  render() {
 
-        const { users } = this.props;
+      const { users } = this.props;
 
-        const questions = Object.values(this.props.questions);
+      const questions = Object.values(this.props.questions);
 
-        // TODO: this should be method
-        const cardsData = ! questions.length
-        ? []
-        : questions.map(
-          question => {
-    
-            const user = Object.values(users).find(
-              user => user.id === question.author
-            );
-    
-            if(
-              !user
-            ) {
-              return undefined;
-            }
-    
-            const {
-              avatarURL,
-              name,
-            } = user;
-    
-            return {
-              color: '#ffffff',
-              avatarURL,
-              name,
-              isAnswered: this.getIsAnswered(question.id),
-              percentages: this.getPercentages(
-                question.optionOne.votes.length,
-                question.optionTwo.votes.length,
-              ),
-              options: [
-                question.optionOne.text,
-                question.optionTwo.text,
-              ],
-            }
+      // TODO: this should be method
+      const cardsData = ! questions.length
+      ? []
+      : questions.map(
+        question => {
+
+          console.log({question})
+  
+          const user = Object.values(users).find(
+            user => user.id === question.author
+          );
+  
+          if(
+            !user
+          ) {
+            return undefined;
           }
-        ).filter(
-            card => this.handleAnswerFilters(card)
-        );
+  
+          const {
+            avatarURL,
+            name,
+          } = user;
+  
+          return {
+            color: '#ffffff',
+            avatarURL,
+            name,
+            isAnswered: this.getIsAnswered(question.id),
+            percentages: this.getPercentages(
+              question.optionOne.votes.length,
+              question.optionTwo.votes.length,
+            ),
+            options: [
+              question.optionOne.text,
+              question.optionTwo.text,
+            ],
+          }
+        }
+      ).filter(
+          card => this.handleAnswerFilters(card)
+      );
 
-        return (
-            <div className="home">
-              <FilterBar
-                isNotAnsweredToggled={this.state.isNotAnsweredToggled}
-                isAnsweredToggled={this.state.isAnsweredToggled}
-                onToggleAnswered={this.onToggleAnswered}
-                onToggleNotAnswered={this.onToggleNotAnswered}
-              />
-              {/* TODO: sort cardsData: notAnswered first, newly first */}
-              {
-                  cardsData.map(
-                    (card, index) => <PollCard
-                      color={card.color}
-                      url={card.avatarURL}
-                      name={card.name}
-                      isAnswered={card.isAnswered}
-                      percentages={card.percentages}
-                      options={card.options}
-                      key={card.name + index}
-                    />
-                  )
-              }
-            </div>
-        );
-    }
+      return (
+          <div className="home">
+            <FilterBar
+              isNotAnsweredToggled={this.state.isNotAnsweredToggled}
+              isAnsweredToggled={this.state.isAnsweredToggled}
+              onToggleAnswered={this.onToggleAnswered}
+              onToggleNotAnswered={this.onToggleNotAnswered}
+            />
+            {/* TODO: sort cardsData: notAnswered first, newly first */}
+            {
+                cardsData.map(
+                  (card, index) => <PollCard
+                    color={card.color}
+                    url={card.avatarURL}
+                    name={card.name}
+                    isAnswered={card.isAnswered}
+                    percentages={card.percentages}
+                    options={card.options}
+                    key={card.name + index}
+                  />
+                )
+            }
+          </div>
+      );
+  }
 }
 
 const mapStateToProps = (
