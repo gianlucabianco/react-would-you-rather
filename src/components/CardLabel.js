@@ -1,34 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './CardLabel.css';
 
 class CardLabel extends React.Component {
 
-    randomizeIsAnswered = () => {
-
-        return Math.floor(
-          (
-            Math.random() * 2
-          ) + 1
-        ) % 2 === 0;
-    
-      }
-
     render() {
 
-        // TODO: re-enable this
-        // const {
-        //     isAnswered,
-        // } = this.props;
-
-        const isAnswered = this.randomizeIsAnswered();
+        const {
+            isAnswered,
+        } = this.props;
 
         return (
             <div
                 className={`card-label ${isAnswered ? 'answered' : 'not-answered'}`}
             >
                 {
-                    // TODO: strings should be icons?
                     isAnswered ?
                     'answered'
                     : 'not answered'
@@ -39,5 +26,9 @@ class CardLabel extends React.Component {
     };
 
 };
-// TODO: add propTypes
+
+CardLabel.propTypes = {
+    isAnswered: PropTypes.bool.isRequired,
+};
+
 export default CardLabel;
