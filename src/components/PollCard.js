@@ -16,7 +16,7 @@ class PollCard extends React.Component {
             color,
             url,
             name,
-            isRevealed,
+            isAnswered,
             percentages,
             options,
         } = this.props;
@@ -69,20 +69,12 @@ class PollCard extends React.Component {
                         className={'poll-button-wrapper'}
                     >
                         <PollButton
-                            isRevealed={ isRevealed }
+                            isRevealed={ isAnswered }
                             percentages={ percentages }
                         />
                     </div>
                 </div>
-                {
-                /*
-                    TODO:
-                    - re-enable this && handle isAnswered prop
-                    - remove the CardLabel component withouth isAnswered prop
-                */
-                }
-                {/* <CardLabel isAnswered={ false } /> */}
-                <CardLabel />
+                <CardLabel isAnswered={ isAnswered } />
             </div>
         );
 
@@ -94,7 +86,7 @@ PollCard.propTypes = {
     color: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    isRevealed: PropTypes.bool.isRequired,
+    isAnswered: PropTypes.bool.isRequired,
     percentages: PropTypes.arrayOf( PropTypes.number ),
     options: PropTypes.arrayOf( PropTypes.string ),
 };
