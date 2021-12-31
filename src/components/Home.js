@@ -58,12 +58,56 @@ class Home extends React.Component {
     );
   }
 
+  handleAnswerFilters = card => {
+
+    const isUndefined = ! card;
+
+    if( isUndefined )
+      return false;
+
+    const areFilterTogglesOff = (
+      ! this.state.isAnsweredToggled
+      && ! this.state.isNotAnsweredToggled
+    );
+
+    if( areFilterTogglesOff )
+      return false;
+
+    const areFilterTogglesOn = (
+      this.state.isAnsweredToggled
+      && this.state.isNotAnsweredToggled
+    );;
+
+    if( areFilterTogglesOn )
+      return true;
+
+    const showJustNotAnswered = (
+      this.state.isNotAnsweredToggled &&
+      ! this.state.isAnsweredToggled
+    );
+
+    if( showJustNotAnswered )
+      return ! card.isAnswered;
+    
+    const showJustAnswered = (
+      this.state.isAnsweredToggled &&
+      ! this.state.isNotAnsweredToggled
+    );
+
+    if( showJustAnswered )
+      return card.isAnswered;
+    
+    return false;
+
+  }
+
     render() {
 
         const { users } = this.props;
 
         const questions = Object.values(this.props.questions);
 
+        // TODO: this should be method
         const cardsData = ! questions.length
         ? []
         : questions.map(
@@ -100,7 +144,7 @@ class Home extends React.Component {
             }
           }
         ).filter(
-            card => card
+            card => this.handleAnswerFilters(card)
         );
 
         return (
@@ -111,7 +155,7 @@ class Home extends React.Component {
                 onToggleAnswered={this.onToggleAnswered}
                 onToggleNotAnswered={this.onToggleNotAnswered}
               />
-              {/* TODO: filter cardsData based on the answered and not answered state */}
+              {/* TODO: sort cardsData: notAnswered first, newly first */}
               {
                   cardsData.map(
                     (card, index) => <PollCard
