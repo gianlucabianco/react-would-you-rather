@@ -101,8 +101,50 @@ class Home extends React.Component {
 
   }
 
-  sortCardsData = questions => {
+  getCardsData = (
+    questions,
+    users,
+  ) => {
+    return questions.map(
+      question => {
 
+        const user = Object.values(users).find(
+          user => user.id === question.author
+        );
+
+        if(
+          !user
+        ) {
+          return undefined;
+        }
+
+        const {
+          avatarURL,
+          name,
+        } = user;
+
+        return {
+          color: '#ffffff',
+          avatarURL,
+          name,
+          isAnswered: this.getIsAnswered(question.id),
+          percentages: this.getPercentages(
+            question.optionOne.votes.length,
+            question.optionTwo.votes.length,
+          ),
+          options: [
+            question.optionOne.text,
+            question.optionTwo.text,
+          ],
+        }
+      }
+    ).filter(
+      card => this.handleAnswerFilters(card)
+    );
+  }
+
+  sortCardsData = questions => {
+    //TODO: answered is already in questions. refactor
     const answered = questions.filter(
       question => this.getIsAnswered(question.id)
     );
@@ -123,54 +165,20 @@ class Home extends React.Component {
 
   }
 
-
   render() {
 
       const { users } = this.props;
 
       const questions = Object.values(this.props.questions);
-      // TODO: test method, remove after test
-      this.sortCardsData(questions);
 
-      // TODO: this should be method
       const cardsData = ! questions.length
       ? []
-      : questions.map(
-        question => {
-
-          const user = Object.values(users).find(
-            user => user.id === question.author
-          );
-  
-          if(
-            !user
-          ) {
-            return undefined;
-          }
-  
-          const {
-            avatarURL,
-            name,
-          } = user;
-  
-          return {
-            color: '#ffffff',
-            avatarURL,
-            name,
-            isAnswered: this.getIsAnswered(question.id),
-            percentages: this.getPercentages(
-              question.optionOne.votes.length,
-              question.optionTwo.votes.length,
-            ),
-            options: [
-              question.optionOne.text,
-              question.optionTwo.text,
-            ],
-          }
-        }
-      ).filter(
-          card => this.handleAnswerFilters(card)
+      : this.getCardsData(
+        questions,
+        users,
       );
+      // TODO: test method, remove after test
+      this.sortCardsData(questions);
 
       return (
           <div className="home">
