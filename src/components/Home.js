@@ -101,11 +101,36 @@ class Home extends React.Component {
 
   }
 
+  sortCardsData = questions => {
+
+    const answered = questions.filter(
+      question => this.getIsAnswered(question.id)
+    );
+
+    const notAnswered = questions.filter(
+      question => ! this.getIsAnswered(question.id)
+    );
+    // The answer are sorted chronologically from newest to oldest.
+    // notAnswered first are displayed first than answered.
+    return [
+      ...notAnswered.sort(
+        (x, y) => y.timestamp - x.timestamp
+      ),
+      ...answered.sort(
+        (x, y) => y.timestamp - x.timestamp
+      ),
+    ];
+
+  }
+
+
   render() {
 
       const { users } = this.props;
 
       const questions = Object.values(this.props.questions);
+      // TODO: test method, remove after test
+      this.sortCardsData(questions);
 
       // TODO: this should be method
       const cardsData = ! questions.length
@@ -113,8 +138,6 @@ class Home extends React.Component {
       : questions.map(
         question => {
 
-          console.log({question})
-  
           const user = Object.values(users).find(
             user => user.id === question.author
           );
