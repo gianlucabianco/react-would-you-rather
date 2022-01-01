@@ -12,8 +12,8 @@ class Home extends React.Component {
   };
 
   getPercentages = (
-      optionOneVotes,
-      optionTwoVotes
+    optionOneVotes,
+    optionTwoVotes,
   ) => {
 
     const totalVotes = optionOneVotes + optionTwoVotes;
@@ -38,7 +38,9 @@ class Home extends React.Component {
       this.props.users[this.props.authUser].answers
     );
 
-    return !! userAnswers.find(answer => answer === questionID);
+    return !! userAnswers.find(
+      answer => answer === questionID
+    );
 
   }
 
@@ -144,14 +146,15 @@ class Home extends React.Component {
   }
 
   sortCardsData = questions => {
-    //TODO: answered is already in questions. refactor
+
     const answered = questions.filter(
-      question => this.getIsAnswered(question.id)
+      question => question.isAnswered
     );
 
     const notAnswered = questions.filter(
-      question => ! this.getIsAnswered(question.id)
+      question => ! question.isAnswered
     );
+
     // The answer are sorted chronologically from newest to oldest.
     // notAnswered first are displayed first than answered.
     return [
@@ -173,12 +176,12 @@ class Home extends React.Component {
 
       const cardsData = ! questions.length
       ? []
-      : this.getCardsData(
-        questions,
-        users,
-      );
-      // TODO: test method, remove after test
-      this.sortCardsData(questions);
+      : this.sortCardsData(
+          this.getCardsData(
+            questions,
+            users,
+          )
+        );
 
       return (
           <div className="home">
@@ -188,7 +191,7 @@ class Home extends React.Component {
               onToggleAnswered={this.onToggleAnswered}
               onToggleNotAnswered={this.onToggleNotAnswered}
             />
-            {/* TODO: sort cardsData: notAnswered first, newly first */}
+            {/* TODO: cardsData.map should be component? */}
             {
                 cardsData.map(
                   (card, index) => <PollCard
