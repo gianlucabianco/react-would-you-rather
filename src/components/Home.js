@@ -191,7 +191,6 @@ class Home extends React.Component {
               onToggleAnswered={this.onToggleAnswered}
               onToggleNotAnswered={this.onToggleNotAnswered}
             />
-            {/* TODO: cardsData.map should be component? */}
             {
                 cardsData.map(
                   (card, index) => <PollCard
