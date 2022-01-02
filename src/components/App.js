@@ -12,6 +12,7 @@ import Home from './Home.js';
 import AuthWrapper from './AuthWrapper';
 import Leaderboard from './Leaderboard';
 import AddQuestion from './AddQuestion';
+import QuestionPage from './QuestionPage';
 import ErrorPage from './ErrorPage';
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/leaderboard" component={Leaderboard} />
                 <Route path="/add" component={AddQuestion} />
+                <Route path="/questions/:question_id" component={QuestionPage} />
                 <Route component={ErrorPage} />
               </Switch>
             }
