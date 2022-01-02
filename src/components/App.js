@@ -39,7 +39,7 @@ class App extends Component {
             onLogout={() => this.handleLogout()}
           />
           <div
-            className="poll-card-container"
+            className={`layout-container ${authUser ? 'is-user-logged-in' : ''}`}
           >
             {
               ! authUser
