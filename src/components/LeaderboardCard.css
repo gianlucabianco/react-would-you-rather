@@ -57,6 +57,18 @@
     font-weight: bold;
 }
 
+.leaderboard-tag.first-place {
+    background-color: #FFDE3A;
+}
+
+.leaderboard-tag.second-place {
+    background-color: #C4E8FC;
+}
+
+.leaderboard-tag.third-place {
+    background-color: #FFC4C4;
+}
+
 .leaderboard-right-content {
     display: flex;
     flex-direction: column;
@@ -81,6 +93,6 @@
     height: 36px;
     width: 120px;
     font-weight: 600;
-    background-color: #ffc0cb;
+    background-color: #c0ffd6;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
