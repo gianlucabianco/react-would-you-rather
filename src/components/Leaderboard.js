@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 // import './Leaderboard.css'; // TODO: rules
 
+import LeaderboardCard from './LeaderboardCard';
+
 class Leaderboard extends React.Component {
     render() {
 
@@ -28,47 +30,18 @@ class Leaderboard extends React.Component {
 
         return (
             <div className="leaderboard">
+                {/* TODO: spacing / rules */}
                 <h1>Leaderboard</h1>
-                {/* TODO: implement leaderboard UI */}
                 {
                     usersScoring.map(
-                        user => <div
+                        user => <LeaderboardCard
+                            name={user.name}
+                            avatarURL={user.avatarURL}
+                            scoreAnsered={user.scoreAnsered}
+                            scoreAsked={user.scoreAsked}
+                            totalScore={user.totalScore}
                             key={user.id}
-                        >
-                            <div>
-                                <div>
-                                    <img
-                                        src={user.avatarURL}
-                                        alt={user.name}
-                                    />
-                                </div>
-                                <div>
-                                    <div>
-                                        Name: {user.name}
-                                    </div>
-                                    <div>
-                                        Number of answer: {user.scoreAnsered}
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div>
-                                        Number of questions: {user.scoreAsked}
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <div style={{fontWeight: '800'}}>
-                                        Total score: {user.scoreAnsered + user.scoreAsked}
-                                    </div>
-                                </div>
-                            </div>
-                            <div style={{margin: '16px 0'}}>
-                                ---
-                            </div>
-                        </div>
+                        />
                     )
                 }
             </div>
