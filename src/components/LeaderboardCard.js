@@ -31,15 +31,16 @@ class LeaderboardCard extends React.Component {
                             <span>3</span> place
                         </div>
                     </div>
-                    <div className="leaderboard-right-bottom">
+                    <div className="leaderboard-right-content">
                         <span>
                             Number of answer: {scoreAnsered}
                         </span>
                         <span>
                             Number of questions: {scoreAsked}
                         </span>
-                        {/* TODO: this should be styled via css only */}
-                        <span style={{fontWeight: '800'}}>
+                    </div>
+                    <div className="leaderboard-right-bottom">
+                        <span>
                             Total score: {totalScore}
                         </span>
                     </div>
