@@ -1,0 +1,69 @@
+.leaderboard-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    width: 640px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 48px;
+    margin: 32px;
+}
+
+.leaderboard-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 190px;
+}
+
+.leaderboard-left span {
+    font-size: 20px;
+    color: #000;
+}
+
+.leaderboard-right {
+    height: 100%;
+    width: 320px;
+}
+
+.leaderboard-right-top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+
+.leaderboard-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    padding: 8px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: lightblue;
+}
+
+.leaderboard-tag span {
+    margin-right: 8px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.leaderboard-right-bottom {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 0 32px 32px;
+    font-size: 20px;
+}
+
+.leaderboard-right-bottom span {
+    margin: 8px 0;
+}
