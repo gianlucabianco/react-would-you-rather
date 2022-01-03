@@ -86,7 +86,6 @@ class AuthWrapper extends React.Component {
     render() {
 
         const {
-            userId,
             userNameError,
             passwordError,
         } = this.state;
