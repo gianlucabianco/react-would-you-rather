@@ -67,7 +67,7 @@ class NavBar extends React.Component {
                                     Sign in
                                 </li>
                             </NavLink>
-                            : <a>
+                            : <a href='/'>
                                 <li onClick={ this.onLogout } >
                                     <SignOutButton
                                         isLoggedIn={ isLoggedIn }
