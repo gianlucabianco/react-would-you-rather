@@ -12,6 +12,7 @@ class LeaderboardCard extends React.Component {
             scoreAnsered,
             scoreAsked,
             totalScore,
+            placing,
         } = this.props;
 
         return (
@@ -26,10 +27,20 @@ class LeaderboardCard extends React.Component {
                 </div>
                 <div className="leaderboard-right">
                     <div className="leaderboard-right-top">
-                    {/* TODO: handle rendering condition and dynamic className for placing (index + 1) */}
-                        <div className="leaderboard-tag">
-                            <span>3</span> place
-                        </div>
+                        {
+                            placing < 4 && (
+                                <div className={
+                                    `
+                                        leaderboard-tag
+                                        ${placing === 1 ? 'first-place' : ''}
+                                        ${placing === 2 ? 'second-place' : ''}
+                                        ${placing === 3 ? 'third-place' : ''}
+                                    `
+                                }>
+                                    <span>{placing}</span> place
+                                </div>
+                            )
+                        }
                     </div>
                     <div className="leaderboard-right-content">
                         <span>
