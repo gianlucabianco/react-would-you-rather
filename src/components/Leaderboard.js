@@ -22,6 +22,8 @@ class Leaderboard extends React.Component {
                     totalScore: scoreAnsered + scoreAsked, 
                 }
             }
+        ).sort(
+            (x, y) => y.totalScore - x.totalScore
         );
 
         return (
