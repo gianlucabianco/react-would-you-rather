@@ -45,14 +45,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
+    width: 112px;
     padding: 8px 0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     background-color: lightblue;
 }
 
 .leaderboard-tag span {
-    margin-right: 8px;
+    margin-right: 16px;
     font-size: 24px;
     font-weight: bold;
 }
