@@ -7,8 +7,8 @@
     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
-.poll-button__left,
-.poll-button__right {
+.poll-button-left,
+.poll-button-right {
     height: 100%;
     min-width: 10%;
     max-width: 90%;
@@ -20,7 +20,7 @@
     background-color: #fbdfb6;
 }
 
-.poll-button__cta {
+.poll-button-cta {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -30,6 +30,6 @@
     transition: ease-in-out 0.3s;
 }
 
-.poll-button__cta:hover {
+.poll-button-cta:hover {
     background-color: #fcb64d;
 }
