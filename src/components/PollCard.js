@@ -36,7 +36,7 @@ class PollCard extends React.Component {
                 }
             >
                 <div
-                    className={'poll-card__left'}
+                    className={'poll-card-left'}
                 >
                     <Avatar
                         url={ url }
@@ -47,7 +47,7 @@ class PollCard extends React.Component {
                     </p>
                 </div>
                 <div
-                    className={'poll-card__right'}
+                    className={'poll-card-right'}
                 >
                     <span>Would you rather!</span>
                     <div
