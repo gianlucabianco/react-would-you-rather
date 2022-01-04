@@ -29,7 +29,7 @@ class PollButton extends Component {
         return (
             <div className="poll-button">
                 <div
-                    className="poll-button__left"
+                    className="poll-button-left"
                     style={
                         {
                             width: `${ leftPerc }%`,
@@ -42,7 +42,7 @@ class PollButton extends Component {
                     }
                 </div>
                 <div
-                    className="poll-button__right"
+                    className="poll-button-right"
                     style={
                         {
                             width: `${ rightPerc }%`,
@@ -57,7 +57,7 @@ class PollButton extends Component {
                 {
                     ! isRevealed && (
                         <div
-                            className="poll-button__cta"
+                            className="poll-button-cta"
                             onClick={
                                 () => {
                                     this.mockMethod(
