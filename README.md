@@ -70,7 +70,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <!--
-    TODO: validation on auth form inputs
     TODO: handle the login component height
     TODO: export components as default when possible
     TODO: design the signup/signin flow/UI
