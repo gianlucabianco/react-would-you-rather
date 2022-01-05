@@ -69,7 +69,7 @@ class PollCard extends React.Component {
                         className={'poll-button-wrapper'}
                     >
                         <PollButton
-                            isRevealed={ isAnswered }
+                            isAnswered={ isAnswered }
                             percentages={ percentages }
                         />
                     </div>
