@@ -70,7 +70,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <!--
-    TODO: poll card container should be component with its own BL
     TODO: make an input component with error text field and test pattern passed from parent component
     TODO: validation on auth form inputs
     TODO: handle the login component height
