@@ -17,7 +17,7 @@ class PollButton extends Component {
     render() {
 
         const {
-            isRevealed,
+            isAnswered,
             percentages,
         } = this.props;
 
@@ -33,12 +33,12 @@ class PollButton extends Component {
                     style={
                         {
                             width: `${ leftPerc }%`,
-                            backgroundColor: isRevealed ? '#adcdd8' : '',
+                            backgroundColor: isAnswered ? '#adcdd8' : '',
                         }
                     }
                 >
                     {
-                        isRevealed ? `${leftPerc}%` : ''
+                        isAnswered ? `${leftPerc}%` : ''
                     }
                 </div>
                 <div
@@ -46,31 +46,31 @@ class PollButton extends Component {
                     style={
                         {
                             width: `${ rightPerc }%`,
-                            backgroundColor: isRevealed ? '#ffcfd1' : '',
+                            backgroundColor: isAnswered ? '#ffcfd1' : '',
                         }
                     }
                 >
                     {
-                        isRevealed ? `${rightPerc}%` : ''
+                        isAnswered ? `${rightPerc}%` : ''
                     }
                 </div>
                 {
-                    ! isRevealed && (
+                    ! isAnswered && (
                         <div
                             className="poll-button-cta"
                             onClick={
                                 () => {
                                     this.mockMethod(
                                         {
-                                            msg: 'ciao',
-                                            isRevealed,
+                                            msg: 'TODO: handle answer question',
+                                            isAnswered,
                                             percentages,
                                         }
                                     )
                                 }
                             }
                         >
-                            <span>View poll</span>
+                            <span>Answer question</span>
                         </div>
                     )
                 }
@@ -82,7 +82,7 @@ class PollButton extends Component {
 };
 
 PollButton.propTypes = {
-    isRevealed: PropTypes.bool.isRequired,
+    isAnswered: PropTypes.bool.isRequired,
     percentages: PropTypes.arrayOf( PropTypes.number ),
 };
 
