@@ -20,6 +20,7 @@ class PollCard extends React.Component {
             isAnswered,
             percentages,
             options,
+            isAnswerPage,
         } = this.props;
 
         const [
