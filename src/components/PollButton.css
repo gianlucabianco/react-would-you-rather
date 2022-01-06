@@ -7,6 +7,11 @@
     box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
 }
 
+.poll-button a {
+    color: #000000;
+    text-decoration: none;
+}
+
 .poll-button-left,
 .poll-button-right {
     height: 100%;
