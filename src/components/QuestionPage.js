@@ -77,7 +77,7 @@ class QuestionPage extends React.Component {
             color: '#ffffff',
             avatarURL,
             name,
-            isAnswered: this.getIsAnswered(question.id),
+            isAnswered: this.getIsAnswered(pageId),
             percentages: this.getPercentages(
                 question.optionOne.votes.length,
                 question.optionTwo.votes.length,
@@ -122,6 +122,7 @@ class QuestionPage extends React.Component {
                 percentages={percentages}
                 options={options}
                 isAnswerPage={isAnswerPage}
+                questionId={pageId}
             />
         );
     }
