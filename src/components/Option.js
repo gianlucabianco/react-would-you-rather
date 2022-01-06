@@ -21,12 +21,8 @@ class Option extends React.Component {
                     }    
                 }
             >
-                <p>
-                    {content}
-                </p>
-                <div
-                    className={'option-overlay'}
-                />
+                <p>{content}</p>
+                <div className={'option-overlay'} />
             </div>
         );
 
