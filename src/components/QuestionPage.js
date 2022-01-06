@@ -111,6 +111,8 @@ class QuestionPage extends React.Component {
             options,
         } = cardData;
 
+        const isAnswerPage = this.props.location.pathname.includes('/questions/');
+
         return (
             <PollCard
                 color={color}
@@ -119,6 +121,7 @@ class QuestionPage extends React.Component {
                 isAnswered={isAnswered}
                 percentages={percentages}
                 options={options}
+                isAnswerPage={isAnswerPage}
             />
         );
     }
