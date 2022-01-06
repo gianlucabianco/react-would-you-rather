@@ -10,6 +10,16 @@ import CardLabel from './CardLabel.js';
 
 class PollCard extends React.Component {
 
+    state = {
+        selectedOption: '', // TODO: 'optionOne' or 'optionTwo'
+    };
+
+    onOptionClick = option => {
+        this.setState({
+            selectedOption: option,
+        });
+    };
+
     render() {
 
         const {
@@ -21,12 +31,18 @@ class PollCard extends React.Component {
             percentages,
             options,
             isAnswerPage,
+            userId,
         } = this.props;
 
         const [
             firstOption,
             secondOption,
         ] = options;
+
+        // TODO: handle this.state.selectedOption
+        const { selectedOption } = this.state; 
+        // TODO: handle isAnswered
+        // TODO: handle userId
 
         return (
             <div
@@ -59,17 +75,20 @@ class PollCard extends React.Component {
                             content={ firstOption }
                             color={ '#5ab2d2' }
                             key={firstOption}
+                            onOptionClick={() => this.onOptionClick('optionOne')}
                         />
                         <p>OR</p>
                         <Option
                             content={ secondOption }
                             color={ '#ff9a9e' }
                             key={secondOption}
+                            onOptionClick={() => this.onOptionClick('optionTwo')}
                         />
                     </div>
                     <div
                         className={'poll-button-wrapper'}
                     >
+                    {/* TODO: handle answer sumission && UI */}
                         <PollButton
                             isAnswered={ isAnswered }
                             percentages={ percentages }
