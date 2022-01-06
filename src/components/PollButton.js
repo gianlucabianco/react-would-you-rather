@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './PollButton.css';
 
+import { NavLink } from 'react-router-dom';
+
 class PollButton extends Component {
     
 
@@ -19,6 +21,7 @@ class PollButton extends Component {
         const {
             isAnswered,
             percentages,
+            questionId,
         } = this.props;
 
         const [
@@ -37,9 +40,7 @@ class PollButton extends Component {
                         }
                     }
                 >
-                    {
-                        isAnswered ? `${leftPerc}%` : ''
-                    }
+                    { isAnswered ? `${leftPerc}%` : '' }
                 </div>
                 <div
                     className="poll-button-right"
@@ -50,28 +51,13 @@ class PollButton extends Component {
                         }
                     }
                 >
-                    {
-                        isAnswered ? `${rightPerc}%` : ''
-                    }
+                    { isAnswered ? `${rightPerc}%` : '' }
                 </div>
                 {
                     ! isAnswered && (
-                        <div
-                            className="poll-button-cta"
-                            onClick={
-                                () => {
-                                    this.mockMethod(
-                                        {
-                                            msg: 'TODO: handle answer question',
-                                            isAnswered,
-                                            percentages,
-                                        }
-                                    )
-                                }
-                            }
-                        >
+                        <NavLink className="poll-button-cta" to={`/questions/${questionId}`}>
                             <span>Answer question</span>
-                        </div>
+                        </NavLink>
                     )
                 }
             </div>
