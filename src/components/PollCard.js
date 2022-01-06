@@ -16,6 +16,7 @@ class PollCard extends React.Component {
             color,
             url,
             name,
+            questionId,
             isAnswered,
             percentages,
             options,
@@ -71,6 +72,7 @@ class PollCard extends React.Component {
                         <PollButton
                             isAnswered={ isAnswered }
                             percentages={ percentages }
+                            questionId={ questionId }
                         />
                     </div>
                 </div>
