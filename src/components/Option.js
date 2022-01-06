@@ -5,6 +5,10 @@ import './Option.css';
 
 class Option extends React.Component {
 
+    onOptionClick = () => {
+        this.props.onOptionClick(this.props.option);
+    };
+
     render() {
 
         const {
@@ -22,7 +26,10 @@ class Option extends React.Component {
                 }
             >
                 <p>{content}</p>
-                <div className={'option-overlay'} />
+                <div
+                    className={'option-overlay'}
+                    onClick={this.onOptionClick}
+                />
             </div>
         );
 
