@@ -91,7 +91,7 @@ class AuthWrapper extends React.Component {
         } = this.state;
 
         const { users } = this.props;
-        
+
         const pathName = this.props.location.pathname;
 
         return (
