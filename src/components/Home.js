@@ -129,6 +129,7 @@ class Home extends React.Component {
           color: '#ffffff',
           avatarURL,
           name,
+          questionId: question.id,
           isAnswered: this.getIsAnswered(question.id),
           percentages: this.getPercentages(
             question.optionOne.votes.length,
@@ -200,6 +201,7 @@ class Home extends React.Component {
                     isAnswered={card.isAnswered}
                     percentages={card.percentages}
                     options={card.options}
+                    questionId={card.questionId}
                     key={card.name + index}
                   />
                 )
