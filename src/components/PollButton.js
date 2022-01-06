@@ -29,29 +29,37 @@ class PollButton extends Component {
             rightPerc,
         ] = percentages;
 
+        const pollButtonLeftStyle = {
+            width: `${ leftPerc }%`,
+            backgroundColor: isAnswered ? '#adcdd8' : '',
+        };
+
+        const pollButtonRightStyle = {
+            width: `${ rightPerc }%`,
+            backgroundColor: isAnswered ? '#ffcfd1' : '',
+        };
+        
+        const pollButtonLeftCta = isAnswered
+            ? `${leftPerc}%`
+            : '';
+
+        const pollButtonRightCta = isAnswered
+            ? `${rightPerc}%`
+            : '';
+
         return (
             <div className="poll-button">
                 <div
                     className="poll-button-left"
-                    style={
-                        {
-                            width: `${ leftPerc }%`,
-                            backgroundColor: isAnswered ? '#adcdd8' : '',
-                        }
-                    }
+                    style={ pollButtonLeftStyle }
                 >
-                    { isAnswered ? `${leftPerc}%` : '' }
+                    { pollButtonLeftCta }
                 </div>
                 <div
                     className="poll-button-right"
-                    style={
-                        {
-                            width: `${ rightPerc }%`,
-                            backgroundColor: isAnswered ? '#ffcfd1' : '',
-                        }
-                    }
+                    style={ pollButtonRightStyle }
                 >
-                    { isAnswered ? `${rightPerc}%` : '' }
+                    { pollButtonRightCta }
                 </div>
                 {
                     ! isAnswered && (
