@@ -123,6 +123,7 @@ class QuestionPage extends React.Component {
                 options={options}
                 isAnswerPage={isAnswerPage}
                 questionId={pageId}
+                userId={this.props.authUser}
             />
         );
     }
