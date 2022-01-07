@@ -97,6 +97,7 @@ class PollCard extends React.Component {
                             isAnswered={ isAnswered }
                             percentages={ percentages }
                             questionId={ questionId }
+                            isAnswerPage={ isAnswerPage }
                         />
                     </div>
                 </div>
