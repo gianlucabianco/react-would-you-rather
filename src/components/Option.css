@@ -14,7 +14,6 @@
     position: absolute;
     height: 200px;
     width: 200px;
-    background-color: white;
     opacity: 0;
     transition: ease-in-out 0.3s;
 }
