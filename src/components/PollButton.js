@@ -64,7 +64,7 @@ class PollButton extends Component {
                 {
                     ! isAnswered && (
                         <NavLink className="poll-button-cta" to={`/questions/${questionId}`}>
-                            <span>Answer question</span>
+                            <span>Answer</span>
                         </NavLink>
                     )
                 }
