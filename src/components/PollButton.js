@@ -22,6 +22,7 @@ class PollButton extends Component {
             isAnswered,
             percentages,
             questionId,
+            isAnswerPage,
         } = this.props;
 
         const [
@@ -62,8 +63,32 @@ class PollButton extends Component {
                     { pollButtonRightCta }
                 </div>
                 {
-                    ! isAnswered && (
-                        <NavLink className="poll-button-cta" to={`/questions/${questionId}`}>
+                    ! isAnswered
+                    && (
+                        isAnswerPage
+                        ? <NavLink
+                            className="poll-button-cta"
+                            // TODO: maybe the redirect should be handled by the parent component
+                            to={'/'}
+                            onClick={
+                                () => {
+                                    this.mockMethod(
+                                        {
+                                            msg: 'TODO: handle answer question',
+                                            isAnswered,
+                                            isAnswerPage,
+                                            percentages,
+                                        }
+                                    )
+                                }
+                            }
+                        >
+                            <span>Answer</span>
+                        </NavLink>
+                        : <NavLink
+                            className="poll-button-cta"
+                            to={`/questions/${questionId}`}
+                        >
                             <span>Answer</span>
                         </NavLink>
                     )
