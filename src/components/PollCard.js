@@ -74,15 +74,19 @@ class PollCard extends React.Component {
                         <Option
                             content={ firstOption }
                             color={ '#5ab2d2' }
+                            isAnswerPage={ isAnswerPage }
+                            isSelected={ selectedOption === 'optionOne' }
                             key={ firstOption }
-                            onOptionClick={() => isAnswerPage && this.onOptionClick('optionOne')}
+                            onOptionClick={() => this.onOptionClick('optionOne')}
                         />
                         <p>OR</p>
                         <Option
                             content={ secondOption }
                             color={ '#ff9a9e' }
+                            isAnswerPage={ isAnswerPage }
+                            isSelected={ selectedOption === 'optionTwo' }
                             key={ secondOption }
-                            onOptionClick={() => isAnswerPage && this.onOptionClick('optionTwo')}
+                            onOptionClick={() => this.onOptionClick('optionTwo')}
                         />
                     </div>
                     <div
