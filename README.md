@@ -78,7 +78,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: add pagination to answers main page
     TODO: UI fixes
     TODO: make css names classes consistent
-    TODO: debounce
     TODO: routing
     TODO: error page
     TODO: check if every component has proptypes
