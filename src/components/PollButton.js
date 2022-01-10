@@ -6,14 +6,10 @@ import './PollButton.css';
 import { NavLink } from 'react-router-dom';
 
 class PollButton extends Component {
-    
 
-    mockMethod = args => {
-        console.log(
-            {
-                ...args,
-            }
-        )
+    onSubmitAnswer = () => {
+        console.log({propsButton: this.props})
+        this.props.onSubmitAnswer();
     }
 
     render() {
@@ -66,25 +62,12 @@ class PollButton extends Component {
                     ! isAnswered
                     && (
                         isAnswerPage
-                        ? <NavLink
+                        ? <div
                             className="poll-button-cta"
-                            // TODO: maybe the redirect should be handled by the parent component
-                            to={'/'}
-                            onClick={
-                                () => {
-                                    this.mockMethod(
-                                        {
-                                            msg: 'TODO: handle answer question',
-                                            isAnswered,
-                                            isAnswerPage,
-                                            percentages,
-                                        }
-                                    )
-                                }
-                            }
+                            onClick={this.onSubmitAnswer}
                         >
                             <span>Answer</span>
-                        </NavLink>
+                        </div>
                         : <NavLink
                             className="poll-button-cta"
                             to={`/questions/${questionId}`}
