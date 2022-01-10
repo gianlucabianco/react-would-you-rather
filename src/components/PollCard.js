@@ -20,6 +20,12 @@ class PollCard extends React.Component {
         });
     };
 
+    onSubmitAnswer = () => {
+        console.log({parentProps: this.props, parentState: this.state});
+        // dispatch the question
+        // redirect to home page
+    };
+
     render() {
 
         const {
@@ -98,6 +104,7 @@ class PollCard extends React.Component {
                             percentages={ percentages }
                             questionId={ questionId }
                             isAnswerPage={ isAnswerPage }
+                            onSubmitAnswer={ this.onSubmitAnswer }
                         />
                     </div>
                 </div>
