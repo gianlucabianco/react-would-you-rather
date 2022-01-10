@@ -21,6 +21,7 @@ class PollCard extends React.Component {
     };
 
     onSubmitAnswer = () => {
+        // TODO: handle answer submission, remove log after test
         console.log({parentProps: this.props, parentState: this.state});
         // dispatch the question
         // redirect to home page
