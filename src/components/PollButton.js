@@ -85,7 +85,9 @@ class PollButton extends Component {
 
 PollButton.propTypes = {
     isAnswered: PropTypes.bool.isRequired,
+    isAnswerPage: PropTypes.bool,
     percentages: PropTypes.arrayOf( PropTypes.number ),
+    questionId: PropTypes.string.isRequired,
 };
 
 export default PollButton;
