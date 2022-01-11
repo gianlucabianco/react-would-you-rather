@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './PollCard.css';
+
+import { handleSaveQuestionAnswer } from '../actions/users';
 
 import Option from './Option.js';
 import Avatar from './Avatar.js';
@@ -11,7 +14,7 @@ import CardLabel from './CardLabel.js';
 class PollCard extends React.Component {
 
     state = {
-        selectedOption: '', // TODO: 'optionOne' or 'optionTwo'
+        selectedOption: '',
     };
 
     onOptionClick = option => {
@@ -21,10 +24,33 @@ class PollCard extends React.Component {
     };
 
     onSubmitAnswer = () => {
-        // TODO: handle answer submission, remove log after test
-        console.log({parentProps: this.props, parentState: this.state});
-        // dispatch the question
-        // redirect to home page
+
+        if( this.state.selectedOption ) {
+            const {
+                authUser,
+                questionId,
+                handleSaveQuestionAnswer,
+            } = this.props;
+
+            try {
+                handleSaveQuestionAnswer(
+                    authUser,
+                    questionId,
+                    this.state.selectedOption,
+                );
+
+                this.props.history.push('/');
+
+            } catch ( error ) {
+                console.error(
+                    {
+                        error,
+                    }
+                );
+            }
+
+        }
+
     };
 
     render() {
@@ -38,7 +64,6 @@ class PollCard extends React.Component {
             percentages,
             options,
             isAnswerPage,
-            userId,
         } = this.props;
 
         const [
@@ -46,10 +71,9 @@ class PollCard extends React.Component {
             secondOption,
         ] = options;
 
-        // TODO: handle this.state.selectedOption
-        const { selectedOption } = this.state; 
-        // TODO: handle isAnswered
-        // TODO: handle userId
+        const {
+            selectedOption,
+        } = this.state; 
 
         return (
             <div
@@ -99,7 +123,6 @@ class PollCard extends React.Component {
                     <div
                         className={'poll-button-wrapper'}
                     >
-                    {/* TODO: handle answer sumission && UI */}
                         <PollButton
                             isAnswered={ isAnswered }
                             percentages={ percentages }
@@ -126,4 +149,15 @@ PollCard.propTypes = {
     options: PropTypes.arrayOf( PropTypes.string ),
 };
 
-export default PollCard;
+function mapStateToProps(
+    { authUser },
+) {
+    return {
+        authUser
+    };
+}
+  
+export default connect(
+    mapStateToProps,
+    { handleSaveQuestionAnswer },
+)(PollCard);
