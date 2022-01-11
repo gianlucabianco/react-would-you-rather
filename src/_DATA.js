@@ -1,8 +1,6 @@
 /*
   This is the Udacity starter code.
-  It has be moved into two separate folders and splitted into modules:
-  - users, questions: src/DB
-  - functions: src/API
+  The only change to the original file are the avatarURLs.
 */
 
 let users = {
