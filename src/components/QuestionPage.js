@@ -124,6 +124,7 @@ class QuestionPage extends React.Component {
                 isAnswerPage={isAnswerPage}
                 questionId={pageId}
                 userId={this.props.authUser}
+                history={this.props.history}
             />
         );
     }
