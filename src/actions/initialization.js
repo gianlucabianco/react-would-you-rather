@@ -5,15 +5,15 @@ import { getUsers } from './users.js';
 export function handleInitializationData() {
   return dispatch => {
     return initializeData().then(
-        (
-            {
-                users,
-                questions,
-            }
-        ) => {
-            dispatch( getQuestions( questions ) );
-            dispatch( getUsers( users ) );
-        }
+      (
+          {
+              users,
+              questions,
+          }
+      ) => {
+          dispatch( getQuestions( questions ) );
+          dispatch( getUsers( users ) );
+      }
     );
   };
 }
