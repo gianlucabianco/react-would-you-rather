@@ -115,7 +115,7 @@ class Signin extends React.Component {
                             backgroundColor: '#bdbdbd',
                             color: '#fffm',
                             border: '1px solid #bdbdbdm',
-                            cursor: 'not-allowedm',
+                            cursor: 'not-allowed',
                         }
                         : {}
                     }
