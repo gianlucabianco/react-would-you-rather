@@ -36,7 +36,13 @@ class AddQuestion extends React.Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log({TODO: 'handle onSubmit, take the right data to handle redux', optionOne: this.state.optionOne, optionTwo: this.state.optionTwo});
+        console.log(
+            {
+                TODO: 'handle onSubmit, take the right data to handle redux',
+                optionOne: this.state.optionOne,
+                optionTwo: this.state.optionTwo,
+            }
+        );
     };
 
     render() {
