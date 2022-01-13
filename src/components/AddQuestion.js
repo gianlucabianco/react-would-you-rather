@@ -50,6 +50,8 @@ class AddQuestion extends React.Component {
             optionTwoError,
         } = this.state;
 
+        const isSumbitDisabled = !optionOne || !optionTwo || optionOneError || optionTwoError;
+
         return (
             <div className="question-card">
                 <h1>Add Question</h1>
@@ -88,7 +90,7 @@ class AddQuestion extends React.Component {
                 <button
                     className="question-card-button"
                     style={
-                        (!optionOne || !optionTwo || optionOneError || optionTwoError)
+                        isSumbitDisabled
                         ? {
                             backgroundColor: '#bdbdbd',
                             color: '#fffm',
@@ -97,7 +99,7 @@ class AddQuestion extends React.Component {
                         }
                         : {}
                     }
-                    onClick={e => this.onSubmit(e)}
+                    onClick={e => !isSumbitDisabled && this.onSubmit(e)}
                 >
                     Submit
                 </button>
