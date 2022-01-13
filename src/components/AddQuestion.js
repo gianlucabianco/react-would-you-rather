@@ -87,6 +87,16 @@ class AddQuestion extends React.Component {
                 }
                 <button
                     className="question-card-button"
+                    style={
+                        (!optionOne || !optionTwo || optionOneError || optionTwoError)
+                        ? {
+                            backgroundColor: '#bdbdbd',
+                            color: '#fffm',
+                            border: '1px solid #bdbdbdm',
+                            cursor: 'not-allowed',
+                        }
+                        : {}
+                    }
                     onClick={e => this.onSubmit(e)}
                 >
                     Submit
