@@ -54,7 +54,10 @@ class AddQuestion extends React.Component {
             optionTwoError,
         } = this.state;
 
-        const isSumbitDisabled = !optionOne || !optionTwo || optionOneError || optionTwoError;
+        const isSumbitDisabled = !optionOne
+            || !optionTwo
+            || optionOneError
+            || optionTwoError;
 
         return (
             <div className="question-card">
