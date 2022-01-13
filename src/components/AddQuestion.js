@@ -20,7 +20,6 @@ class AddQuestion extends React.Component {
                     : false,
             }
         );
-        console.log({optionOne: this.state.optionOne});
     };
 
     handleOptionTwoInput = e => {
@@ -33,12 +32,11 @@ class AddQuestion extends React.Component {
                     : false,
             }
         );
-        console.log({optionTwo: this.state.optionTwo});
     };
 
     onSubmit = e => {
         e.preventDefault();
-        console.log({TODO: 'onSubmit'});
+        console.log({TODO: 'handle onSubmit, take the right data to handle redux', optionOne: this.state.optionOne, optionTwo: this.state.optionTwo});
     };
 
     render() {
