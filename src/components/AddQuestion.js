@@ -6,6 +6,8 @@ class AddQuestion extends React.Component {
     state = {
         optionOne: '',
         optionTwo: '',
+        optionOneError: false,
+        optionTwoError: false,
     };
 
     handleOptionOneInput = e => {
@@ -13,6 +15,9 @@ class AddQuestion extends React.Component {
         this.setState(
             {
                 optionOne: e.target.value,
+                optionOneError: e.target.value.length > 60
+                    ? true
+                    : false,
             }
         );
         console.log({optionOne: this.state.optionOne});
@@ -23,6 +28,9 @@ class AddQuestion extends React.Component {
         this.setState(
             {
                 optionTwo: e.target.value,
+                optionTwoError: e.target.value.length > 60
+                    ? true
+                    : false,
             }
         );
         console.log({optionTwo: this.state.optionTwo});
@@ -38,6 +46,8 @@ class AddQuestion extends React.Component {
         const {
             optionOne,
             optionTwo,
+            optionOneError,
+            optionTwoError,
         } = this.state;
 
         return (
@@ -51,6 +61,12 @@ class AddQuestion extends React.Component {
                     value={optionOne}
                     onChange={e => this.handleOptionOneInput(e)}
                 />
+                {
+                    optionOneError
+                    && <div className="input-error">
+                        <span>Questions can't contain more thand 60 characters</span>
+                    </div>
+                }
                 <div className="question-card-divider">
                     <div className='question-card-divider-line'/>
                     <span>OR</span>
@@ -63,6 +79,12 @@ class AddQuestion extends React.Component {
                     value={optionTwo}
                     onChange={e => this.handleOptionTwoInput(e)}
                 />
+                {
+                    optionTwoError
+                    && <div className="input-error">
+                        <span>Questions can't contain more thand 60 characters</span>
+                    </div>
+                }
                 <button
                     className="question-card-button"
                     onClick={e => this.onSubmit(e)}
