@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import './Leaderboard.css'; // TODO: rules
+
+import './Leaderboard.css';
 
 import LeaderboardCard from './LeaderboardCard';
 
@@ -30,7 +31,6 @@ class Leaderboard extends React.Component {
 
         return (
             <div className="leaderboard">
-                {/* TODO: spacing / rules */}
                 <h1>Leaderboard</h1>
                 {
                     usersScoring.map(
