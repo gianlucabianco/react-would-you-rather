@@ -16,6 +16,16 @@ class Home extends React.Component {
     optionTwoVotes,
   ) => {
 
+    if(
+      ! optionOneVotes
+      && ! optionTwoVotes
+    ) {
+      return [
+        50,
+        50,
+      ];
+    }
+
     const totalVotes = optionOneVotes + optionTwoVotes;
 
     const optionOnePercentage = Math.round(
