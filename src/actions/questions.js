@@ -1,4 +1,5 @@
 import { saveQuestion } from '../API/api';
+import { addQuestionToUser } from '../actions/users';
 
 export const GET_QUESTIONS = 'GET_QUESTIONS';
 export const ADD_ANSWER_TO_QUESTION = 'ADD_ANSWER_TO_QUESTION';
@@ -51,6 +52,11 @@ export function handleSaveQuestion(
       question => {
         dispatch(
           addQuestion(
+            question
+          )
+        );
+        dispatch(
+          addQuestionToUser(
             question
           )
         );
