@@ -1,6 +1,7 @@
 import {
   GET_USERS,
   ADD_ANSWER_TO_USER,
+  ADD_QUESTION_TO_USER,
 } from '../actions/users.js';
 
 export default function users(
@@ -28,6 +29,22 @@ export default function users(
             ...state[authUser].answers,
             [qid]: answer
           }
+        }
+      };
+    case ADD_QUESTION_TO_USER:
+      const {
+        id,
+        author,
+      } = action;
+
+      return {
+        ...state,
+        [author]: {
+          ...state[author],
+          questions: [
+            ...state[author].questions,
+            id,
+          ]
         }
       };
     default:
