@@ -8,8 +8,6 @@ import { NavLink } from 'react-router-dom';
 class PollButton extends Component {
 
     onSubmitAnswer = () => {
-        // TODO: remove log after test
-        console.log({propsButton: this.props})
         this.props.onSubmitAnswer();
     }
 
