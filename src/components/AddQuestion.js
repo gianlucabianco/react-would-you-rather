@@ -139,7 +139,11 @@ class AddQuestion extends React.Component {
                     }
                     onClick={e => !isSumbitDisabled && this.onSubmit(e)}
                 >
-                    Submit
+                    {
+                        ! isLoading
+                            ? <span>Submit</span>
+                            : <span className="loading">Loading</span>
+                    }
                 </button>
             </div>
         );
