@@ -1,6 +1,10 @@
 import React from 'react';
 import './AddQuestion.css';
 
+import { connect } from 'react-redux';
+
+import { handleSaveQuestion } from '../actions/questions';
+
 class AddQuestion extends React.Component {
 
     state = {
@@ -36,12 +40,20 @@ class AddQuestion extends React.Component {
 
     onSubmit = e => {
         e.preventDefault();
-        console.log(
-            {
-                TODO: 'handle onSubmit, take the right data to handle redux',
-                optionOne: this.state.optionOne,
-                optionTwo: this.state.optionTwo,
-            }
+        const {
+            authUser,
+            handleSaveQuestion,
+        } = this.props;
+
+        const {
+            optionOne,
+            optionTwo,
+        } = this.state;
+
+        handleSaveQuestion(
+            optionOne,
+            optionTwo,
+            authUser,
         );
     };
 
@@ -115,4 +127,15 @@ class AddQuestion extends React.Component {
     }
 }
 
-export default AddQuestion;
+function mapStateToProps(
+    { authUser },
+) {
+    return {
+        authUser
+    };
+}
+  
+export default connect(
+    mapStateToProps,
+    { handleSaveQuestion },
+)(AddQuestion);
