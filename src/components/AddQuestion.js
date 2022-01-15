@@ -12,6 +12,7 @@ class AddQuestion extends React.Component {
         optionTwo: '',
         optionOneError: false,
         optionTwoError: false,
+        isLoading: false,
     };
 
     handleOptionOneInput = e => {
@@ -43,6 +44,7 @@ class AddQuestion extends React.Component {
         const {
             authUser,
             handleSaveQuestion,
+            history,
         } = this.props;
 
         const {
@@ -50,11 +52,26 @@ class AddQuestion extends React.Component {
             optionTwo,
         } = this.state;
 
+        this.setState(
+            {
+                isLoading: true,
+            }
+        );
+
         handleSaveQuestion(
             optionOne,
             optionTwo,
             authUser,
+        ).then(
+            () => history.push('/')
+        ).catch(
+            () => this.setState(
+                {
+                    isLoading: false,
+                }
+            )
         );
+
     };
 
     render() {
@@ -64,12 +81,14 @@ class AddQuestion extends React.Component {
             optionTwo,
             optionOneError,
             optionTwoError,
+            isLoading,
         } = this.state;
 
         const isSumbitDisabled = !optionOne
             || !optionTwo
             || optionOneError
-            || optionTwoError;
+            || optionTwoError
+            || isLoading;
 
         return (
             <div className="question-card">
