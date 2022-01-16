@@ -15,14 +15,10 @@ class Signup extends React.Component {
         user => user.name
     );
 
-    // TODO: remove unused state
     state = {
-        // userId: '',
         userName: '',
         password: '',
         confirmPassword: '',
-        // userUrl: '',
-        // isSelectOpen: false,
         showPassword: false,
         userNameError: false,
         passwordError: false,
@@ -63,7 +59,9 @@ class Signup extends React.Component {
         this.setState(
             {
                 confirmPassword,
-                passwordError: password && confirmPassword && password !== confirmPassword
+                passwordError: password
+                    && confirmPassword
+                    && password !== confirmPassword
             }
         );
     };
@@ -102,8 +100,8 @@ class Signup extends React.Component {
         } = this.state;
 
         const isSumbitDisabled = !userName
-            || !password
-            || !confirmPassword
+            || ! password
+            || ! confirmPassword
             || passwordError
             || userNameError;
 
@@ -114,7 +112,7 @@ class Signup extends React.Component {
                     type="text"
                     placeholder="username"
                     value={userName}
-                    onChange={e => this.handleUserInput(e)}
+                    onChange={e => this.handleUserInput( e )}
                 />
                 {
                     userNameError
@@ -129,14 +127,14 @@ class Signup extends React.Component {
                     type={showPassword ? 'text' : 'password'}
                     placeholder="password"
                     value={password}
-                    onChange={e => this.onPasswordChange(e)}
+                    onChange={e => this.onPasswordChange( e )}
                 />
                 <input
                     className="signup-input"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="confirm password"
                     value={confirmPassword}
-                    onChange={e => this.onPasswordConfirmChange(e)}
+                    onChange={e => this.onPasswordConfirmChange( e )}
                 />
                 <div className="show-password">
                 {
@@ -160,7 +158,7 @@ class Signup extends React.Component {
                         }
                         : {}
                     }
-                    onClick={e => !isSumbitDisabled && this.onSignup(e)}
+                    onClick={e => !isSumbitDisabled && this.onSignup( e )}
                 >
                     Sign up
                 </button>
