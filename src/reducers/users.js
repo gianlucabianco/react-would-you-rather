@@ -2,6 +2,7 @@ import {
   GET_USERS,
   ADD_ANSWER_TO_USER,
   ADD_QUESTION_TO_USER,
+  ADD_NEW_USER,
 } from '../actions/users.js';
 
 export default function users(
@@ -47,6 +48,25 @@ export default function users(
           ]
         }
       };
+    case ADD_NEW_USER:
+      {
+        const {
+          id,
+          name,
+          avatarURL,
+        } = action;
+  
+        return {
+          ...state,
+          [id]: {
+            id,
+            name,
+            avatarURL,
+            answers: {},
+            questions: [],
+          }
+        };
+      }
     default:
       return state;
   }
