@@ -3,6 +3,8 @@ import {
   _saveQuestion,
   _saveQuestionAnswer,
   _getQuestions,
+  _addUser,
+  generateUID,
 } from '../_DATA';
 
 
@@ -52,4 +54,16 @@ export function saveQuestionAnswer(
       answer,
     }
   );
+}
+
+export function addUser(
+  user,
+) {
+  return _addUser(
+    user,
+  );
+}
+
+export function getRandomUID() {
+  return generateUID();
 }
