@@ -1,8 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import './Signup.css';
 
 class Signup extends React.Component {
+
+    getRegisteredUsers = (users) => Object.values(
+        users
+    ).map(
+        user => user.name
+    );
 
     state = {
         // userId: '',
@@ -18,35 +26,42 @@ class Signup extends React.Component {
 
     handleUserInput = e => {
         e.preventDefault();
+        const registeredUsers = this.getRegisteredUsers(this.props.users);
+        const userName = e.target.value;
+        const isUserNameAlreadyTaken = registeredUsers.includes(userName);
+
         this.setState(
             {
                 userName: e.target.value,
-                // TODO: handle userId && debounce
+                userNameError: isUserNameAlreadyTaken,
             }
         );
-        console.log({userName: this.state.userName});
     };
 
     onPasswordChange = e => {
         e.preventDefault();
+        const password = e.target.value;
+        const { confirmPassword } = this.state;
+
         this.setState(
             {
-                password: e.target.value,
+                password,
+                passwordError: password && confirmPassword && password !== confirmPassword
             }
         );
-
-        console.log({password: this.state.password});
     };
 
     onPasswordConfirmChange = e => {
         e.preventDefault();
+        const confirmPassword = e.target.value;
+        const { password } = this.state;
+
         this.setState(
             {
-                confirmPassword: e.target.value,
+                confirmPassword,
+                passwordError: password && confirmPassword && password !== confirmPassword
             }
         );
-
-        console.log({confirmPassword: this.state.confirmPassword});
     };
 
     togglePasswordVisibility = () => {
@@ -72,6 +87,13 @@ class Signup extends React.Component {
             userNameError,
             passwordError,
         } = this.state;
+
+        const isSumbitDisabled = !userName
+            || !password
+            || !confirmPassword
+            || passwordError
+            || userNameError;
+            // || isLoading; // TODO: handle isLoading if needed
 
         return (
             <div className="signup-form">
@@ -116,7 +138,17 @@ class Signup extends React.Component {
                 </div>
                 <button
                     className="signup-button"
-                    onClick={e => this.onSignup(e)}
+                    style={
+                        isSumbitDisabled
+                        ? {
+                            backgroundColor: '#bdbdbd',
+                            color: '#fffm',
+                            border: '1px solid #bdbdbdm',
+                            cursor: 'not-allowed',
+                        }
+                        : {}
+                    }
+                    onClick={e => !isSumbitDisabled && this.onSignup(e)}
                 >
                     Sign up
                 </button>
@@ -131,4 +163,14 @@ class Signup extends React.Component {
     };
 }
 
-export default Signup;
+function mapStateToProps(
+    { users },
+) {
+    return {
+        users
+    };
+}
+  
+export default connect(
+    mapStateToProps,
+)(Signup);
