@@ -1,9 +1,13 @@
-import { saveQuestionAnswer } from '../API/api';
+import {
+  saveQuestionAnswer,
+  addUser,
+} from '../API/api';
 import { addAnswerToQuestion } from '../actions/questions';
 
 export const GET_USERS = 'GET_USERS';
 export const ADD_ANSWER_TO_USER = 'ADD_ANSWER_TO_USER';
 export const ADD_QUESTION_TO_USER = 'ADD_QUESTION_TO_USER';
+export const ADD_NEW_USER = 'ADD_NEW_USER';
 
 export function getUsers(
   users,
@@ -65,6 +69,38 @@ export function handleSaveQuestionAnswer(
   };
 }
 
+export function addUserToUsers(
+  id,
+  name,
+) {
+
+  const user = {
+    id,
+    name,
+    avatarURL: `https://picsum.photos/id/10${ Math.floor( Math.random() * 25 ) }/200/300`,
+  }
+
+  return dispatch => {
+
+    dispatch(
+      addNewUser(
+        user
+      )
+    );
+
+    return addUser(
+        user
+    ).catch(e => {
+      console.error(
+        {
+          message: 'There is an error in handleSaveQuestionAnswer',
+          error: e,
+        }
+      )
+    });
+  };
+}
+
 export function addQuestionToUser(
   {
     id,
@@ -75,5 +111,20 @@ export function addQuestionToUser(
     type: ADD_QUESTION_TO_USER,
     id,
     author
+  };
+}
+
+export function addNewUser(
+  {
+    id,
+    name,
+    avatarURL,
+  }
+) {
+  return {
+    type: ADD_NEW_USER,
+    id,
+    name,
+    avatarURL,
   };
 }
