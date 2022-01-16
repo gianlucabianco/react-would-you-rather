@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { addUserToUsers } from '../actions/users';
+import { getRandomUID } from '../API/api';
+
 import './Signup.css';
 
 class Signup extends React.Component {
@@ -12,6 +15,7 @@ class Signup extends React.Component {
         user => user.name
     );
 
+    // TODO: remove unused state
     state = {
         // userId: '',
         userName: '',
@@ -74,7 +78,16 @@ class Signup extends React.Component {
 
     onSignup = e => {
         e.preventDefault();
-        console.log({msg: 'sign up!'});
+        
+        const id = getRandomUID();
+
+        this.props.addUserToUsers(
+            id,
+            this.state.userName,
+        );
+
+        this.props.handleOnSignup( id );
+
     };
 
     render() {
@@ -93,7 +106,6 @@ class Signup extends React.Component {
             || !confirmPassword
             || passwordError
             || userNameError;
-            // || isLoading; // TODO: handle isLoading if needed
 
         return (
             <div className="signup-form">
@@ -173,4 +185,5 @@ function mapStateToProps(
   
 export default connect(
     mapStateToProps,
+    { addUserToUsers }
 )(Signup);
