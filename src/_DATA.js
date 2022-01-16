@@ -205,3 +205,33 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
     }, 500)
   })
 }
+
+/*
+  This is a brand new function that I added to the API
+  to mock the adding of a new user
+*/
+export function _addUser (
+  {
+    id,
+    name,
+    avatarURL,
+  }
+) {
+  console.log({id, name, avatarURL})
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      users = {
+        ...users,
+        [id]: {
+          ...users[id],
+          name,
+          avatarURL,
+          answers: {},
+          questions: [],
+        }
+      }
+
+      res()
+    }, 500)
+  })
+}
