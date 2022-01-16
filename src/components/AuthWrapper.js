@@ -78,9 +78,11 @@ class AuthWrapper extends React.Component {
         );
     };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.setAuthUser(this.state.userId);
+    handleOnSignup = userId => {
+        this.props.setAuthUser(
+            userId
+        );
+        this.props.history.push('/');
     };
 
     render() {
@@ -136,10 +138,11 @@ class AuthWrapper extends React.Component {
                         onPasswordErrorReset={this.onPasswordErrorReset}
                     />
                 }
-                {/* TODO: props for signup */}
                 {
                     pathName === '/signup'
-                    && <Signup/>
+                    && <Signup
+                        handleOnSignup={this.handleOnSignup}
+                    />
                 }
                 {/* TODO: props for reset password */}
                 {
