@@ -101,6 +101,7 @@ class AddQuestion extends React.Component {
                     value={optionOne}
                     onChange={e => this.handleOptionOneInput(e)}
                 />
+                {/* TODO: Add validation for same options ( optionOne === optionTwo ) */}
                 {
                     optionOneError
                     && <div className="input-error">
