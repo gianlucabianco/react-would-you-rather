@@ -7,6 +7,7 @@ import {
   generateUID,
 } from '../_DATA';
 
+import { _addCredentials } from '../DB/credentials';
 
 export function initializeData() {
   return Promise.all(
@@ -66,4 +67,13 @@ export function addUser(
 
 export function getRandomUID() {
   return generateUID();
+}
+
+
+export function addCredentials(
+  credentials,
+) {
+  return _addCredentials(
+    credentials,
+  );
 }
