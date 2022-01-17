@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './ResetPassword.css';
+
+import { addCredentials } from '../API/api';
 
 class ResetPassword extends React.Component {
 
@@ -15,37 +18,54 @@ class ResetPassword extends React.Component {
         passwordError: false,
     };
 
+    getRegisteredUsers = (users) => Object.values(
+        users
+    );
+
+    // TODO: make method or remove:
+    // getRegisteredUsers = (users) => Object.values(
+    //     users
+    // ).map(
+    //     user => user.name
+    // );
+
     handleUserInput = e => {
         e.preventDefault();
+
+        const existingNames = this.getRegisteredUsers(this.props.users).map( user => user.name );
         this.setState(
             {
                 userName: e.target.value,
+                userNameError: ! existingNames.includes(e.target.value)
                 // TODO: handle userId && debounce
             }
         );
-        console.log({userName: this.state.userName});
     };
 
     onNewPasswordChange = e => {
         e.preventDefault();
+        const newPassword = e.target.value;
+        const { confirmNewPassword } = this.state;
+
         this.setState(
             {
-                newPassword: e.target.value,
+                newPassword,
+                passwordError: newPassword !== confirmNewPassword
             }
         );
-
-        console.log({newPassword: this.state.newPassword});
     };
 
     onConfirmNewPassword = e => {
         e.preventDefault();
+        const confirmNewPassword = e.target.value;
+        const { newPassword } = this.state;
+
         this.setState(
             {
-                confirmNewPassword: e.target.value,
+                confirmNewPassword,
+                passwordError: newPassword !== confirmNewPassword
             }
         );
-
-        console.log({confirmNewPassword: this.state.confirmNewPassword});
     };
 
     togglePasswordVisibility = () => {
@@ -59,6 +79,10 @@ class ResetPassword extends React.Component {
     onResetPassword = e => {
         e.preventDefault();
         console.log({msg: 'reset password!'});
+
+        // TODO: from hardcoded values to dynamic values
+        addCredentials({id: 'sarahedo', name: 'Sarah Edo', password: this.state.newPassword})
+
     };
 
     render() {
@@ -72,6 +96,12 @@ class ResetPassword extends React.Component {
             passwordError,
         } = this.state;
 
+        const isSumbitDisabled = !userName
+            || ! newPassword
+            || ! confirmNewPassword
+            || passwordError
+            || userNameError;
+
         return (
             <div className="reset-password-form">
                 <input
@@ -84,7 +114,11 @@ class ResetPassword extends React.Component {
                 {
                     userNameError
                     ? <div className="input-error">
-                        <span>Sorry, this username does not exist. Please, <a href='/signup' >Signup</a></span>
+                        {
+                            ! userName
+                                ? <span>Required field</span>
+                                : <span>Sorry, this username does not exist. Please, <a href='/signup' >Signup</a></span>
+                        }
                     </div>
                     : <div className="input-spacing" />
                 }
@@ -115,7 +149,17 @@ class ResetPassword extends React.Component {
                 </div>
                 <button
                     className="reset-password-button"
-                    onClick={e => this.onResetPassword(e)}
+                    style={
+                        isSumbitDisabled
+                        ? {
+                            backgroundColor: '#bdbdbd',
+                            color: '#fffm',
+                            border: '1px solid #bdbdbdm',
+                            cursor: 'not-allowed',
+                        }
+                        : {}
+                    }
+                    onClick={e => !isSumbitDisabled && this.onResetPassword(e)}
                 >
                     Reset password
                 </button>
@@ -124,4 +168,14 @@ class ResetPassword extends React.Component {
     };
 }
 
-export default ResetPassword;
+function mapStateToProps(
+    { users },
+) {
+    return {
+        users
+    };
+}
+  
+export default connect(
+    mapStateToProps,
+)(ResetPassword);
