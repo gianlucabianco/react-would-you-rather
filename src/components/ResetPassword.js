@@ -40,6 +40,16 @@ class ResetPassword extends React.Component {
                 // TODO: handle userId && debounce
             }
         );
+        // TODO: remove after test
+        console.log(
+            {
+                usernameError: this.state.userNameError,
+                userName: this.state.userName,
+                existingNames,
+                getRegisteredUsers: this.getRegisteredUsers(this.props.users),
+                props: this.props,
+            }
+        );
     };
 
     onNewPasswordChange = e => {
@@ -82,6 +92,8 @@ class ResetPassword extends React.Component {
 
         // TODO: from hardcoded values to dynamic values
         addCredentials({id: 'sarahedo', name: 'Sarah Edo', password: this.state.newPassword})
+
+        this.props.handleOnResetPassword();
 
     };
 
