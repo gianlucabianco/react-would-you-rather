@@ -85,6 +85,10 @@ class AuthWrapper extends React.Component {
         this.props.history.push('/');
     };
 
+    handleOnResetPassword = () => {
+        this.props.history.push('/');
+    };
+
     render() {
 
         const {
@@ -147,7 +151,9 @@ class AuthWrapper extends React.Component {
                 {/* TODO: props for reset password */}
                 {
                     pathName === '/reset-password'
-                    && <ResetPassword/>
+                    && <ResetPassword
+                        handleOnResetPassword={this.handleOnResetPassword}
+                    />
                 }
             </div>
         );
