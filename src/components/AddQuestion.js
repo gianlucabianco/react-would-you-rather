@@ -10,8 +10,9 @@ class AddQuestion extends React.Component {
     state = {
         optionOne: '',
         optionTwo: '',
-        optionOneError: false,
-        optionTwoError: false,
+        optionOneLengthError: false,
+        optionTwoLengthError: false,
+        sameInputsError: false,
         isLoading: false,
     };
 
@@ -20,9 +21,10 @@ class AddQuestion extends React.Component {
         this.setState(
             {
                 optionOne: e.target.value,
-                optionOneError: e.target.value.length > 60
+                optionOneLengthError: e.target.value.length > 60
                     ? true
                     : false,
+                sameInputsError: e.target.value === this.state.optionTwo
             }
         );
     };
@@ -32,9 +34,10 @@ class AddQuestion extends React.Component {
         this.setState(
             {
                 optionTwo: e.target.value,
-                optionTwoError: e.target.value.length > 60
+                optionTwoLengthError: e.target.value.length > 60
                     ? true
                     : false,
+                sameInputsError: e.target.value === this.state.optionOne
             }
         );
     };
@@ -79,15 +82,17 @@ class AddQuestion extends React.Component {
         const {
             optionOne,
             optionTwo,
-            optionOneError,
-            optionTwoError,
+            optionOneLengthError,
+            optionTwoLengthError,
+            sameInputsError,
             isLoading,
         } = this.state;
 
         const isSumbitDisabled = !optionOne
             || !optionTwo
-            || optionOneError
-            || optionTwoError
+            || optionOneLengthError
+            || optionTwoLengthError
+            || sameInputsError
             || isLoading;
 
         return (
@@ -101,11 +106,16 @@ class AddQuestion extends React.Component {
                     value={optionOne}
                     onChange={e => this.handleOptionOneInput(e)}
                 />
-                {/* TODO: Add validation for same options ( optionOne === optionTwo ) */}
                 {
-                    optionOneError
+                    optionOneLengthError
                     && <div className="input-error">
                         <span>Questions can't contain more thand 60 characters</span>
+                    </div>
+                }
+                {
+                    sameInputsError
+                    && <div className="input-error">
+                        <span>Questions must be different</span>
                     </div>
                 }
                 <div className="question-card-divider">
@@ -121,9 +131,15 @@ class AddQuestion extends React.Component {
                     onChange={e => this.handleOptionTwoInput(e)}
                 />
                 {
-                    optionTwoError
+                    optionTwoLengthError
                     && <div className="input-error">
                         <span>Questions can't contain more thand 60 characters</span>
+                    </div>
+                }
+                {
+                    sameInputsError
+                    && <div className="input-error">
+                        <span>Questions must be different</span>
                     </div>
                 }
                 <button
