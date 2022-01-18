@@ -4,7 +4,6 @@ import SignOutButton from './SignOutButton';
 
 import './NavBar.css';
 
-// TODO: check if the user prop could come directly from store ( accessing users[authUser])
 class NavBar extends React.Component {
 
     onLogout = () => {
