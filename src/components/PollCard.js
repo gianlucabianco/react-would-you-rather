@@ -102,6 +102,7 @@ class PollCard extends React.Component {
                     <div
                         className={'options'}
                     >
+                    {/* TODO: handle the option UI: disabled when both unanswerd, disabled just the not answered by the user when answered */}
                         <Option
                             content={ firstOption }
                             color={ '#5ab2d2' }
