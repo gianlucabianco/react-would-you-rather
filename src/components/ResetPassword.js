@@ -16,6 +16,7 @@ class ResetPassword extends React.Component {
         showPassword: false,
         userNameError: false,
         passwordError: false,
+        isLoading: false,
     };
 
     getRegisteredUsers = (users) => Object.values(
@@ -88,12 +89,38 @@ class ResetPassword extends React.Component {
 
     onResetPassword = e => {
         e.preventDefault();
-        console.log({msg: 'reset password!'});
+        
+        const user = this.getRegisteredUsers(
+            this.props.users
+        ).find(
+            user => user.name === this.state.userName
+        );
 
-        // TODO: from hardcoded values to dynamic values
-        addCredentials({id: 'sarahedo', name: 'Sarah Edo', password: this.state.newPassword})
+        if(user) {
 
-        this.props.handleOnResetPassword();
+            this.setState(
+                {
+                    isLoading: true,
+                }
+            );
+
+            addCredentials(
+                {
+                    id: user.id,
+                    name: user.name,
+                    password: this.state.newPassword,
+                }
+            ).then(
+                () => this.props.handleOnResetPassword()
+            ).catch(
+                () => this.setState(
+                    {
+                        isLoading: false,
+                    }
+                )
+            );
+
+        }
 
     };
 
@@ -106,13 +133,15 @@ class ResetPassword extends React.Component {
             showPassword,
             userNameError,
             passwordError,
+            isLoading,
         } = this.state;
 
         const isSumbitDisabled = !userName
             || ! newPassword
             || ! confirmNewPassword
             || passwordError
-            || userNameError;
+            || userNameError
+            || isLoading;
 
         return (
             <div className="reset-password-form">
@@ -173,7 +202,11 @@ class ResetPassword extends React.Component {
                     }
                     onClick={e => !isSumbitDisabled && this.onResetPassword(e)}
                 >
-                    Reset password
+                    {
+                        ! isLoading
+                            ? <span>Reset password</span>
+                            : <span className="loading">Loading</span>
+                    }
                 </button>
             </div>
         );
