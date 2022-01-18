@@ -7,12 +7,9 @@ import { addCredentials } from '../API/api';
 class ResetPassword extends React.Component {
 
     state = {
-        // userId: '',
         userName: '',
         newPassword: '',
         confirmNewPassword: '',
-        // userUrl: '',
-        // isSelectOpen: false,
         showPassword: false,
         userNameError: false,
         passwordError: false,
@@ -23,32 +20,15 @@ class ResetPassword extends React.Component {
         users
     );
 
-    // TODO: make method or remove:
-    // getRegisteredUsers = (users) => Object.values(
-    //     users
-    // ).map(
-    //     user => user.name
-    // );
-
     handleUserInput = e => {
         e.preventDefault();
 
         const existingNames = this.getRegisteredUsers(this.props.users).map( user => user.name );
+
         this.setState(
             {
                 userName: e.target.value,
                 userNameError: ! existingNames.includes(e.target.value)
-                // TODO: handle userId && debounce
-            }
-        );
-        // TODO: remove after test
-        console.log(
-            {
-                usernameError: this.state.userNameError,
-                userName: this.state.userName,
-                existingNames,
-                getRegisteredUsers: this.getRegisteredUsers(this.props.users),
-                props: this.props,
             }
         );
     };
@@ -96,7 +76,7 @@ class ResetPassword extends React.Component {
             user => user.name === this.state.userName
         );
 
-        if(user) {
+        if( user ) {
 
             this.setState(
                 {
