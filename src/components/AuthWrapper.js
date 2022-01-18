@@ -148,7 +148,6 @@ class AuthWrapper extends React.Component {
                         handleOnSignup={this.handleOnSignup}
                     />
                 }
-                {/* TODO: props for reset password */}
                 {
                     pathName === '/reset-password'
                     && <ResetPassword
