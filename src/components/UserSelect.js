@@ -43,7 +43,6 @@ class UserSelect extends React.Component {
         this.setState(
             {
                 userName: e.target.value,
-                // TODO: handle userId && debounce
             }
         );
     };
@@ -91,7 +90,6 @@ class UserSelect extends React.Component {
                                 <span>{userName}</span>
                             </>
                     }
-                    {/* TODO: SELECT-BTN SHOULD BE A COMPONENT */}
                     {
                         ! isSelectOpen
                             ? <span className="select-button" >
