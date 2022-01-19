@@ -30,6 +30,7 @@ class Option extends React.Component {
             color,
             isAnswerPage,
             isSelected,
+            answeredOption,
         } = this.props;
 
         const optionStyle = {
@@ -39,10 +40,13 @@ class Option extends React.Component {
                 isSelected,
             ),
             transition: 'background-color 0.5s ease',
+            opacity:  ! isAnswerPage && answeredOption ? 0.5 : 1,
         };
 
         const overlayStyle = {
-            backgroundColor: isAnswerPage ? color : 'white',
+            backgroundColor: isAnswerPage || ! answeredOption
+                ? color
+                : 'white',
         };
 
         return (
