@@ -102,11 +102,11 @@ class PollCard extends React.Component {
                     <div
                         className={'options'}
                     >
-                    {/* TODO: handle the option UI: disabled when both unanswerd, disabled just the not answered by the user when answered */}
                         <Option
                             content={ firstOption }
                             color={ '#5ab2d2' }
                             isAnswerPage={ isAnswerPage }
+                            answeredOption={ isAnswered === 'optionOne'  }
                             isSelected={ selectedOption === 'optionOne' }
                             key={ firstOption }
                             onOptionClick={() => this.onOptionClick('optionOne')}
@@ -116,6 +116,7 @@ class PollCard extends React.Component {
                             content={ secondOption }
                             color={ '#ff9a9e' }
                             isAnswerPage={ isAnswerPage }
+                            answeredOption={ isAnswered === 'optionTwo' }
                             isSelected={ selectedOption === 'optionTwo' }
                             key={ secondOption }
                             onOptionClick={() => this.onOptionClick('optionTwo')}
@@ -125,7 +126,7 @@ class PollCard extends React.Component {
                         className={'poll-button-wrapper'}
                     >
                         <PollButton
-                            isAnswered={ isAnswered }
+                            isAnswered={ !! isAnswered }
                             percentages={ percentages }
                             questionId={ questionId }
                             isAnswerPage={ isAnswerPage }
@@ -133,7 +134,7 @@ class PollCard extends React.Component {
                         />
                     </div>
                 </div>
-                <CardLabel isAnswered={ isAnswered } />
+                <CardLabel isAnswered={ !! isAnswered } />
             </div>
         );
 
@@ -145,7 +146,7 @@ PollCard.propTypes = {
     color: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    isAnswered: PropTypes.bool.isRequired,
+    isAnswered: PropTypes.string.isRequired,
     percentages: PropTypes.arrayOf( PropTypes.number ),
     options: PropTypes.arrayOf( PropTypes.string ),
 };
@@ -162,3 +163,4 @@ export default connect(
     mapStateToProps,
     { handleSaveQuestionAnswer },
 )(PollCard);
+// TODO: remove history as prop, add withRouter to PollCard
