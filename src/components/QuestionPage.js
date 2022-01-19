@@ -15,13 +15,11 @@ class QuestionPage extends React.Component {
 
     getIsAnswered = questionID => {
 
-        const userAnswers = Object.keys(
-            this.props.users[this.props.authUser].answers
-        );
+        const userAnswers = this.props.users[this.props.authUser].answers;
 
-        return !! userAnswers.find(
-            answer => answer === questionID
-        );
+        const userAnswer = userAnswers[questionID];
+
+        return userAnswer || '';
 
     }
     
@@ -122,7 +120,7 @@ class QuestionPage extends React.Component {
         } = cardData;
 
         const isAnswerPage = this.props.location.pathname.includes('/questions/');
-
+        // TODO: remove history as prop, add withRouter to PollCard
         return (
             <PollCard
                 color={color}
