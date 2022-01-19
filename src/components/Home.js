@@ -44,13 +44,11 @@ class Home extends React.Component {
 
   getIsAnswered = questionID => {
 
-    const userAnswers = Object.keys(
-      this.props.users[this.props.authUser].answers
-    );
+    const userAnswers = this.props.users[this.props.authUser].answers;
 
-    return !! userAnswers.find(
-      answer => answer === questionID
-    );
+    const userAnswer = userAnswers[questionID];
+
+    return userAnswer || '';
 
   }
 
