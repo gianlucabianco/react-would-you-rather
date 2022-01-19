@@ -120,7 +120,7 @@ class QuestionPage extends React.Component {
         } = cardData;
 
         const isAnswerPage = this.props.location.pathname.includes('/questions/');
-        // TODO: remove history as prop, add withRouter to PollCard
+
         return (
             <PollCard
                 color={color}
@@ -132,7 +132,6 @@ class QuestionPage extends React.Component {
                 isAnswerPage={isAnswerPage}
                 questionId={pageId}
                 userId={this.props.authUser}
-                history={this.props.history}
             />
         );
     }
