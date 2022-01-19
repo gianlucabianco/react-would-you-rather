@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import './PollCard.css';
 
@@ -159,8 +160,9 @@ function mapStateToProps(
     };
 }
   
-export default connect(
-    mapStateToProps,
-    { handleSaveQuestionAnswer },
-)(PollCard);
-// TODO: remove history as prop, add withRouter to PollCard
+export default withRouter(
+    connect(
+        mapStateToProps,
+        { handleSaveQuestionAnswer },
+    )(PollCard)
+);
