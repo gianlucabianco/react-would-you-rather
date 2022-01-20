@@ -19,7 +19,9 @@ class Option extends React.Component {
         if ( ! isAnswerPage )
             return color;
 
-        return isSelected ? color : '#11ffee00';
+        return isSelected
+            ? color :
+            '#11ffee00';
     };
 
 
@@ -40,7 +42,9 @@ class Option extends React.Component {
                 isSelected,
             ),
             transition: 'background-color 0.5s ease',
-            opacity:  ! isAnswerPage && answeredOption ? 0.5 : 1,
+            opacity:  ! isAnswerPage && answeredOption
+                ? 0.5
+                : 1,
         };
 
         const overlayStyle = {
