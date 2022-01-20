@@ -24,7 +24,6 @@ class Option extends React.Component {
             '#11ffee00';
     };
 
-
     render() {
 
         const {
