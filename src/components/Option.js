@@ -49,6 +49,8 @@ class Option extends React.Component {
                 : 'white',
         };
 
+        const overlayClasses = `option-overlay ${! isAnswerPage && answeredOption ? 'option-overlay-disabled' : ''}`;
+
         return (
             <div
                 className="option"
@@ -56,7 +58,7 @@ class Option extends React.Component {
             >
                 <p>{content}</p>
                 <div
-                    className={ 'option-overlay' }
+                    className={ overlayClasses }
                     style={ overlayStyle }
                     onClick={ this.onOptionClick }
                 />
