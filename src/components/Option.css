@@ -21,3 +21,7 @@
 .option-overlay:hover {
     opacity: 0.2;
 }
+
+.option-overlay.option-overlay-disabled:hover {
+    opacity: 0;
+}
