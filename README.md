@@ -70,6 +70,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 <!--
+    TODO: AddPage submit btn should be disabled if there are no options selected
     TODO: put every component in its own folder
     TODO: restore DB in a different folder?
     TODO: remove solved TODOs around the project
