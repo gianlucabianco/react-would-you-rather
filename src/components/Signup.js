@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -172,6 +173,12 @@ class Signup extends React.Component {
         );
     };
 }
+
+Signup.propTypes = {
+    addUserToUsers: PropTypes.func.isRequired,
+    handleOnSignup: PropTypes.func.isRequired,
+    users: PropTypes.object.isRequired,
+};
 
 function mapStateToProps(
     { users },
