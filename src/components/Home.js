@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import FilterBar from './FilterBar.js';
 import PollCard from './PollCard.js';
@@ -218,6 +219,12 @@ class Home extends React.Component {
       );
   }
 }
+
+Home.propTypes = {
+  authUser: PropTypes.string.isRequired,
+  questions: PropTypes.object.isRequired,
+  users: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (
     {
