@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './FilterBar.css';
 
 class FilterBar extends React.Component {
@@ -37,5 +38,12 @@ class FilterBar extends React.Component {
         )
     }
 }
+
+FilterBar.propTypes = {
+    isAnsweredToggled: PropTypes.bool.isRequired,
+    isNotAnsweredToggled: PropTypes.bool.isRequired,
+    onToggleAnswered: PropTypes.func.isRequired,
+    onToggleNotAnswered: PropTypes.func.isRequired,
+};
 
 export default FilterBar;
