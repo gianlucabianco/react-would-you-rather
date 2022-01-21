@@ -150,6 +150,9 @@ PollCard.propTypes = {
     isAnswered: PropTypes.string.isRequired,
     percentages: PropTypes.arrayOf( PropTypes.number ),
     options: PropTypes.arrayOf( PropTypes.string ),
+    authUser: PropTypes.string,
+    handleSaveQuestionAnswer: PropTypes.func.isRequired,
+    questionId: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(
