@@ -37,6 +37,7 @@ class SignOutButton extends Component {
 SignOutButton.propTypes = {
     userUrl: PropTypes.string.isRequired,
     userName: PropTypes.string.isRequired,
+    isLoggedIn: PropTypes.bool.isRequired,
 };
 
 export default SignOutButton;
