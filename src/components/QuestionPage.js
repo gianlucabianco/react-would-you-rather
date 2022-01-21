@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { connect } from 'react-redux';
 
@@ -136,6 +137,12 @@ class QuestionPage extends React.Component {
         );
     }
 }
+
+QuestionPage.propTypes = {
+    authUser: PropTypes.string,
+    questions: PropTypes.object,
+    users: PropTypes.object,
+};
 
 const mapStateToProps = (
     {
