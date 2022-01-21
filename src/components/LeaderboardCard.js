@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Avatar from './Avatar';
 import './LeaderboardCard.css';
 
@@ -60,5 +61,14 @@ class LeaderboardCard extends React.Component {
         );
     }
 }
+
+LeaderboardCard.propTypes = {
+    avatarURL: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    placing: PropTypes.number.isRequired,
+    scoreAnsered: PropTypes.number.isRequired,
+    scoreAsked: PropTypes.number.isRequired,
+    totalScore: PropTypes.number.isRequired,
+};
 
 export default LeaderboardCard;
