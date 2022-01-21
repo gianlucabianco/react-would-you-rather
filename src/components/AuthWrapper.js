@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { setAuthUser } from '../actions/authUser.js';
 
 import { credentials } from '../DB/credentials';
@@ -158,6 +159,11 @@ class AuthWrapper extends React.Component {
         );
     }
 
+};
+
+AuthWrapper.propTypes = {
+    authUser: PropTypes.string,
+    setAuthUser: PropTypes.func.isRequired,
 };
 
 function loginMapStateToProps(
