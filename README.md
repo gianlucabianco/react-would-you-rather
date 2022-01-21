@@ -79,7 +79,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     TODO: update doc from yarn to npm
     TODO: UI fixes
     TODO: make css names classes consistent
-    TODO: check if every component has proptypes
     TODO: linting
     TODO: check sillabus requirements
 -->
