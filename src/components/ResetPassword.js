@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './ResetPassword.css';
 
@@ -192,6 +193,11 @@ class ResetPassword extends React.Component {
         );
     };
 }
+
+ResetPassword.propTypes = {
+    users: PropTypes.object,
+    handleOnResetPassword: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(
     { users },
