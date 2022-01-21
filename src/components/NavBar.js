@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import SignOutButton from './SignOutButton';
 
@@ -82,6 +83,11 @@ class NavBar extends React.Component {
 
     };
 
+};
+
+NavBar.propTypes = {
+    onLogout: PropTypes.func.isRequired,
+    user: PropTypes.object,
 };
 
 export default withRouter(NavBar)
