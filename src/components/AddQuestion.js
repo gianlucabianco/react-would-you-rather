@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './AddQuestion.css';
 
 import { connect } from 'react-redux';
@@ -166,6 +167,11 @@ class AddQuestion extends React.Component {
         );
     }
 }
+
+AddQuestion.propTypes = {
+    authUser: PropTypes.string.isRequired,
+    handleSaveQuestion: PropTypes.func.isRequired,
+};
 
 function mapStateToProps(
     { authUser },
