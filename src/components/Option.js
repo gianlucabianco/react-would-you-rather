@@ -75,6 +75,10 @@ class Option extends React.Component {
 Option.propTypes = {
     content: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
+    answeredOption: PropTypes.bool.isRequired,
+    isAnswerPage: PropTypes.bool,
+    isSelected: PropTypes.bool.isRequired,
+    onOptionClick: PropTypes.func.isRequired,
 };
 
 export default Option;
