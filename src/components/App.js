@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import PropTypes from 'prop-types';
 
 import './App.css';
 import { handleInitializationData } from '../actions/initialization.js';
@@ -66,6 +67,14 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  authUser: PropTypes.string,
+  handleInitializationData: PropTypes.func.isRequired,
+  questions: PropTypes.object.isRequired,
+  setAuthUser: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (
   {
