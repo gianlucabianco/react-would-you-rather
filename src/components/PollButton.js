@@ -87,6 +87,7 @@ PollButton.propTypes = {
     isAnswerPage: PropTypes.bool,
     percentages: PropTypes.arrayOf( PropTypes.number ),
     questionId: PropTypes.string.isRequired,
+    onSubmitAnswer: PropTypes.func.isRequired,
 };
 
 export default PollButton;
