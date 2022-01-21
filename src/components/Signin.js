@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './Signin.css';
 
@@ -141,5 +142,14 @@ class Signin extends React.Component {
         );
     };
 }
+
+Signin.propTypes = {
+    onPasswordErrorReset: PropTypes.func.isRequired,
+    onUserChange: PropTypes.func.isRequired,
+    onUserNameErrorReset: PropTypes.func.isRequired,
+    passwordError: PropTypes.bool.isRequired,
+    userNameError: PropTypes.bool.isRequired,
+    users: PropTypes.object,
+};
 
 export default Signin;
