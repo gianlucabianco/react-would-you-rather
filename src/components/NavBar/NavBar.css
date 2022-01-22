@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    margin: auto;
+    max-width: 1000px;
+    height: 60px;    
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    margin: auto;
+    list-style: none;
+}
+
+.navbar ul a {
+    text-decoration: none;
+    width: 25%;
+    height: 60px;
+    line-height: 60px;
+    transition: 0.3s;
+    cursor: pointer;    
+}
+
+.navbar ul a:hover {
+    background-color: #e5ffbb;
+}
+
+.navbar ul a:last-child {
+    width: 300px;
+}
+
+.navbar ul a:visited {
+    color: #000;
+}
