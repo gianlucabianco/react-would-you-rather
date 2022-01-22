@@ -65,6 +65,8 @@ class PollCard extends React.Component {
             percentages,
             options,
             isAnswerPage,
+            optionOneVotes,
+            optionTwoVotes,
         } = this.props;
 
         const [
@@ -123,6 +125,10 @@ class PollCard extends React.Component {
                             onOptionClick={() => this.onOptionClick('optionTwo')}
                         />
                     </div>
+                    <div className='poll-card-votes'>
+                        <span>Option one votes: {optionOneVotes}</span>
+                        <span>Option two votes: {optionTwoVotes}</span>
+                    </div>
                     <div
                         className={'poll-button-wrapper'}
                     >
@@ -153,6 +159,8 @@ PollCard.propTypes = {
     authUser: PropTypes.string,
     handleSaveQuestionAnswer: PropTypes.func.isRequired,
     questionId: PropTypes.string.isRequired,
+    optionOneVotes: PropTypes.number.isRequired,
+    optionTwoVotes: PropTypes.number.isRequired,
 };
 
 function mapStateToProps(
