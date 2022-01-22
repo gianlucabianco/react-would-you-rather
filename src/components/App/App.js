@@ -5,11 +5,11 @@ import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import PropTypes from 'prop-types';
 
 import './App.css';
-import { handleInitializationData } from '../../actions/initialization.js';
-import { setAuthUser } from '../../actions/authUser.js';
+import { handleInitializationData } from '../../actions/initialization';
+import { setAuthUser } from '../../actions/authUser';
 
-import NavBar from '../NavBar/NavBar.js';
-import Home from '../Home/Home.js';
+import NavBar from '../NavBar/NavBar';
+import Home from '../Home/Home';
 import AuthWrapper from '../AuthWrapper/AuthWrapper';
 import Leaderboard from '../Leaderboard/Leaderboard';
 import AddQuestion from '../AddQuestion/AddQuestion';
