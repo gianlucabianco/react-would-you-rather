@@ -1,0 +1,19 @@
+.signout-button {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 0 16px;    
+}
+
+.avatar-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    margin-left: 16px;
+}
+
+.signout-cta {
+    color: #999;
+}
