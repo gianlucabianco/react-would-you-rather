@@ -7,10 +7,10 @@ import './PollCard.css';
 
 import { handleSaveQuestionAnswer } from '../../actions/users';
 
-import Option from '../Option/Option.js';
-import Avatar from '../Avatar/Avatar.js';
-import PollButton from '../PollButton/PollButton.js';
-import CardLabel from '../CardLabel/CardLabel.js';
+import Option from '../Option/Option';
+import Avatar from '../Avatar/Avatar';
+import PollButton from '../PollButton/PollButton';
+import CardLabel from '../CardLabel/CardLabel';
 
 class PollCard extends React.Component {
 
