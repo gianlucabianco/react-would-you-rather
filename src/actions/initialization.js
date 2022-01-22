@@ -1,6 +1,6 @@
-import { initializeData } from '../API/api.js';
-import { getQuestions } from './questions.js';
-import { getUsers } from './users.js';
+import { initializeData } from '../API/api';
+import { getQuestions } from './questions';
+import { getUsers } from './users';
 
 export function handleInitializationData() {
   return dispatch => {
