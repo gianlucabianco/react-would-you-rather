@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import FilterBar from '../FilterBar/FilterBar.js';
-import PollCard from '../PollCard/PollCard.js';
+import FilterBar from '../FilterBar/FilterBar';
+import PollCard from '../PollCard/PollCard';
 
 class Home extends React.Component {
 
