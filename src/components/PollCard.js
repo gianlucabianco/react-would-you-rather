@@ -138,6 +138,7 @@ class PollCard extends React.Component {
                             questionId={ questionId }
                             isAnswerPage={ isAnswerPage }
                             onSubmitAnswer={ this.onSubmitAnswer }
+                            isDisabled={ !!(isAnswerPage && ! selectedOption) }
                         />
                     </div>
                 </div>
