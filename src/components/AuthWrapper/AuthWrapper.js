@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAuthUser } from '../../actions/authUser.js';
+import { setAuthUser } from '../../actions/authUser';
 
 import { credentials } from '../../DB/credentials';
 
-import Signin from '../Signin/Signin.js';
-import Signup from '../Signup/Signup.js';
-import ResetPassword from '../ResetPassword/ResetPassword.js';
+import Signin from '../Signin/Signin';
+import Signup from '../Signup/Signup';
+import ResetPassword from '../ResetPassword/ResetPassword';
 
 import './AuthWrapper.css';
 
