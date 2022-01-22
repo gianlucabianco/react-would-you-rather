@@ -71,12 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 <!--
     TODO: put every component in its own folder
-    TODO: restore DB in a different folder?
-    TODO: remove solved TODOs around the project
-    TODO: remove users.js from /src after every fake DB is complete
-    TODO: remove questions.js from /src after every fake DB is complete
     TODO: update doc from yarn to npm
-    TODO: UI fixes
     TODO: make css names classes consistent
     TODO: linting
     TODO: check sillabus requirements
