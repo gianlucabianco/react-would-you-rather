@@ -38,3 +38,10 @@
 .poll-button-cta:hover {
     background-color: #fcb64d;
 }
+
+.poll-button-cta.poll-button-cta-disabled {
+    background-color: #bdbdbd;
+    color: #ffffff;
+    border: 1px solid #bdbdbdbd;
+    cursor: not-allowed;
+}
