@@ -148,6 +148,7 @@ class Home extends React.Component {
             question.optionOne.text,
             question.optionTwo.text,
           ],
+          timestamp: question.timestamp,
         }
       }
     ).filter(
