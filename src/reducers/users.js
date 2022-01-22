@@ -3,7 +3,7 @@ import {
   ADD_ANSWER_TO_USER,
   ADD_QUESTION_TO_USER,
   ADD_NEW_USER,
-} from '../actions/users.js';
+} from '../actions/users';
 
 export default function users(
     state = {},
