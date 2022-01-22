@@ -149,6 +149,8 @@ class Home extends React.Component {
             question.optionTwo.text,
           ],
           timestamp: question.timestamp,
+          optionOneVotes: question.optionOne.votes.length,
+          optionTwoVotes: question.optionTwo.votes.length,
         }
       }
     ).filter(
@@ -212,6 +214,8 @@ class Home extends React.Component {
                     percentages={card.percentages}
                     options={card.options}
                     questionId={card.questionId}
+                    optionOneVotes={card.optionOneVotes}
+                    optionTwoVotes={card.optionTwoVotes}
                     key={card.name + index}
                   />
                 )
