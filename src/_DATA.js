@@ -1,6 +1,6 @@
 /*
   This is the Udacity starter code.
-  The only change to the original file are the avatarURLs.
+  The only change to the original file are the avatarURLs and the method _addUser (see description below)
 */
 
 let users = {
