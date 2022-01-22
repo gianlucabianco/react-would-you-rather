@@ -95,6 +95,8 @@ class QuestionPage extends React.Component {
                 question.optionOne.text,
                 question.optionTwo.text,
             ],
+            optionOneVotes: question.optionOne.votes.length,
+            optionTwoVotes: question.optionTwo.votes.length,
         }
 
     }
@@ -133,6 +135,8 @@ class QuestionPage extends React.Component {
                 isAnswerPage={isAnswerPage}
                 questionId={pageId}
                 userId={this.props.authUser}
+                optionOneVotes={cardData.optionOneVotes}
+                optionTwoVotes={cardData.optionTwoVotes}
             />
         );
     }
