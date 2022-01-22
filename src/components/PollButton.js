@@ -18,6 +18,7 @@ class PollButton extends Component {
             percentages,
             questionId,
             isAnswerPage,
+            isDisabled,
         } = this.props;
 
         const [
@@ -43,6 +44,8 @@ class PollButton extends Component {
             ? `${rightPerc}%`
             : '';
 
+        const pollButtonClasses = `poll-button-cta ${isDisabled ? 'poll-button-cta-disabled' : ''}`;
+
         return (
             <div className="poll-button">
                 <div
@@ -62,10 +65,10 @@ class PollButton extends Component {
                     && (
                         isAnswerPage
                         ? <div
-                            className="poll-button-cta"
+                            className={pollButtonClasses}
                             onClick={this.onSubmitAnswer}
                         >
-                            <span>Answer</span>
+                            <span>Answer {isDisabled}</span>
                         </div>
                         : <NavLink
                             className="poll-button-cta"
@@ -88,6 +91,7 @@ PollButton.propTypes = {
     percentages: PropTypes.arrayOf( PropTypes.number ),
     questionId: PropTypes.string.isRequired,
     onSubmitAnswer: PropTypes.func.isRequired,
+    isDisabled: PropTypes.bool.isRequired,
 };
 
 export default PollButton;
