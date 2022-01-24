@@ -32,6 +32,8 @@ class App extends Component {
       authUser,
       users,
     } = this.props;
+    // TODO: remove after test
+    console.log({props: this.props})
 
     return (
       <Router>
