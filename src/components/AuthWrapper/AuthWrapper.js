@@ -59,7 +59,10 @@ class AuthWrapper extends React.Component {
             this.props.setAuthUser(
                 isUser.id
             );
-            this.props.history.push('/');
+            // this.props.history.push('/');
+            // TODO: handle this
+            // https://thewebdev.info/2021/09/18/how-to-go-back-to-the-previous-page-with-react-router-v5/
+            this.props.history.goBack();
         }
     };
 
@@ -96,6 +99,9 @@ class AuthWrapper extends React.Component {
             userNameError,
             passwordError,
         } = this.state;
+
+        // TODO: remove after test
+        console.log({props: this.props})
 
         const { users } = this.props;
 
