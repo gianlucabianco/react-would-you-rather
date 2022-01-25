@@ -1,4 +1,4 @@
-TODO: adjust the README.md file
+<!-- TODO: adjust the README.md file -->
 # 🎉 Would You Rather Project 🎉 
 
 This is the code for the final assessment project for Udacity's React & Redux course.
