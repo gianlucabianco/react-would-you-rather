@@ -1,20 +1,40 @@
 TODO: adjust the README.md file
-# Would You Rather Project
+# 🎉 Would You Rather Project 🎉 
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This is the code for the final assessment project for Udacity's React & Redux course.
+
+___
+
+## 👩🏻‍💻👨🏻‍💻 Installation
+
+Clone the repository into your local machine.
+
+```bash
+
+# install dependencies
+$ npm install # Or yarn install
+
+# serve at localhost:3000
+$ npm start
+
+```
+___
+
+# 📖 Assessment instructions and project details
+
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
 
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
-## Data
+## 🗄️ Data
 
 There are two types of objects stored in our database:
 
 * Users
 * Questions
 
-### Users
+### 👥 Users
 
 Users include:
 
@@ -26,7 +46,7 @@ Users include:
 | questions | Array | A list of ids of the polling questions this user created|
 | answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
 
-### Questions
+### ❓ Questions
 
 Questions include:
 
@@ -38,7 +58,7 @@ Questions include:
 | optionOne | Object | The first voting option|
 | optionTwo | Object | The second voting option|
 
-### Voting Options
+### 🗳️ Voting Options
 
 Voting options are attached to questions. They include:
 
