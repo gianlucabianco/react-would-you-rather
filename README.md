@@ -1,7 +1,7 @@
 <!-- TODO: adjust the README.md file -->
 # 🎉 Would You Rather Project 🎉 
 
-This is the code for the final assessment project for Udacity's React & Redux course.
+This is the code for the final assessment project for Udacity's React & Redux nano degree.
 
 ___
 
@@ -12,7 +12,7 @@ Clone the repository into your local machine.
 ```bash
 
 # install dependencies
-$ npm install # Or yarn install
+$ npm install
 
 # serve at localhost:3000
 $ npm start
@@ -118,6 +118,7 @@ Your code will talk to the database via 4 methods:
 
 
 <!--
+    TODO: finish the readme file
     TODO: handle goBack() routing
     TODO: installation and project run instructions via npm
     TODO: check if every css names classes are consistent
