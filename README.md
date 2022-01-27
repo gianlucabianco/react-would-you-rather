@@ -1,4 +1,3 @@
-<!-- TODO: adjust the README.md file -->
 # 🎉 Would You Rather Project 🎉 
 
 This is the code for the final assessment project for Udacity's React & Redux nano degree.
@@ -118,7 +117,6 @@ Your code will talk to the database via 4 methods:
 
 
 <!--
-    TODO: finish the readme file
     TODO: handle goBack() routing
     TODO: installation and project run instructions via npm
     TODO: check if every css names classes are consistent
