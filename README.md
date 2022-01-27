@@ -118,7 +118,6 @@ Your code will talk to the database via 4 methods:
 
 <!--
     TODO: handle goBack() routing
-    TODO: installation and project run instructions via npm
     TODO: check if every css names classes are consistent
     TODO: linting
     TODO: check sillabus requirements
