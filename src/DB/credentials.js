@@ -7,7 +7,7 @@ export let credentials = [
     {
         id: 'sarahedo',
         name: 'Sarah Edo',
-        password: 'vuerocks',
+        password: 'jsrocks',
     },
     {
         id: 'tylermcginnis',
@@ -17,7 +17,7 @@ export let credentials = [
     {
         id: 'johndoe',
         name: 'John Doe',
-        password: 'comicsrockz',
+        password: 'reduxrocks',
     },
 ];
 
