@@ -217,7 +217,6 @@ export function _addUser (
     avatarURL,
   }
 ) {
-  console.log({id, name, avatarURL})
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
