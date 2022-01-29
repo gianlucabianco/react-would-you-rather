@@ -16,6 +16,13 @@ class LeaderboardCard extends React.Component {
             placing,
         } = this.props;
 
+        const placingClasses = `
+            leaderboard-tag
+            ${placing === 1 ? 'first-place' : ''}
+            ${placing === 2 ? 'second-place' : ''}
+            ${placing === 3 ? 'third-place' : ''}
+        `;
+
         return (
             <div className="leaderboard-card">
                 <div className="leaderboard-left">
@@ -30,14 +37,7 @@ class LeaderboardCard extends React.Component {
                     <div className="leaderboard-right-top">
                         {
                             placing < 4 && (
-                                <div className={
-                                    `
-                                        leaderboard-tag
-                                        ${placing === 1 ? 'first-place' : ''}
-                                        ${placing === 2 ? 'second-place' : ''}
-                                        ${placing === 3 ? 'third-place' : ''}
-                                    `
-                                }>
+                                <div className={placingClasses}>
                                     <span>{placing}</span> place
                                 </div>
                             )
