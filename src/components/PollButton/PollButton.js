@@ -64,18 +64,18 @@ class PollButton extends Component {
                     ! isAnswered
                     && (
                         isAnswerPage
-                        ? <div
-                            className={pollButtonClasses}
-                            onClick={this.onSubmitAnswer}
-                        >
-                            <span>Answer {isDisabled}</span>
-                        </div>
-                        : <NavLink
-                            className="poll-button-cta"
-                            to={`/questions/${questionId}`}
-                        >
-                            <span>Answer</span>
-                        </NavLink>
+                            ? <div
+                                className={pollButtonClasses}
+                                onClick={this.onSubmitAnswer}
+                            >
+                                <span>Answer {isDisabled}</span>
+                            </div>
+                            : <NavLink
+                                className="poll-button-cta"
+                                to={`/questions/${questionId}`}
+                            >
+                                <span>Answer</span>
+                            </NavLink>
                     )
                 }
             </div>
