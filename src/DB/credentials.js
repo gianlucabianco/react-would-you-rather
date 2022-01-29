@@ -7,17 +7,17 @@ export let credentials = [
     {
         id: 'sarahedo',
         name: 'Sarah Edo',
-        password: 'test',
+        password: 'vuerocks',
     },
     {
         id: 'tylermcginnis',
         name: 'Tyler McGinnis',
-        password: 'test',
+        password: 'reactrocks',
     },
     {
         id: 'johndoe',
         name: 'John Doe',
-        password: 'test',
+        password: 'comicsrockz',
     },
 ];
 
