@@ -135,14 +135,14 @@ class ResetPassword extends React.Component {
                 />
                 {
                     userNameError
-                    ? <div className="input-error">
-                        {
-                            ! userName
-                                ? <span>Required field</span>
-                                : <span>Sorry, this username does not exist. Please, <a href='/signup' >Signup</a></span>
-                        }
-                    </div>
-                    : <div className="input-spacing" />
+                        ? <div className="input-error">
+                            {
+                                ! userName
+                                    ? <span>Required field</span>
+                                    : <span>Sorry, this username does not exist. Please, <a href='/signup' >Signup</a></span>
+                            }
+                        </div>
+                        : <div className="input-spacing" />
                 }
                 <input
                     className="reset-password-input"
@@ -162,10 +162,10 @@ class ResetPassword extends React.Component {
                 <div className="show-password">
                 {
                     passwordError
-                    ? <div className="input-error">
-                        <span>Password and confirm password doesn't match</span>
-                    </div>
-                    : null
+                        ? <div className="input-error">
+                            <span>Password and confirm password doesn't match</span>
+                        </div>
+                        : null
                 }
                     <button onClick={this.togglePasswordVisibility}>Show password</button>
                 </div>
@@ -173,13 +173,13 @@ class ResetPassword extends React.Component {
                     className="reset-password-button"
                     style={
                         isSumbitDisabled
-                        ? {
-                            backgroundColor: '#bdbdbd',
-                            color: '#fffm',
-                            border: '1px solid #bdbdbdm',
-                            cursor: 'not-allowed',
-                        }
-                        : {}
+                            ? {
+                                backgroundColor: '#bdbdbd',
+                                color: '#fffm',
+                                border: '1px solid #bdbdbdm',
+                                cursor: 'not-allowed',
+                            }
+                            : {}
                     }
                     onClick={e => !isSumbitDisabled && this.onResetPassword(e)}
                 >
