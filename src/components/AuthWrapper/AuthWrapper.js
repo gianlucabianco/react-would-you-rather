@@ -59,10 +59,7 @@ class AuthWrapper extends React.Component {
             this.props.setAuthUser(
                 isUser.id
             );
-            // this.props.history.push('/');
-            // TODO: handle this
-            // https://thewebdev.info/2021/09/18/how-to-go-back-to-the-previous-page-with-react-router-v5/
-            this.props.history.goBack();
+
         }
     };
 
@@ -86,11 +83,19 @@ class AuthWrapper extends React.Component {
         this.props.setAuthUser(
             userId
         );
-        this.props.history.push('/');
+        
+        this.handleRouting();
     };
 
     handleOnResetPassword = () => {
-        this.props.history.push('/');
+        this.handleRouting();
+    };
+
+    handleRouting = () => {
+        if (this.props.history.action !== 'POP')
+            this.props.history.goBack();
+        else
+            this.props.history.push('/');
     };
 
     render() {
@@ -100,18 +105,27 @@ class AuthWrapper extends React.Component {
             passwordError,
         } = this.state;
 
-        // TODO: remove after test
-        console.log({props: this.props})
-
         const { users } = this.props;
 
         const pathName = this.props.location.pathname;
+
+        const shouldRenderSignin = [
+            '/signin',
+            '/',
+            '/leaderboard',
+            '/add',
+        ].includes(pathName)
+        || pathName.includes('/questions/');
+
+        const shouldRenderSignup = pathName === '/signup';
+
+        const shouldRenderResetPassword = pathName === '/reset-password';
 
         return (
             <div className="auth-wrapper">
                 <div className="auth-wrapper-header">
                     {
-                        pathName === '/signin'
+                        shouldRenderSignin
                         && (
                             <>
                                 <h1>Welcome to the Would you rather signin page</h1>
@@ -120,7 +134,7 @@ class AuthWrapper extends React.Component {
                         )
                     }
                     {
-                        pathName === '/signup'
+                        shouldRenderSignup
                         && (
                             <>
                                 <h1>Welcome to the Would you rather signup page</h1>
@@ -129,7 +143,7 @@ class AuthWrapper extends React.Component {
                         )
                     }
                     {
-                        pathName === '/reset-password'
+                        shouldRenderResetPassword
                         && (
                             <>
                                 <h1>Welcome to the Would you rather reset password page</h1>
@@ -139,7 +153,7 @@ class AuthWrapper extends React.Component {
                     }
                 </div>
                 {
-                    pathName === '/signin'
+                    shouldRenderSignin
                     && <Signin
                         users={users}
                         onUserChange={this.onUserChange}
@@ -150,13 +164,13 @@ class AuthWrapper extends React.Component {
                     />
                 }
                 {
-                    pathName === '/signup'
+                    shouldRenderSignup
                     && <Signup
                         handleOnSignup={this.handleOnSignup}
                     />
                 }
                 {
-                    pathName === '/reset-password'
+                    shouldRenderResetPassword
                     && <ResetPassword
                         handleOnResetPassword={this.handleOnResetPassword}
                     />
