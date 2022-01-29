@@ -117,6 +117,5 @@ Your code will talk to the database via 4 methods:
 
 
 <!--
-    TODO: linting
     TODO: check sillabus requirements
 -->
