@@ -47,7 +47,9 @@ class Signup extends React.Component {
         this.setState(
             {
                 password,
-                passwordError: password && confirmPassword && password !== confirmPassword
+                passwordError: password
+                    && confirmPassword
+                    && password !== confirmPassword
             }
         );
     };
@@ -117,10 +119,10 @@ class Signup extends React.Component {
                 />
                 {
                     userNameError
-                    ? <div className="input-error">
-                        <span>Sorry, this username is already taken</span>
-                    </div>
-                    : <div className="input-spacing" />
+                        ? <div className="input-error">
+                            <span>Sorry, this username is already taken</span>
+                        </div>
+                        : <div className="input-spacing" />
                 }
                 <input
                     className="signup-input"
@@ -138,26 +140,26 @@ class Signup extends React.Component {
                     onChange={e => this.onPasswordConfirmChange( e )}
                 />
                 <div className="show-password">
-                {
-                    passwordError
-                    ? <div className="input-error">
-                        <span>Password and confirm password doesn't match</span>
-                    </div>
-                    : null
-                }
+                    {
+                        passwordError
+                            ? <div className="input-error">
+                                <span>Password and confirm password doesn't match</span>
+                            </div>
+                            : null
+                    }
                     <button onClick={this.togglePasswordVisibility}>Show password</button>
                 </div>
                 <button
                     className="signup-button"
                     style={
                         isSumbitDisabled
-                        ? {
-                            backgroundColor: '#bdbdbd',
-                            color: '#fffm',
-                            border: '1px solid #bdbdbdm',
-                            cursor: 'not-allowed',
-                        }
-                        : {}
+                            ? {
+                                backgroundColor: '#bdbdbd',
+                                color: '#fffm',
+                                border: '1px solid #bdbdbdm',
+                                cursor: 'not-allowed',
+                            }
+                            : {}
                     }
                     onClick={e => !isSumbitDisabled && this.onSignup( e )}
                 >
