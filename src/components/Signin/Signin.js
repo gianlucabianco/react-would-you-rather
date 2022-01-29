@@ -79,10 +79,10 @@ class Signin extends React.Component {
                 />
                 {
                     userNameError
-                    ? <div className="input-error">
-                        <span>Invalid username</span>
-                    </div>
-                    : <div className="input-spacing" />
+                        ? <div className="input-error">
+                            <span>Invalid username</span>
+                        </div>
+                        : <div className="input-spacing" />
                 }
                 <input
                     value={password}
@@ -93,18 +93,18 @@ class Signin extends React.Component {
                     onClick={() => passwordError && this.handlePasswordErrorReset()}
                 />
                 <div className="show-password">
-                {
-                    passwordError
-                    ? <div className="input-error">
-                        <span>Invalid password</span>
-                    </div>
-                    : null
-                }
+                    {
+                        passwordError
+                            ? <div className="input-error">
+                                <span>Invalid password</span>
+                            </div>
+                            : null
+                    }
                     <button onClick={this.togglePasswordVisibility}>
                         {
                             ! showPassword
-                            ? 'Show password'
-                            : 'Hide password'
+                                ? 'Show password'
+                                : 'Hide password'
                         }
                     </button>
                 </div>
@@ -112,13 +112,13 @@ class Signin extends React.Component {
                     className="signin-button"
                     style={
                         (!userName || !password)
-                        ? {
-                            backgroundColor: '#bdbdbd',
-                            color: '#fffm',
-                            border: '1px solid #bdbdbdm',
-                            cursor: 'not-allowed',
-                        }
-                        : {}
+                            ? {
+                                backgroundColor: '#bdbdbd',
+                                color: '#fffm',
+                                border: '1px solid #bdbdbdm',
+                                cursor: 'not-allowed',
+                            }
+                            : {}
                     }
                     onClick={
                         () => {
