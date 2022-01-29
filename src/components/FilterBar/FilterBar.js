@@ -19,17 +19,21 @@ class FilterBar extends React.Component {
             isAnsweredToggled,
         } = this.props;
 
+        const notAnsweredClasses = `filter-button not-answered ${! isNotAnsweredToggled ? 'off' : ''}`;
+
+        const answeredClasses = `filter-button answered ${! isAnsweredToggled ? 'off' : ''}`;
+
         return (
             <div className="filter-bar">
                 <span>Active filters:</span>
                 <button
-                    className={`filter-button not-answered ${! isNotAnsweredToggled ? 'off' : ''}`}
+                    className={notAnsweredClasses}
                     onClick={() => this.props.onToggleNotAnswered()}
                 >
                     not answered
                 </button>
                 <button
-                    className={`filter-button answered ${! isAnsweredToggled ? 'off' : ''}`}
+                    className={answeredClasses}
                     onClick={() => this.props.onToggleAnswered()}
                 >
                     answered
