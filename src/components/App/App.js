@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import PropTypes from 'prop-types';
 
 import './App.css';
+
 import { handleInitializationData } from '../../actions/initialization';
 import { setAuthUser } from '../../actions/authUser';
+
+import { routes } from '../../API/routes';
 
 import NavBar from '../NavBar/NavBar';
 import Home from '../Home/Home';
@@ -32,36 +34,37 @@ class App extends Component {
       authUser,
       users,
     } = this.props;
-    // TODO: remove after test
-    console.log({props: this.props})
+
+    const authedUser = users[authUser];
+    const layoutContainerClassess = `layout-container ${authUser ? 'is-user-logged-in' : ''}`;
+    const unauthedRoutes = [
+      ...routes.unauthed.unguarded,
+      ...routes.unauthed.guarded,
+    ];
 
     return (
       <Router>
         <div className="App">
           <NavBar
-            user={users[authUser]}
+            user={authedUser}
             onLogout={() => this.handleLogout()}
           />
-          <div
-            className={`layout-container ${authUser ? 'is-user-logged-in' : ''}`}
-          >
+          <div className={layoutContainerClassess}>
             {
               ! authUser
               ? <Switch>
-                <Route path="/signin" component={AuthWrapper} />
-                <Route path="/signup" component={AuthWrapper} />
-                <Route path="/reset-password" component={AuthWrapper} />
-                <Route>
-                  <Redirect to="/signin"/>
-                </Route>
-              </Switch>
-              : <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/leaderboard" component={Leaderboard} />
-                <Route path="/add" component={AddQuestion} />
-                <Route path="/questions/:question_id" component={QuestionPage} />
-                <Route component={ErrorPage} />
-              </Switch>
+                  <Route path={unauthedRoutes} component={AuthWrapper} />
+                  <Route exact path="/" component={AuthWrapper} />
+                  <Route component={ErrorPage} />
+                </Switch>
+                : <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path={routes.authed.guarded} component={Home} />
+                  <Route path="/leaderboard" component={Leaderboard} />
+                  <Route path="/add" component={AddQuestion} />
+                  <Route path="/questions/:question_id" component={QuestionPage} />
+                  <Route component={ErrorPage} />
+                </Switch>
             }
           </div>
         </div>
