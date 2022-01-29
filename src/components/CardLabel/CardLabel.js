@@ -11,9 +11,11 @@ class CardLabel extends React.Component {
             isAnswered,
         } = this.props;
 
+        const cardLabelClasses = `card-label ${isAnswered ? 'answered' : 'not-answered'}`;
+
         return (
             <div
-                className={`card-label ${isAnswered ? 'answered' : 'not-answered'}`}
+                className={cardLabelClasses}
             >
                 {
                     isAnswered ?
