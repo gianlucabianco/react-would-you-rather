@@ -20,8 +20,8 @@ class Option extends React.Component {
             return color;
 
         return isSelected
-            ? color :
-            '#11ffee00';
+            ? color
+            : '#11ffee00';
     };
 
     render() {
