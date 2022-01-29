@@ -188,13 +188,13 @@ class Home extends React.Component {
       const questions = Object.values(this.props.questions);
 
       const cardsData = ! questions.length
-      ? []
-      : this.sortCardsData(
-          this.getCardsData(
-            questions,
-            users,
-          )
-        );
+        ? []
+        : this.sortCardsData(
+            this.getCardsData(
+              questions,
+              users,
+            )
+          );
 
       return (
           <div className="home">
@@ -205,20 +205,20 @@ class Home extends React.Component {
               onToggleNotAnswered={this.onToggleNotAnswered}
             />
             {
-                cardsData.map(
-                  (card, index) => <PollCard
-                    color={card.color}
-                    url={card.avatarURL}
-                    name={card.name}
-                    isAnswered={card.isAnswered}
-                    percentages={card.percentages}
-                    options={card.options}
-                    questionId={card.questionId}
-                    optionOneVotes={card.optionOneVotes}
-                    optionTwoVotes={card.optionTwoVotes}
-                    key={card.name + index}
-                  />
-                )
+              cardsData.map(
+                (card, index) => <PollCard
+                  color={card.color}
+                  url={card.avatarURL}
+                  name={card.name}
+                  isAnswered={card.isAnswered}
+                  percentages={card.percentages}
+                  options={card.options}
+                  questionId={card.questionId}
+                  optionOneVotes={card.optionOneVotes}
+                  optionTwoVotes={card.optionTwoVotes}
+                  key={card.name + index}
+                />
+              )
             }
           </div>
       );
