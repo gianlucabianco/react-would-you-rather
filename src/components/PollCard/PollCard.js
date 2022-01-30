@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 import './PollCard.css';
 
+import { getRandomUID } from '../../API/api';
 import { handleSaveQuestionAnswer } from '../../actions/users';
 
 import Option from '../Option/Option';
@@ -74,6 +75,9 @@ class PollCard extends React.Component {
             secondOption,
         ] = options;
 
+        const firstOptionKey = getRandomUID();
+        const secondOptionKey = getRandomUID();
+
         const {
             selectedOption,
         } = this.state; 
@@ -111,7 +115,7 @@ class PollCard extends React.Component {
                             isAnswerPage={ isAnswerPage }
                             answeredOption={ isAnswered === 'optionOne'  }
                             isSelected={ selectedOption === 'optionOne' }
-                            key={ firstOption }
+                            key={ firstOptionKey }
                             onOptionClick={() => this.onOptionClick('optionOne')}
                         />
                         <p>OR</p>
@@ -121,7 +125,7 @@ class PollCard extends React.Component {
                             isAnswerPage={ isAnswerPage }
                             answeredOption={ isAnswered === 'optionTwo' }
                             isSelected={ selectedOption === 'optionTwo' }
-                            key={ secondOption }
+                            key={ secondOptionKey }
                             onOptionClick={() => this.onOptionClick('optionTwo')}
                         />
                     </div>
