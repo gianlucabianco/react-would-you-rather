@@ -130,6 +130,7 @@ Your code will talk to the database via 4 methods:
     TODO: refactor the answered card in home page
     TODO: refactor the unanswered card answer page
     TODO: refactor the answered card answer page
+    TODO: answered/not answered label should be moved little up in the UI
     TODO: check sillabus requirements
     TODO: final test before submit
 -->
