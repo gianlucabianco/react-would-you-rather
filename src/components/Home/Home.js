@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getRandomUID } from '../../API/api';
 
 import FilterBar from '../FilterBar/FilterBar';
 import PollCard from '../PollCard/PollCard';
@@ -134,23 +135,31 @@ class Home extends React.Component {
           name,
         } = user;
 
+        const isAnswered = this.getIsAnswered(
+          question.id
+        );
+
+        const optionOne = question.optionOne.text;
+        const optionTwo = question.optionTwo.text;
+
         return {
           color: '#ffffff',
           avatarURL,
           name,
           questionId: question.id,
-          isAnswered: this.getIsAnswered(question.id),
+          isAnswered,
           percentages: this.getPercentages(
             question.optionOne.votes.length,
             question.optionTwo.votes.length,
           ),
           options: [
-            question.optionOne.text,
-            question.optionTwo.text,
+            isAnswered ? optionOne : `${optionOne.split(' ').shift()}...`,
+            isAnswered ? optionTwo : `${optionTwo.split(' ').shift()}...`,
           ],
           timestamp: question.timestamp,
           optionOneVotes: question.optionOne.votes.length,
           optionTwoVotes: question.optionTwo.votes.length,
+          key: getRandomUID(),
         }
       }
     ).filter(
@@ -206,7 +215,7 @@ class Home extends React.Component {
             />
             {
               cardsData.map(
-                (card, index) => <PollCard
+                card => <PollCard
                   color={card.color}
                   url={card.avatarURL}
                   name={card.name}
@@ -216,7 +225,7 @@ class Home extends React.Component {
                   questionId={card.questionId}
                   optionOneVotes={card.optionOneVotes}
                   optionTwoVotes={card.optionTwoVotes}
-                  key={card.name + index}
+                  key={card.key}
                 />
               )
             }
