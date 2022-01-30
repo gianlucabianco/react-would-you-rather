@@ -26,6 +26,15 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
 
+## 🔓 Signin / 🔏 Signup / 🔐 Reset password
+
+Users credentials for login are stored in the `credentials.js` file.
+
+Througout the project, the user could reset their password by clicking on the “Forgot Password” link.
+
+The user could also sign up for a new account by clicking on the “Sign Up” link.
+The new user will be able to log in after signing up.
+
 ## 🗄️ Data
 
 There are two types of objects stored in our database:
