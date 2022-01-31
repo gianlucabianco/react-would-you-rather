@@ -32,6 +32,7 @@ class Option extends React.Component {
             isAnswerPage,
             isSelected,
             answeredOption,
+            isAnswered,
         } = this.props;
 
         const optionStyle = {
@@ -41,7 +42,7 @@ class Option extends React.Component {
                 isSelected,
             ),
             transition: 'background-color 0.5s ease',
-            opacity:  ! isAnswerPage && answeredOption
+            opacity:  ! isAnswerPage && isAnswered && ! answeredOption
                 ? 0.5
                 : 1,
         };
@@ -76,6 +77,7 @@ Option.propTypes = {
     content: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     answeredOption: PropTypes.bool.isRequired,
+    isAnswered: PropTypes.bool,
     isAnswerPage: PropTypes.bool,
     isSelected: PropTypes.bool.isRequired,
     onOptionClick: PropTypes.func.isRequired,
