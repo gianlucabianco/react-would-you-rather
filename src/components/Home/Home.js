@@ -3,6 +3,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getRandomUID } from '../../API/api';
 
+import {
+  handleIsNotAnswerFilter,
+  handleIsAnswerFilter,
+} from '../../actions/filters';
+
 import FilterBar from '../FilterBar/FilterBar';
 import PollCard from '../PollCard/PollCard';
 
@@ -60,6 +65,10 @@ class Home extends React.Component {
         isAnsweredToggled: ! this.state.isAnsweredToggled,
       }
     );
+    //TODO: From local state to redux
+    this.props.handleIsAnswerFilter(
+      !this.props.isAnswerFilter
+    );
   }
 
   onToggleNotAnswered = () => {
@@ -67,6 +76,10 @@ class Home extends React.Component {
       {
         isNotAnsweredToggled: ! this.state.isNotAnsweredToggled,
       }
+    );
+    //TODO: From local state to redux
+    this.props.handleIsNotAnswerFilter(
+      !this.props.isNotAnswerFilter
     );
   }
 
@@ -238,6 +251,8 @@ Home.propTypes = {
   authUser: PropTypes.string.isRequired,
   questions: PropTypes.object.isRequired,
   users: PropTypes.object.isRequired,
+  isAnswerFilter: PropTypes.bool.isRequired,
+  isNotAnswerFilter: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (
@@ -245,15 +260,24 @@ const mapStateToProps = (
       authUser,
       users,
       questions,
+      isNotAnswerFilter,
+      isAnswerFilter,
     }
   ) => {
     return {
       authUser,
       users,
       questions,
+      isNotAnswerFilter,
+      isAnswerFilter,
     };
   }
   
   export default connect(
     mapStateToProps,
+    {
+      handleIsNotAnswerFilter,
+      handleIsAnswerFilter,
+    }
   )(Home);
+  // TODO: lint this file
