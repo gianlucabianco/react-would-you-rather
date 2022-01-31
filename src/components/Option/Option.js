@@ -11,15 +11,17 @@ class Option extends React.Component {
     };
 
     getOptionBackgroundColor = (
+        isAnswered,
         isAnswerPage,
+        answeredOption,
         color,
         isSelected,
     ) => {
 
-        if ( ! isAnswerPage )
+        if ( ! isAnswerPage || isAnswerPage && isAnswered && answeredOption )
             return color;
 
-        return isSelected
+        return isSelected || isAnswerPage && isAnswered
             ? color
             : '#11ffee00';
     };
@@ -37,12 +39,14 @@ class Option extends React.Component {
 
         const optionStyle = {
             backgroundColor: this.getOptionBackgroundColor(
+                isAnswered,
                 isAnswerPage,
+                answeredOption,
                 color,
                 isSelected,
             ),
             transition: 'background-color 0.5s ease',
-            opacity:  ! isAnswerPage && isAnswered && ! answeredOption
+            opacity: isAnswered && ! answeredOption
                 ? 0.5
                 : 1,
         };
