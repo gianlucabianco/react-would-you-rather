@@ -18,10 +18,10 @@ class Option extends React.Component {
         isSelected,
     ) => {
 
-        if ( ! isAnswerPage || isAnswerPage && isAnswered && answeredOption )
+        if ( ! isAnswerPage || (isAnswerPage && isAnswered && answeredOption) )
             return color;
 
-        return isSelected || isAnswerPage && isAnswered
+        return isSelected || (isAnswerPage && isAnswered)
             ? color
             : '#11ffee00';
     };
