@@ -188,49 +188,49 @@ class Home extends React.Component {
 
   render() {
 
-      const {
-        users,
-        isNotAnswerFilter,
-        isAnswerFilter,
-      } = this.props;
+    const {
+      users,
+      isNotAnswerFilter,
+      isAnswerFilter,
+    } = this.props;
 
-      const questions = Object.values(this.props.questions);
+    const questions = Object.values(this.props.questions);
 
-      const cardsData = ! questions.length
-        ? []
-        : this.sortCardsData(
-            this.getCardsData(
-              questions,
-              users,
+    const cardsData = ! questions.length
+      ? []
+      : this.sortCardsData(
+          this.getCardsData(
+            questions,
+            users,
+          )
+        );
+
+    return (
+        <div className="home">
+          <FilterBar
+            isNotAnsweredToggled={isNotAnswerFilter}
+            isAnsweredToggled={isAnswerFilter}
+            onToggleAnswered={this.onToggleAnswered}
+            onToggleNotAnswered={this.onToggleNotAnswered}
+          />
+          {
+            cardsData.map(
+              card => <PollCard
+                color={card.color}
+                url={card.avatarURL}
+                name={card.name}
+                isAnswered={card.isAnswered}
+                percentages={card.percentages}
+                options={card.options}
+                questionId={card.questionId}
+                optionOneVotes={card.optionOneVotes}
+                optionTwoVotes={card.optionTwoVotes}
+                key={card.key}
+              />
             )
-          );
-
-      return (
-          <div className="home">
-            <FilterBar
-              isNotAnsweredToggled={isNotAnswerFilter}
-              isAnsweredToggled={isAnswerFilter}
-              onToggleAnswered={this.onToggleAnswered}
-              onToggleNotAnswered={this.onToggleNotAnswered}
-            />
-            {
-              cardsData.map(
-                card => <PollCard
-                  color={card.color}
-                  url={card.avatarURL}
-                  name={card.name}
-                  isAnswered={card.isAnswered}
-                  percentages={card.percentages}
-                  options={card.options}
-                  questionId={card.questionId}
-                  optionOneVotes={card.optionOneVotes}
-                  optionTwoVotes={card.optionTwoVotes}
-                  key={card.key}
-                />
-              )
-            }
-          </div>
-      );
+          }
+        </div>
+    );
   }
 }
 
@@ -243,28 +243,27 @@ Home.propTypes = {
 };
 
 const mapStateToProps = (
-    {
-      authUser,
-      users,
-      questions,
-      isNotAnswerFilter,
-      isAnswerFilter,
-    }
-  ) => {
-    return {
-      authUser,
-      users,
-      questions,
-      isNotAnswerFilter,
-      isAnswerFilter,
-    };
+  {
+    authUser,
+    users,
+    questions,
+    isNotAnswerFilter,
+    isAnswerFilter,
   }
+) => {
+  return {
+    authUser,
+    users,
+    questions,
+    isNotAnswerFilter,
+    isAnswerFilter,
+  };
+}
   
-  export default connect(
-    mapStateToProps,
-    {
-      handleIsNotAnswerFilter,
-      handleIsAnswerFilter,
-    }
-  )(Home);
-  // TODO: lint this file
+export default connect(
+  mapStateToProps,
+  {
+    handleIsNotAnswerFilter,
+    handleIsAnswerFilter,
+  }
+)(Home);
