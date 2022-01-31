@@ -13,11 +13,6 @@ import PollCard from '../PollCard/PollCard';
 
 class Home extends React.Component {
 
-  state = {
-    isNotAnsweredToggled: true,
-    isAnsweredToggled: false,
-  };
-
   getPercentages = (
     optionOneVotes,
     optionTwoVotes,
@@ -60,24 +55,12 @@ class Home extends React.Component {
   }
 
   onToggleAnswered = () => {
-    this.setState(
-      {
-        isAnsweredToggled: ! this.state.isAnsweredToggled,
-      }
-    );
-    //TODO: From local state to redux
     this.props.handleIsAnswerFilter(
       !this.props.isAnswerFilter
     );
   }
 
   onToggleNotAnswered = () => {
-    this.setState(
-      {
-        isNotAnsweredToggled: ! this.state.isNotAnsweredToggled,
-      }
-    );
-    //TODO: From local state to redux
     this.props.handleIsNotAnswerFilter(
       !this.props.isNotAnswerFilter
     );
@@ -91,32 +74,32 @@ class Home extends React.Component {
       return false;
 
     const areFilterTogglesOff = (
-      ! this.state.isAnsweredToggled
-      && ! this.state.isNotAnsweredToggled
+      ! this.props.isAnswerFilter
+      && ! this.props.isNotAnswerFilter
     );
 
     if( areFilterTogglesOff )
       return false;
 
     const areFilterTogglesOn = (
-      this.state.isAnsweredToggled
-      && this.state.isNotAnsweredToggled
+      this.props.isAnswerFilter
+      && this.props.isNotAnswerFilter
     );;
 
     if( areFilterTogglesOn )
       return true;
 
     const showJustNotAnswered = (
-      this.state.isNotAnsweredToggled &&
-      ! this.state.isAnsweredToggled
+      this.props.isNotAnswerFilter
+      && ! this.props.isAnswerFilter
     );
 
     if( showJustNotAnswered )
       return ! card.isAnswered;
     
     const showJustAnswered = (
-      this.state.isAnsweredToggled &&
-      ! this.state.isNotAnsweredToggled
+      this.props.isAnswerFilter
+      && ! this.props.isNotAnswerFilter
     );
 
     if( showJustAnswered )
@@ -205,7 +188,11 @@ class Home extends React.Component {
 
   render() {
 
-      const { users } = this.props;
+      const {
+        users,
+        isNotAnswerFilter,
+        isAnswerFilter,
+      } = this.props;
 
       const questions = Object.values(this.props.questions);
 
@@ -221,8 +208,8 @@ class Home extends React.Component {
       return (
           <div className="home">
             <FilterBar
-              isNotAnsweredToggled={this.state.isNotAnsweredToggled}
-              isAnsweredToggled={this.state.isAnsweredToggled}
+              isNotAnsweredToggled={isNotAnswerFilter}
+              isAnsweredToggled={isAnswerFilter}
               onToggleAnswered={this.onToggleAnswered}
               onToggleNotAnswered={this.onToggleNotAnswered}
             />
