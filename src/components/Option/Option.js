@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import './Option.css';
 
+import AnswerTag from '../AnswerTag/AnswerTag';
+
 class Option extends React.Component {
 
     onOptionClick = () => {
@@ -70,6 +72,10 @@ class Option extends React.Component {
                     style={ overlayStyle }
                     onClick={ this.onOptionClick }
                 />
+                {
+                    answeredOption
+                    && <AnswerTag />
+                }
             </div>
         );
 

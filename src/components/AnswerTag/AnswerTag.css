@@ -1,0 +1,14 @@
+.answer-tag {
+    height: 40px;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+    transition: ease-in-out 0.4s;
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    background-color: #000000;
+    color: #ffffff;
+}
