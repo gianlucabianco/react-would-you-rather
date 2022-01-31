@@ -126,7 +126,6 @@ Your code will talk to the database via 4 methods:
 
 
 <!--
-    TODO: maybe the card CTA should be moved a little up if the votes are not visible
     TODO: check sillabus requirements
     TODO: final test before submit
 -->
