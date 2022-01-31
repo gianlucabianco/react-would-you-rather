@@ -2,12 +2,12 @@
 This is a fake database that stores the credentials for the user.
 In a real projects, this would be stored in a database (these data should not be exposed).
 */
-// TODO: restore the previous passwords after refactor
+
 export let credentials = [
     {
         id: 'sarahedo',
         name: 'Sarah Edo',
-        password: 'test',
+        password: 'jsrocks',
     },
     {
         id: 'tylermcginnis',
@@ -17,7 +17,7 @@ export let credentials = [
     {
         id: 'johndoe',
         name: 'John Doe',
-        password: 'test',
+        password: 'reduxrocks',
     },
 ];
 
