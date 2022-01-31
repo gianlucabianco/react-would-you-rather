@@ -134,6 +134,7 @@ class PollCard extends React.Component {
                     <div className='poll-card-votes'>
                         {
                             isAnswerPage
+                            && !!isAnswered
                             && <>
                                 <span>Option one votes: {optionOneVotes}</span>
                                 <span>Option two votes: {optionTwoVotes}</span>
