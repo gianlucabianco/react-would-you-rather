@@ -113,6 +113,7 @@ class PollCard extends React.Component {
                             content={ firstOption }
                             color={ '#5ab2d2' }
                             isAnswerPage={ isAnswerPage }
+                            isAnswered={ !!isAnswered }
                             answeredOption={ isAnswered === 'optionOne'  }
                             isSelected={ selectedOption === 'optionOne' }
                             key={ firstOptionKey }
@@ -123,6 +124,7 @@ class PollCard extends React.Component {
                             content={ secondOption }
                             color={ '#ff9a9e' }
                             isAnswerPage={ isAnswerPage }
+                            isAnswered={ !!isAnswered }
                             answeredOption={ isAnswered === 'optionTwo' }
                             isSelected={ selectedOption === 'optionTwo' }
                             key={ secondOptionKey }
