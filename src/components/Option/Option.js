@@ -73,8 +73,7 @@ class Option extends React.Component {
                     onClick={ this.onOptionClick }
                 />
                 {
-                    answeredOption
-                    && <AnswerTag />
+                    answeredOption && <AnswerTag />
                 }
             </div>
         );
