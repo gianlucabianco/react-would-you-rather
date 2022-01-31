@@ -147,6 +147,5 @@ Please see `filters.js` reducer and action for more details.
 
 
 <!--
-    TODO: check sillabus requirements
     TODO: final test before submit
 -->
