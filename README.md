@@ -136,7 +136,7 @@ Througout the project, the user could reset their password by clicking on the �
 The user could also sign up for a new account by clicking on the “Sign Up” link.
 The new user will be able to log in after signing up.
 
-## 🔓 Filters
+## 🏷 Filters
 
 The user can toggle the answered/not answered filters by clicking on the “answered” and “not answered” buttons, located at the top of the page.
 
