@@ -26,21 +26,23 @@ class PollButton extends Component {
             rightPerc,
         ] = percentages;
 
+        const shouldRenderPercentages = isAnswerPage && isAnswered;
+
         const pollButtonLeftStyle = {
             width: `${ leftPerc }%`,
-            backgroundColor: isAnswered ? '#adcdd8' : '',
+            backgroundColor: shouldRenderPercentages ? '#adcdd8' : '',
         };
 
         const pollButtonRightStyle = {
             width: `${ rightPerc }%`,
-            backgroundColor: isAnswered ? '#ffcfd1' : '',
+            backgroundColor: shouldRenderPercentages ? '#ffcfd1' : '',
         };
         
-        const pollButtonLeftCta = isAnswered
+        const pollButtonLeftCta = shouldRenderPercentages
             ? `${leftPerc}%`
             : '';
 
-        const pollButtonRightCta = isAnswered
+        const pollButtonRightCta = shouldRenderPercentages
             ? `${rightPerc}%`
             : '';
 
@@ -61,8 +63,7 @@ class PollButton extends Component {
                     { pollButtonRightCta }
                 </div>
                 {
-                    ! isAnswered
-                    && (
+                    (
                         isAnswerPage
                             ? <div
                                 className={pollButtonClasses}
@@ -74,7 +75,11 @@ class PollButton extends Component {
                                 className="poll-button-cta"
                                 to={`/questions/${questionId}`}
                             >
-                                <span>Answer poll</span>
+                                {
+                                    isAnswered
+                                        ? <span>View poll</span>
+                                        : <span>Answer poll</span>
+                                }
                             </NavLink>
                     )
                 }
