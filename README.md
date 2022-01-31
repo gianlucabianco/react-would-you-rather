@@ -19,21 +19,14 @@ $ npm start
 ```
 ___
 
+The following paragraphs are the original instructions for the project.
+
 # 📖 Assessment instructions and project details
 
 
 The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
 
 Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
-
-## 🔓 Signin / 🔏 Signup / 🔐 Reset password
-
-Users credentials for login are stored in the `credentials.js` file.
-
-Througout the project, the user could reset their password by clicking on the “Forgot Password” link.
-
-The user could also sign up for a new account by clicking on the “Sign Up” link.
-The new user will be able to log in after signing up.
 
 ## 🗄️ Data
 
@@ -123,6 +116,26 @@ Your code will talk to the database via 4 methods:
 | authedUser | String | The id of the user who answered the question|
 | qid | String | The id of the question that was answered|
 | answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
+
+# EXTRA FEATURES
+
+## 🔓 Signin / 🔏 Signup / 🔐 Reset password
+
+Users credentials for login are stored in the `credentials.js` file.
+
+Througout the project, the user could reset their password by clicking on the “Forgot Password” link.
+
+The user could also sign up for a new account by clicking on the “Sign Up” link.
+The new user will be able to log in after signing up.
+
+## 🔓 Filters
+
+The user can toggle the answered/not answered filters by clicking on the “answered” and “not answered” buttons, located at the top of the page.
+
+These buttons toggle the visibility of the questions (any combinations of “answered“ / “not answered“).
+
+The state of the filters is handled via redux.
+Please see `filters.js` reducer and action for more details.
 
 
 <!--
