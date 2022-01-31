@@ -74,7 +74,7 @@ class PollButton extends Component {
                                 className="poll-button-cta"
                                 to={`/questions/${questionId}`}
                             >
-                                <span>Answer</span>
+                                <span>Answer poll</span>
                             </NavLink>
                     )
                 }
