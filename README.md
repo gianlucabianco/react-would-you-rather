@@ -21,6 +21,14 @@ ___
 
 The following paragraphs are the original instructions for the project.
 
+At the bottom of the README.md file, you could find the extra features which I added to the project besides the original instructions.
+
+```bash
+
+# WARNING
+To signin into an already registered account, you should use one of the credentials written inside the `credentials` file (see EXTRA FEATURES below).
+
+```
 # 📖 Assessment instructions and project details
 
 
