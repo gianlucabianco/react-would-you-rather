@@ -144,8 +144,3 @@ These buttons toggle the visibility of the questions (any combinations of “ans
 
 The state of the filters is handled via redux.
 Please see `filters.js` reducer and action for more details.
-
-
-<!--
-    TODO: final test before submit
--->
