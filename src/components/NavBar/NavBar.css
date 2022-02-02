@@ -24,15 +24,18 @@
   color: #000000;
 }
 
-.navbar ul a:hover {
+.navbar ul a:hover,
+.navbar ul a:active,
+.navbar ul a:focus,
+.navbar ul a:visited {
   background-color: #e5ffbb;
   color: #000000;
 }
 
-.navbar ul a:last-child {
-  width: 300px;
+.navbar ul a:focus {
+  border-color: #007685;
 }
 
-.navbar ul a:visited {
-  color: #000;
+.navbar ul a:last-child {
+  width: 300px;
 }
